@@ -1,0 +1,1897 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="HR1Vietnam China Desk — 专注在越中资与外资企业中高端猎头、工厂大规模招聘及中越双语人才配置。">
+  <title>HR1Vietnam China Desk | 中国企业服务专区 · 越南中高端猎头与双语人才</title>
+  <link rel="icon" href="https://hr1vietnam.com/favicon.ico" type="image/x-icon">
+  
+  <!-- Google Fonts: Be Vietnam Pro + Lora + Noto Sans SC for Chinese -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,500;0,600;1,500;1,600&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --paper: #F7F4EE;
+      --paper-2: #EEE9DF;
+      --white: #FFFFFF;
+      --ink: #101828;
+      --graphite: #20242C;
+      --muted: #667085;
+      --line: rgba(16, 24, 40, .14);
+      --red: #B11116;
+      --deep-red: #892226;
+      --red-soft: #F4E4E4;
+      --gold: #EABB32;
+      --sans: 'Be Vietnam Pro', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      --serif: 'Lora', Georgia, serif;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+      --max: 1440px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { color: inherit; background: transparent; border: 0; cursor: pointer; }
+    ::selection { background: var(--red); color: #fff; }
+
+    .shell {
+      width: min(var(--max), calc(100% - 72px));
+      margin-inline: auto;
+    }
+
+    /* Scroll progress bar */
+    .scroll-progress {
+      position: fixed;
+      z-index: 999;
+      inset: 0 0 auto;
+      height: 4px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: var(--red);
+      pointer-events: none;
+    }
+
+    /* Top Ribbon */
+    .site-ribbon {
+      background: var(--deep-red);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .ribbon-inner {
+      display: flex;
+      min-height: 34px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .ribbon-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .lang-btn {
+      padding: 3px 8px;
+      border-radius: 2px;
+      font-size: 10px;
+      font-weight: 800;
+      color: rgba(255,255,255,.75);
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .lang-btn:hover {
+      color: #fff;
+      background: rgba(255,255,255,.15);
+    }
+    .lang-btn.active {
+      background: rgba(0,0,0,.35);
+      color: #fff;
+      border-color: rgba(255,255,255,.3);
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 244, 238, .92);
+      backdrop-filter: blur(18px) saturate(1.15);
+    }
+    .header-inner {
+      display: grid;
+      min-height: 86px;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 36px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-logo-text {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--red);
+    }
+    .brand-logo-text span {
+      color: var(--ink);
+    }
+    .brand-badge {
+      padding-left: 14px;
+      border-left: 1px solid var(--line);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--deep-red);
+      line-height: 1.3;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      justify-content: center;
+    }
+    .main-nav a {
+      position: relative;
+      padding-block: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--graphite);
+      transition: color .2s;
+    }
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      left: 0;
+      height: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: var(--red);
+      transition: transform .3s var(--ease);
+    }
+    .main-nav a:hover, .main-nav a.active {
+      color: var(--red);
+    }
+    .main-nav a:hover::after, .main-nav a.active::after {
+      transform: scaleX(1);
+    }
+
+    /* Signature Brutalist Buttons */
+    .button, .header-cta {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 22px;
+      border: 1px solid var(--ink);
+      background: transparent;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .03em;
+      cursor: pointer;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .25s;
+    }
+    .button.primary, .header-cta {
+      border-color: var(--red);
+      background: var(--red);
+      color: #fff;
+    }
+    .button.primary:hover, .header-cta:hover {
+      background: var(--deep-red);
+      border-color: var(--deep-red);
+      transform: translateY(-4px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .button.secondary {
+      border-color: var(--ink);
+      background: var(--white);
+      color: var(--ink);
+    }
+    .button.secondary:hover {
+      transform: translateY(-4px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .button.wechat-btn {
+      border-color: #07C160;
+      background: #07C160;
+      color: #fff;
+    }
+    .button.wechat-btn:hover {
+      background: #06ad56;
+      transform: translateY(-4px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: calc(100vh - 120px);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: 
+        linear-gradient(rgba(16,24,40,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,24,40,.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to right, #000, transparent 75%);
+    }
+    .hero-rail {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      width: 38px;
+      align-items: center;
+      flex-direction: column;
+      padding-block: 28px;
+      border-right: 1px solid var(--line);
+    }
+    .hero-rail span {
+      writing-mode: vertical-rl;
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: .19em;
+      color: var(--muted);
+    }
+    .hero-rail i {
+      width: 1px;
+      flex: 1;
+      margin-block: 18px;
+      background: var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      min-height: calc(100vh - 120px);
+      grid-template-columns: minmax(0, 1.2fr) minmax(420px, .8fr);
+      gap: 48px;
+      align-items: center;
+      padding: 60px 0 60px 36px;
+    }
+    .micro-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--deep-red);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .micro-label::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--red);
+    }
+    
+    .hero h1 {
+      margin: 28px 0 0;
+      font-size: clamp(42px, 5.2vw, 84px);
+      font-weight: 900;
+      letter-spacing: -.05em;
+      line-height: .98;
+      text-transform: uppercase;
+    }
+    .hero h1 span {
+      display: block;
+      color: var(--ink);
+    }
+    .hero h1 em {
+      display: block;
+      margin-left: 4%;
+      color: var(--red);
+      font-family: var(--serif);
+      font-size: .88em;
+      font-weight: 500;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+      font-style: italic;
+      text-transform: none;
+    }
+
+    .hero-sub {
+      max-width: 620px;
+      margin: 28px 0 0;
+      color: var(--graphite);
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .hero-intro {
+      max-width: 650px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.8;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    /* Hero Right Form (Brutalist Card) */
+    .hero-form-card {
+      background: var(--white);
+      border: 1px solid var(--ink);
+      padding: 32px;
+      box-shadow: 14px 14px 0 var(--deep-red);
+      position: relative;
+    }
+    .hero-form-card h3 {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      margin-bottom: 6px;
+    }
+    .hero-form-card p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      margin-bottom: 6px;
+      color: var(--graphite);
+    }
+    .form-control {
+      width: 100%;
+      height: 42px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      font-size: 12px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-control:focus {
+      border-color: var(--red);
+      background: var(--white);
+    }
+    textarea.form-control {
+      height: 70px;
+      padding: 10px 12px;
+    }
+
+    /* Metric Strip */
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+    }
+    .metric {
+      padding: 26px 28px;
+      border-right: 1px solid var(--line);
+    }
+    .metric:first-child { padding-left: 52px; }
+    .metric:last-child { border-right: 0; }
+    .metric strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    /* Kinetic Marquee */
+    .kinetic {
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: var(--red);
+      color: #fff;
+      white-space: nowrap;
+    }
+    .kinetic-track {
+      display: inline-flex;
+      padding-block: 12px;
+      animation: marquee 24s linear infinite;
+    }
+    .kinetic-track span {
+      padding-right: 36px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Section Headings */
+    .section {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .section.dark {
+      background: var(--ink);
+      color: #fff;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(240px, .75fr) minmax(0, 1.25fr);
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 56px;
+    }
+    .section-index {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+    }
+    .section-index strong {
+      display: inline-block;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--red);
+      font-family: var(--serif);
+      font-size: 76px;
+      font-weight: 600;
+      line-height: .8;
+      transition: color .35s var(--ease), transform .35s var(--ease);
+    }
+    .section.dark .section-index strong {
+      -webkit-text-stroke-color: rgba(255,255,255,.4);
+    }
+    .section-index span {
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      padding-bottom: 6px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.2vw, 44px);
+      font-weight: 900;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+    }
+    .section-title em {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--red);
+      font-weight: 500;
+    }
+    .section.dark .section-title em {
+      color: #FF6B6B;
+    }
+    .section-lead {
+      margin-top: 14px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .section.dark .section-lead {
+      color: rgba(255,255,255,.65);
+    }
+
+    /* Editorial Cards (Services) */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--ink);
+      padding: 32px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 8px 8px 0 var(--red);
+    }
+    .service-num {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .service-title {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      margin-bottom: 4px;
+    }
+    .service-en {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .service-desc {
+      font-size: 12.5px;
+      color: var(--graphite);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .service-features {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      font-size: 11px;
+      color: var(--muted);
+      list-style: none;
+    }
+    .service-features li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .service-features li i {
+      color: var(--red);
+      font-size: 10px;
+    }
+
+    /* JOB SHOWCASE SECTION */
+    .job-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+    }
+    .filter-pill {
+      padding: 8px 18px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      font-size: 12px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-pill.active, .filter-pill:hover {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .job-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .job-card {
+      background: var(--white);
+      border: 1px solid var(--ink);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+    .job-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 7px 7px 0 var(--ink);
+    }
+    .job-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .job-tag {
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+    }
+    .job-salary {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--red);
+      white-space: nowrap;
+    }
+    .job-title {
+      font-size: 16px;
+      font-weight: 850;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+    .job-title:hover {
+      color: var(--red);
+    }
+    .job-meta {
+      font-size: 12px;
+      color: var(--graphite);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .job-meta p {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .job-meta i {
+      color: var(--red);
+      font-size: 11px;
+      width: 14px;
+    }
+    .job-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .job-chip {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .job-card-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .job-time {
+      font-size: 10px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .job-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-job-quote {
+      font-size: 11px;
+      font-weight: 750;
+      color: var(--graphite);
+      padding: 6px 10px;
+      border: 1px solid transparent;
+      transition: all .2s;
+    }
+    .btn-job-quote:hover {
+      color: var(--red);
+      border-color: var(--line);
+    }
+    .btn-job-apply {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--red);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 8px 14px;
+      border: 1px solid var(--red);
+      transition: all .2s;
+    }
+    .btn-job-apply:hover {
+      background: var(--deep-red);
+    }
+
+    /* Sector Grid (Dark Section) */
+    .sector-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .sector-card {
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.04);
+      padding: 28px 22px;
+      transition: background .3s, transform .3s;
+    }
+    .sector-card:hover {
+      background: rgba(255,255,255,.08);
+      transform: translateY(-4px);
+      border-color: var(--red);
+    }
+    .sector-icon {
+      font-size: 26px;
+      color: #FF6B6B;
+      margin-bottom: 16px;
+    }
+    .sector-title {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .sector-desc {
+      font-size: 11.5px;
+      color: rgba(255,255,255,.6);
+      line-height: 1.6;
+    }
+
+    /* Contact Section */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 48px;
+    }
+    .contact-info-card {
+      background: var(--paper-2);
+      border: 1px solid var(--ink);
+      padding: 40px;
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+    .qr-box {
+      background: var(--white);
+      border: 1px solid var(--ink);
+      padding: 20px;
+      display: inline-block;
+      margin: 24px 0;
+      text-align: center;
+    }
+    .qr-box p {
+      font-size: 11px;
+      font-weight: 800;
+      margin-top: 10px;
+    }
+    .qr-box small {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--graphite);
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      padding: 70px 0 30px;
+      border-top: 1px solid var(--ink);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .footer-col h4 {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+    .footer-col a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: rgba(255,255,255,.45);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(16,24,40,.8);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s var(--ease);
+    }
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-box {
+      background: var(--paper);
+      border: 1px solid var(--ink);
+      box-shadow: 16px 16px 0 var(--ink);
+      max-width: 400px;
+      width: 100%;
+      padding: 36px;
+      text-align: center;
+      position: relative;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .section-head, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+      .service-grid, .sector-grid { grid-template-columns: repeat(2, 1fr); }
+      .job-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-rail { display: none; }
+      .hero-grid { padding-left: 0; }
+      .metric-strip { grid-template-columns: repeat(2, 1fr); }
+      .metric:first-child { padding-left: 28px; }
+    }
+    @media (max-width: 640px) {
+      .service-grid, .sector-grid, .metric-strip, .footer-grid { grid-template-columns: 1fr; }
+      .main-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Scroll Progress -->
+  <div class="scroll-progress" id="scrollBar"></div>
+
+  <!-- SITE RIBBON WITH IN-PAGE MULTILINGUAL SWITCHER -->
+  <div class="site-ribbon">
+    <div class="shell ribbon-inner">
+      <span id="ribbon-text">HR1VIETNAM CHINA DESK · 中国企业专属猎头服务中心</span>
+      <div class="ribbon-links">
+        <button class="lang-btn" onclick="openWechatModal()"><i class="fa-brands fa-weixin mr-1"></i> <span id="ribbon-wechat">微信咨询</span></button>
+        <button class="lang-btn active" id="btn-zh" onclick="setLanguage('zh')">🇨🇳 简体中文</button>
+        <button class="lang-btn" id="btn-vi" onclick="setLanguage('vi')">🇻🇳 Tiếng Việt</button>
+        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">🇬🇧 English</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY SITE HEADER -->
+  <header class="site-header">
+    <div class="shell header-inner">
+      <div class="brand">
+        <a href="#" class="brand-logo-text">
+          HR1<span>VIETNAM</span>
+        </a>
+        <div class="brand-badge" id="header-badge">
+          CHINA DESK<br>人才配置与猎头专区
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <a href="#services" id="nav-services">核心业务</a>
+        <a href="#jobs" class="active" id="nav-jobs">在招双语岗位 ↗</a>
+        <a href="#sectors" id="nav-sectors">重点行业</a>
+        <a href="#why" id="nav-why">为什么选HR1</a>
+        <a href="#contact" id="nav-contact">联系顾问</a>
+      </nav>
+
+      <div>
+        <a class="header-cta" href="#contact">
+          <span id="header-cta-text">委托招聘需求</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-rail">
+        <span>CHINA DESK → TALENT ATLAS</span>
+        <i></i>
+        <span>HR1 • 2026</span>
+      </div>
+
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <span class="micro-label" id="hero-micro">HR1Vietnam China Business Division</span>
+          
+          <h1>
+            <span id="hero-h1-top">专注中资企业</span>
+            <em id="hero-h1-bot">越南中高端猎头与双语人才</em>
+          </h1>
+
+          <p class="hero-sub" id="hero-sub">
+            助力中国企业扬帆出海，深耕越南本土市场
+          </p>
+
+          <p class="hero-intro" id="hero-intro">
+            HR1VIETNAM 依托 10 年越南本土猎头深耕积淀，拥有超过 25,000+ 精通中越双语的高管、工程师与专业人才库。我们深谙中越跨国商业文化与本地劳动合规体系，为在越制造业、科技与商贸企业快速组建核心团队。
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">
+              <span id="hero-btn-b2b">我是雇主：获取招聘方案</span>
+              <span>↗</span>
+            </a>
+            <a class="button secondary" href="#jobs">
+              <i class="fa-solid fa-briefcase text-red-600"></i>
+              <span id="hero-btn-jobs">查看热招双语职位 (Job Hub)</span>
+            </a>
+            <button class="button wechat-btn" onclick="openWechatModal()">
+              <i class="fa-brands fa-weixin"></i>
+              <span id="hero-btn-wechat">添加微信直接沟通</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Quick Form Card -->
+        <div class="hero-form-card">
+          <div class="micro-label" style="margin-bottom: 12px;" id="form-micro">B2B Direct Inquiry</div>
+          <h3 id="form-title">快速提交企业招聘委托</h3>
+          <p id="form-sub">提交您的用人需求，中国业务总监将在 2 小时内为您致电解答并提供人才画像。</p>
+
+          <form onsubmit="event.preventDefault(); alert('需求已收到！HR1 业务总监将在 2 小时内与您联系。');">
+            <div class="form-group">
+              <label id="lbl-company">企业名称 (Company Name) *</label>
+              <input type="text" class="form-control" required placeholder="如：某某科技（越南）有限公司">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div class="form-group">
+                <label id="lbl-name">联系人姓名 *</label>
+                <input type="text" class="form-control" required placeholder="王总 / 张经理">
+              </div>
+              <div class="form-group">
+                <label id="lbl-phone">微信 / 电话 *</label>
+                <input type="text" class="form-control" required placeholder="WeChat ID / 手机">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label id="lbl-roles">拟猎聘岗位及人数</label>
+              <input type="text" class="form-control" placeholder="例：生产厂长 1名、双语总账会计 2名">
+            </div>
+
+            <div class="form-group">
+              <label id="lbl-loc">工作地点 (Location)</label>
+              <select class="form-control">
+                <option>北宁省 / 北江省 (Bắc Ninh / Bắc Giang)</option>
+                <option>海防市 / 广宁省 (Hải Phòng / Quảng Ninh)</option>
+                <option>同奈省 / 平阳省 (Đồng Nai / Bình Dương)</option>
+                <option>胡志明市 (TP. Hồ Chí Minh)</option>
+                <option>河内市 (Hà Nội)</option>
+                <option>其他省份工业园区</option>
+              </select>
+            </div>
+
+            <button type="submit" class="button primary" style="width: 100%; margin-top: 10px;">
+              <span id="btn-submit-hero">免费获取人才匹配建议与报价</span>
+              <span>→</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- METRIC STRIP -->
+      <div class="metric-strip">
+        <div class="metric">
+          <strong>10+</strong>
+          <span id="stat-1">年越南本土猎头经验</span>
+        </div>
+        <div class="metric">
+          <strong>25K+</strong>
+          <span id="stat-2">中越双语人才储备库</span>
+        </div>
+        <div class="metric">
+          <strong>3-5</strong>
+          <span id="stat-3">天首批精准候选人推优</span>
+        </div>
+        <div class="metric">
+          <strong>95%</strong>
+          <span id="stat-4">中高级人才试用期留存率</span>
+        </div>
+      </div>
+
+      <!-- KINETIC MARQUEE BANNER -->
+      <div class="kinetic" aria-hidden="true">
+        <div class="kinetic-track">
+          <span>EXECUTIVE SEARCH • FACTORY MASS RECRUITMENT • BILINGUAL SPECIALISTS • PAYROLL & LEGAL EOR • CHINA DESK VIETNAM • </span>
+          <span>EXECUTIVE SEARCH • FACTORY MASS RECRUITMENT • BILINGUAL SPECIALISTS • PAYROLL & LEGAL EOR • CHINA DESK VIETNAM • </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: B2B SERVICES -->
+    <section class="section" id="services">
+      <div class="shell">
+        <header class="section-head">
+          <div class="section-index">
+            <strong>01</strong>
+            <span>OUR CORE SOLUTIONS</span>
+          </div>
+          <div>
+            <h2 class="section-title" id="sec1-title">为在越中资企业定制的<em>全周期人力解决方案</em></h2>
+            <p class="section-lead" id="sec1-lead">针对中资企业赴越投资建厂、扩充产线、中高层管理本土化及劳动合规等痛点，提供高匹配、高时效的人才猎聘闭环。</p>
+          </div>
+        </header>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <div>
+              <div class="service-num">01</div>
+              <h3 class="service-title" id="srv1-title">中高端猎头服务</h3>
+              <div class="service-en">Executive Search</div>
+              <p class="service-desc" id="srv1-desc">专攻在越核心高管猎聘：工厂厂长、运营总监、技术总监、财务总监、高级项目经理等关键岗位。</p>
+            </div>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> <span id="srv1-f1">严谨背景调查与胜任力背书</span></li>
+              <li><i class="fa-solid fa-check"></i> <span id="srv1-f2">保证期内免费替换保障</span></li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <div class="service-num">02</div>
+              <h3 class="service-title" id="srv2-title">工厂与大规模招聘</h3>
+              <div class="service-en">Factory Mass RPO</div>
+              <p class="service-desc" id="srv2-desc">针对新建厂房、新增产线提供技术员、班组长、品保及基层管理人员的批量快速到岗交付。</p>
+            </div>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> <span id="srv2-f1">确保项目按期投产用工</span></li>
+              <li><i class="fa-solid fa-check"></i> <span id="srv2-f2">覆盖南北各大核心工业区</span></li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <div class="service-num">03</div>
+              <h3 class="service-title" id="srv3-title">双语专业人才配置</h3>
+              <div class="service-en">Bilingual Specialists</div>
+              <p class="service-desc" id="srv3-desc">储备精通中越双语（HSK 5-6级/留华海归）的专业人才：总助、翻译、会计、供应链采购、外贸等。</p>
+            </div>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> <span id="srv3-f1">跨语言跨文化无缝沟通</span></li>
+              <li><i class="fa-solid fa-check"></i> <span id="srv3-f2">快速融入中方管理体系</span></li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <div class="service-num">04</div>
+              <h3 class="service-title" id="srv4-title">薪资代发与劳动合规</h3>
+              <div class="service-en">Payroll & Legal EOR</div>
+              <p class="service-desc" id="srv4-desc">本地薪资代发、社保缴纳、中方外派员工工作签证（Work Permit & TRC）办理及越南劳动法合规咨询。</p>
+            </div>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> <span id="srv4-f1">规避当地劳动法争议风险</span></li>
+              <li><i class="fa-solid fa-check"></i> <span id="srv4-f2">简化海外分公司财务流程</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: JOB SHOWCASE -->
+    <section class="section" id="jobs" style="background: var(--paper-2);">
+      <div class="shell">
+        <header class="section-head">
+          <div class="section-index">
+            <strong>02</strong>
+            <span>LIVE TALENT MANDATES</span>
+          </div>
+          <div>
+            <h2 class="section-title" id="sec2-title">精选在招<em>中越双语热门岗位</em></h2>
+            <p class="section-lead" id="sec2-lead">实时呈现 HR1VIETNAM 正在为合作企业委托猎聘的核心岗位。证明我们活跃的用工交付能力与强大的人才吸引力。</p>
+          </div>
+        </header>
+
+        <!-- Filter Tabs -->
+        <div class="job-filters">
+          <button class="filter-pill active" onclick="filterJobs('all')" id="pill-all">全部职位 (All)</button>
+          <button class="filter-pill" onclick="filterJobs('mfg')" id="pill-mfg">制造业 / 工业区 (Manufacturing)</button>
+          <button class="filter-pill" onclick="filterJobs('exec')" id="pill-exec">高管 / 厂长 (Management)</button>
+          <button class="filter-pill" onclick="filterJobs('it')" id="pill-it">IT / 软件技术 (IT - Software)</button>
+          <button class="filter-pill" onclick="filterJobs('fmcg')" id="pill-fmcg">快消 / 财务 / 销售 (Finance & Sales)</button>
+        </div>
+
+        <!-- Job Grid -->
+        <div class="job-grid">
+          
+          <!-- Job 1 -->
+          <div class="job-card">
+            <div>
+              <div class="job-card-top">
+                <span class="job-tag">制造业 · 同奈省</span>
+                <div class="job-salary">3,000 - 4,500 USD</div>
+              </div>
+              <h3 class="job-title">
+                <a href="https://hr1vietnam.com/search-job?keywords=chinese" target="_blank" id="job1-title">
+                  工厂生产运营总监 / Production Director (中文/English)
+                </a>
+              </h3>
+              <div class="job-meta">
+                <p><i class="fa-solid fa-location-dot"></i> <span id="job1-loc">工作地点: 越南同奈省工业区 (Đồng Nai)</span></p>
+                <p><i class="fa-solid fa-briefcase"></i> <span id="job1-req">行业要求: 电子/精密制造 8 年以上经验，中文流利汇报</span></p>
+              </div>
+              <div class="job-chips">
+                <span class="job-chip">Fluent Chinese</span>
+                <span class="job-chip">Lean Production</span>
+                <span class="job-chip">Plant Management</span>
+              </div>
+            </div>
+            <div class="job-card-bottom">
+              <span class="job-time"><i class="fa-regular fa-clock"></i> 2天前更新</span>
+              <div class="job-actions">
+                <a href="#contact" class="btn-job-quote">招聘同类人才？</a>
+                <a href="https://hr1vietnam.com/search-job?keywords=chinese" target="_blank" class="btn-job-apply">
+                  <span>查看详情 ↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="job-card">
+            <div>
+              <div class="job-card-top">
+                <span class="job-tag">IT 软件 · 胡志明市</span>
+                <div class="job-salary">1,500 - 2,200 USD</div>
+              </div>
+              <h3 class="job-title">
+                <a href="https://hr1vietnam.com/search-job?keywords=chinese" target="_blank" id="job2-title">
+                  IT 项目经理 / Project Manager (Java, Chinese & English)
+                </a>
+              </h3>
+              <div class="job-meta">
+                <p><i class="fa-solid fa-location-dot"></i> <span id="job2-loc">工作地点: 胡志明市第1郡 (TP. Hồ Chí Minh)</span></p>
+                <p><i class="fa-solid fa-briefcase"></i> <span id="job2-req">行业要求: 具备 Java 开发背景，能直接与中国研发中心无障碍沟通</span></p>
+              </div>
+              <div class="job-chips">
+                <span class="job-chip">Java</span>
+                <span class="job-chip">Chinese</span>
+                <span class="job-chip">Agile Scrum</span>
+              </div>
+            </div>
+            <div class="job-card-bottom">
+              <span class="job-time"><i class="fa-regular fa-clock"></i> 3天前更新</span>
+              <div class="job-actions">
+                <a href="#contact" class="btn-job-quote">招聘同类人才？</a>
+                <a href="https://hr1vietnam.com/search-job?keywords=chinese" target="_blank" class="btn-job-apply">
+                  <span>查看详情 ↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="job-card">
+            <div>
+              <div class="job-card-top">
+                <span class="job-tag">快消零售 · 河内</span>
+                <div class="job-salary">50,000,000+ VND</div>
+              </div>
+              <h3 class="job-title">
+                <a href="https://hr1vietnam.com/tim-viec?keywords=ti%E1%BA%BFng+trung" target="_blank" id="job3-title">
+                  越南全国业务销售总监 / Sales Director (Tiếng Trung)
+                </a>
+              </h3>
+              <div class="job-meta">
+                <p><i class="fa-solid fa-location-dot"></i> <span id="job3-loc">工作地点: 河内市 / 全越南 (Hà Nội)</span></p>
+                <p><i class="fa-solid fa-briefcase"></i> <span id="job3-req">行业要求: 拓展在越中资企业及本地商超渠道，具备团队组建经验</span></p>
+              </div>
+              <div class="job-chips">
+                <span class="job-chip">B2B Sales</span>
+                <span class="job-chip">Tiếng Trung</span>
+                <span class="job-chip">FMCG</span>
+              </div>
+            </div>
+            <div class="job-card-bottom">
+              <span class="job-time"><i class="fa-regular fa-clock"></i> 4天前更新</span>
+              <div class="job-actions">
+                <a href="#contact" class="btn-job-quote">招聘同类人才？</a>
+                <a href="https://hr1vietnam.com/tim-viec?keywords=ti%E1%BA%BFng+trung" target="_blank" class="btn-job-apply">
+                  <span>查看详情 ↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 4 -->
+          <div class="job-card">
+            <div>
+              <div class="job-card-top">
+                <span class="job-tag">财务与税务 · 北宁</span>
+                <div class="job-salary">面议 (Negotiable)</div>
+              </div>
+              <h3 class="job-title">
+                <a href="https://hr1vietnam.com/tim-viec?keywords=ti%E1%BA%BFng+trung" target="_blank" id="job4-title">
+                  资深双语总账会计主管 / Chief Accountant (Tiếng Trung/Việt)
+                </a>
+              </h3>
+              <div class="job-meta">
+                <p><i class="fa-solid fa-location-dot"></i> <span id="job4-loc">工作地点: 越南北宁省/北江省工业区</span></p>
+                <p><i class="fa-solid fa-briefcase"></i> <span id="job4-req">行业要求: 熟悉越南税务与海关核销，能独立向中方总部汇报</span></p>
+              </div>
+              <div class="job-chips">
+                <span class="job-chip">Chief Accountant</span>
+                <span class="job-chip">Vietnam Tax</span>
+                <span class="job-chip">Chinese</span>
+              </div>
+            </div>
+            <div class="job-card-bottom">
+              <span class="job-time"><i class="fa-regular fa-clock"></i> 1周前更新</span>
+              <div class="job-actions">
+                <a href="#contact" class="btn-job-quote">招聘同类人才？</a>
+                <a href="https://hr1vietnam.com/tim-viec?keywords=ti%E1%BA%BFng+trung" target="_blank" class="btn-job-apply">
+                  <span>查看详情 ↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Candidate Banner -->
+        <div style="margin-top: 40px; padding: 28px 32px; background: var(--white); border: 1px solid var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+          <div>
+            <div class="micro-label">Talent Registration</div>
+            <h4 style="font-size: 15px; font-weight: 850; margin-top: 4px;" id="cand-title">您是精通中文的职场精英？(Bilingual Candidate)</h4>
+            <p style="font-size: 12px; color: var(--muted); margin-top: 2px;" id="cand-desc">未找到满意职位？直接将简历录入 HR1 双语人才库，顾问将第一时间为您匹配高薪猎头机会。</p>
+          </div>
+          <a href="https://hr1vietnam.com/submit-cv" target="_blank" class="button primary">
+            <span id="cand-btn">登记简历 (Submit CV) ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: KEY SECTORS -->
+    <section class="section dark" id="sectors">
+      <div class="shell">
+        <header class="section-head">
+          <div class="section-index">
+            <strong>03</strong>
+            <span>KEY INDUSTRY SECTORS</span>
+          </div>
+          <div>
+            <h2 class="section-title" id="sec3-title">深度覆盖<em>在越中资核心产业集群</em></h2>
+            <p class="section-lead" id="sec3-lead">我们不仅懂猎头，更懂制造业出海产业链的工艺要求、组织架构与人才画像。</p>
+          </div>
+        </header>
+
+        <div class="sector-grid">
+          <div class="sector-card">
+            <div class="sector-icon"><i class="fa-solid fa-microchip"></i></div>
+            <h3 class="sector-title" id="sec-1-t">3C电子与半导体</h3>
+            <p class="sector-desc" id="sec-1-d">SMT、组装、PCB、声学与光学制造的中高层厂长、PIE、ME及质量经理。</p>
+          </div>
+
+          <div class="sector-card">
+            <div class="sector-icon"><i class="fa-solid fa-solar-panel"></i></div>
+            <h3 class="sector-title" id="sec-2-t">太阳能光伏与新能源</h3>
+            <p class="sector-desc" id="sec-2-d">硅片、电池片与组件工厂核心工艺工程师、EHS及供应链高管。</p>
+          </div>
+
+          <div class="sector-card">
+            <div class="sector-icon"><i class="fa-solid fa-shirt"></i></div>
+            <h3 class="sector-title" id="sec-3-t">纺织、鞋服与家居五金</h3>
+            <p class="sector-desc" id="sec-3-d">大型外销代工厂厂长、跟单主管、打样工程师及IE精益生产专家。</p>
+          </div>
+
+          <div class="sector-card">
+            <div class="sector-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <h3 class="sector-title" id="sec-4-t">跨境物流与海外仓</h3>
+            <p class="sector-desc" id="sec-4-d">清关报关总监、海外仓运营经理、国际干线物流及跨境电商运营。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: B2B CONTACT & WECHAT -->
+    <section class="section" id="contact">
+      <div class="shell">
+        <header class="section-head">
+          <div class="section-index">
+            <strong>04</strong>
+            <span>CONTACT & ENGAGEMENT</span>
+          </div>
+          <div>
+            <h2 class="section-title" id="sec4-title">开启合作：<em>对接您的专属猎头顾问</em></h2>
+            <p class="section-lead" id="sec4-lead">无论是具体的岗位猎头委托，还是获取越南各省工业区最新薪酬调研报告，欢迎随时联络。</p>
+          </div>
+        </header>
+
+        <div class="contact-layout">
+          <!-- Left Info & WeChat QR -->
+          <div class="contact-info-card">
+            <div class="micro-label">China Desk Office</div>
+            <h3 style="font-size: 20px; font-weight: 900; margin: 8px 0 16px;" id="qr-sec-title">微信扫码直接咨询</h3>
+            <p style="font-size: 13px; color: var(--graphite); line-height: 1.6;" id="qr-sec-desc">
+              我们常驻胡志明市与河内的中国业务团队均精通普通话与粤语，为您提供高效沟通。
+            </p>
+
+            <div class="qr-box">
+              <svg style="width: 150px; height: 150px; margin: 0 auto;" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M0 0h30v30H0zm5 5v20h20V5zm45-5h30v30H50zm5 5v20h20V5zM0 50h30v30H0zm5 5v20h20V55zm40-5h10v10H45zm20 0h10v10H65zm-20 20h10v10H45zm20 0h10v10H65zm10-10h10v10H75zm0 20h10v10H75zm-30 0h10v10H45zm0-20h10v10H45z"/>
+                <circle cx="15" cy="15" r="5" fill="#B11116"/>
+                <circle cx="65" cy="15" r="5" fill="#B11116"/>
+                <circle cx="15" cy="65" r="5" fill="#B11116"/>
+              </svg>
+              <p id="qr-box-title">微信扫码直联业务总监</p>
+              <small>微信号: hr1vietnam_chinadesk</small>
+            </div>
+
+            <div style="font-size: 13px; color: var(--graphite); line-height: 1.8;">
+              <p><i class="fa-solid fa-phone" style="color: var(--red); width: 20px;"></i> <span id="contact-phone">服务热线: (+84) 28 3822 6666</span></p>
+              <p><i class="fa-solid fa-envelope" style="color: var(--red); width: 20px;"></i> <span>专用邮箱: china.desk@hr1vietnam.com</span></p>
+              <p><i class="fa-solid fa-location-dot" style="color: var(--red); width: 20px;"></i> <span id="contact-addr">越办总部: 胡志明市第1郡 / 河内市纸桥郡</span></p>
+            </div>
+          </div>
+
+          <!-- Right Form -->
+          <div style="background: var(--white); border: 1px solid var(--ink); padding: 40px; box-shadow: 10px 10px 0 var(--red);">
+            <div class="micro-label">Consultation Request</div>
+            <h3 style="font-size: 20px; font-weight: 900; margin: 8px 0 20px;" id="b2b-form-title">提交委托需求表</h3>
+
+            <form onsubmit="event.preventDefault(); alert('委托已提交！顾问将即刻联系您。');">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                  <label id="form-f-company">企业名称 (Company Name) *</label>
+                  <input type="text" class="form-control" required placeholder="如：某某科技越南有限公司">
+                </div>
+                <div class="form-group">
+                  <label id="form-f-ind">行业领域 *</label>
+                  <select class="form-control">
+                    <option>3C 电子制造</option>
+                    <option>新能源 / 光伏</option>
+                    <option>纺织鞋服 / 家具</option>
+                    <option>跨境电商与海外仓</option>
+                    <option>其他行业</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                  <label id="form-f-name">联系人姓名及职务 *</label>
+                  <input type="text" class="form-control" required placeholder="如：陈总 / HR Director">
+                </div>
+                <div class="form-group">
+                  <label id="form-f-wechat">电话 / 微信 (WeChat) *</label>
+                  <input type="text" class="form-control" required placeholder="方便顾问直接联络">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label id="form-f-mail">电子邮箱 (Email) *</label>
+                <input type="email" class="form-control" required placeholder="用于接收岗位画像与报价单">
+              </div>
+
+              <div class="form-group">
+                <label id="form-f-req">拟委托招聘职位及具体要求</label>
+                <textarea class="form-control" placeholder="例：急招 1 名中文流利的注塑厂长，工作地点北宁，月薪预算 3000 USD..."></textarea>
+              </div>
+
+              <button type="submit" class="button primary" style="width: 100%; margin-top: 10px;">
+                <span id="form-f-btn">确认提交委托 · 获取专业方案</span>
+                <span>→</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo-text" style="color: #fff; margin-bottom: 12px;">
+            HR1<span style="color: var(--red);">VIETNAM</span>
+          </div>
+          <p style="font-size: 12px; line-height: 1.7; color: rgba(255,255,255,.6);" id="footer-desc">
+            越南专业中高端猎头与人力资源解决方案提供商。中国服务专区专注助力出海中资企业完成团队本土化建设与合规用工。
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 id="ft-col1-t">核心业务</h4>
+          <ul>
+            <li><a href="#services" id="ft-s1">中高端猎头服务</a></li>
+            <li><a href="#services" id="ft-s2">工厂大规模招聘 (RPO)</a></li>
+            <li><a href="#services" id="ft-s3">中越双语人才配置</a></li>
+            <li><a href="#services" id="ft-s4">薪资代发与劳动合规</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 id="ft-col2-t">HR1 生态体系</h4>
+          <ul>
+            <li><a href="https://hr1vietnam.com" target="_blank">HR1VIETNAM 官方主站 ↗</a></li>
+            <li><a href="https://education.hr1vietnam.com" target="_blank">HR1 Education Hub ↗</a></li>
+            <li><a href="https://hr1vietnam.com/search-job" target="_blank">职位搜索中心 (Job Portal) ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 id="ft-col3-t">办公室地址</h4>
+          <p style="margin-bottom: 8px; line-height: 1.6;" id="ft-addr">
+            📍 胡志明市第1郡滨义坊黎笋大道<br>
+            📍 河内市纸桥郡维新路
+          </p>
+          <p>📞 (+84) 28 3822 6666</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span id="ft-copy">© 2026 HR1VIETNAM HOLDINGS. All Rights Reserved. 中国企业出海越南人力资源指定合作伙伴.</span>
+        <span>CAREER READINESS ATLAS × CHINA DESK</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WECHAT MODAL -->
+  <div class="modal-backdrop" id="wechatModal" onclick="if(event.target===this) closeWechatModal()">
+    <div class="modal-box">
+      <button onclick="closeWechatModal()" style="position: absolute; top: 14px; right: 16px; font-size: 18px; color: var(--muted);">✕</button>
+      <div style="font-size: 32px; color: #07C160; margin-bottom: 10px;"><i class="fa-brands fa-weixin"></i></div>
+      <h3 style="font-size: 18px; font-weight: 900; margin-bottom: 4px;" id="modal-t">微信扫码在线沟通</h3>
+      <p style="font-size: 11px; color: var(--muted); margin-bottom: 16px;" id="modal-d">直接对接 HR1VIETNAM 中国服务专区顾问</p>
+
+      <div style="background: var(--white); border: 1px solid var(--ink); padding: 16px; display: inline-block; margin-bottom: 14px;">
+        <svg style="width: 160px; height: 160px; margin: 0 auto;" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M0 0h30v30H0zm5 5v20h20V5zm45-5h30v30H50zm5 5v20h20V5zM0 50h30v30H0zm5 5v20h20V55zm40-5h10v10H45zm20 0h10v10H65zm-20 20h10v10H45zm20 0h10v10H65zm10-10h10v10H75zm0 20h10v10H75zm-30 0h10v10H45zm0-20h10v10H45z"/>
+          <circle cx="15" cy="15" r="5" fill="#B11116"/>
+          <circle cx="65" cy="15" r="5" fill="#B11116"/>
+          <circle cx="15" cy="65" r="5" fill="#B11116"/>
+        </svg>
+      </div>
+      <div style="font-size: 12px; font-weight: 750; background: var(--paper-2); padding: 8px; border: 1px solid var(--line);">
+        微信号 / ID: <strong style="color: var(--red); user-select: all;">hr1vietnam_chinadesk</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- MULTILINGUAL DICTIONARY & JAVASCRIPT LOGIC -->
+  <script>
+    const i18n = {
+      zh: {
+        ribbonText: "HR1VIETNAM CHINA DESK · 中国企业专属猎头服务中心",
+        ribbonWechat: "微信咨询",
+        headerBadge: "CHINA DESK<br>人才配置与猎头专区",
+        navServices: "核心业务",
+        navJobs: "在招双语岗位 ↗",
+        navSectors: "重点行业",
+        navWhy: "为什么选HR1",
+        navContact: "联系顾问",
+        headerCta: "委托招聘需求",
+        heroMicro: "HR1Vietnam China Business Division",
+        heroH1Top: "专注中资企业",
+        heroH1Bot: "越南中高端猎头与双语人才",
+        heroSub: "助力中国企业扬帆出海，深耕越南本土市场",
+        heroIntro: "HR1VIETNAM 依托 10 年越南本土猎头深耕积淀，拥有超过 25,000+ 精通中越双语的高管、工程师与专业人才库。我们深谙中越跨国商业文化与本地劳动合规体系，为在越制造业、科技与商贸企业快速组建核心团队。",
+        heroBtnB2b: "我是雇主：获取招聘方案",
+        heroBtnJobs: "查看热招双语职位 (Job Hub)",
+        heroBtnWechat: "添加微信直接沟通",
+        formMicro: "B2B Direct Inquiry",
+        formTitle: "快速提交企业招聘委托",
+        formSub: "提交您的用人需求，中国业务总监将在 2 小时内为您致电解答并提供人才画像。",
+        lblCompany: "企业名称 (Company Name) *",
+        lblName: "联系人姓名 *",
+        lblPhone: "微信 / 电话 *",
+        lblRoles: "拟猎聘岗位及人数",
+        lblLoc: "工作地点 (Location)",
+        btnSubmitHero: "免费获取人才匹配建议与报价",
+        stat1: "年越南本土猎头经验",
+        stat2: "中越双语人才储备库",
+        stat3: "天首批精准候选人推优",
+        stat4: "中高级人才试用期留存率",
+        sec1Title: "为在越中资企业定制的<em>全周期人力解决方案</em>",
+        sec1Lead: "针对中资企业赴越投资建厂、扩充产线、中高层管理本土化及劳动合规等痛点，提供高匹配、高时效的人才猎聘闭环。",
+        srv1Title: "中高端猎头服务",
+        srv1Desc: "专攻在越核心高管猎聘：工厂厂长、运营总监、技术总监、财务总监、高级项目经理等关键岗位。",
+        srv1F1: "严谨背景调查与胜任力背书",
+        srv1F2: "保证期内免费替换保障",
+        srv2Title: "工厂与大规模招聘",
+        srv2Desc: "针对新建厂房、新增产线提供技术员、班组长、品保及基层管理人员的批量快速到岗交付。",
+        srv2F1: "确保项目按期投产用工",
+        srv2F2: "覆盖南北各大核心工业区",
+        srv3Title: "双语专业人才配置",
+        srv3Desc: "储备精通中越双语（HSK 5-6级/留华海归）的专业人才：总助、翻译、会计、供应链采购、外贸等。",
+        srv3F1: "跨语言跨文化无缝沟通",
+        srv3F2: "快速融入中方管理体系",
+        srv4Title: "薪资代发与劳动合规",
+        srv4Desc: "本地薪资代发、社保缴纳、中方外派员工工作签证（Work Permit & TRC）办理及越南劳动法合规咨询。",
+        srv4F1: "规避当地劳动法争议风险",
+        srv4F2: "简化海外分公司财务流程",
+        sec2Title: "精选在招<em>中越双语热门岗位</em>",
+        sec2Lead: "实时呈现 HR1VIETNAM 正在为合作企业委托猎聘的核心岗位。证明我们活跃的用工交付能力与强大的人才吸引力。",
+        pillAll: "全部职位 (All)",
+        pillMfg: "制造业 / 工业区 (Manufacturing)",
+        pillExec: "高管 / 厂长 (Management)",
+        pillIt: "IT / 软件技术 (IT - Software)",
+        pillFmcg: "快消 / 财务 / 销售 (Finance & Sales)",
+        candTitle: "您是精通中文的职场精英？(Bilingual Candidate)",
+        candDesc: "未找到满意职位？直接将简历录入 HR1 双语人才库，顾问将第一时间为您匹配高薪猎头机会。",
+        candBtn: "登记简历 (Submit CV) ↗",
+        sec3Title: "深度覆盖<em>在越中资核心产业集群</em>",
+        sec3Lead: "我们不仅懂猎头，更懂制造业出海产业链的工艺要求、组织架构与人才画像。",
+        sec1T: "3C电子与半导体",
+        sec1D: "SMT、组装、PCB、声学与光学制造的中高层厂长、PIE、ME及质量经理。",
+        sec2T: "太阳能光伏与新能源",
+        sec2D: "硅片、电池片与组件工厂核心工艺工程师、EHS及供应链高管。",
+        sec3T: "纺织、鞋服与家居五金",
+        sec3D: "大型外销代工厂厂长、跟单主管、打样工程师及IE精益生产专家。",
+        sec4T: "跨境物流与海外仓",
+        sec4D: "清关报关总监、海外仓运营经理、国际干线物流及跨境电商运营。",
+        sec4Title: "开启合作：<em>对接您的专属猎头顾问</em>",
+        sec4Lead: "无论是具体的岗位猎头委托，还是获取越南各省工业区最新薪酬调研报告，欢迎随时联络。",
+        qrSecTitle: "微信扫码直接咨询",
+        qrSecDesc: "我们常驻胡志明市与河内的中国业务团队均精通普通话与粤语，为您提供高效沟通。",
+        qrBoxTitle: "微信扫码直联业务总监",
+        contactPhone: "服务热线: (+84) 28 3822 6666",
+        contactAddr: "越办总部: 胡志明市第1郡 / 河内市纸桥郡",
+        b2bFormTitle: "提交委托需求表",
+        formFBtn: "确认提交委托 · 获取专业方案",
+        footerDesc: "越南专业中高端猎头与人力资源解决方案提供商。中国服务专区专注助力出海中资企业完成团队本土化建设与合规用工。",
+        ftCol1T: "核心业务",
+        ftCol2T: "HR1 生态体系",
+        ftCol3T: "办公室地址",
+        ftCopy: "© 2026 HR1VIETNAM HOLDINGS. All Rights Reserved. 中国企业出海越南人力资源指定合作伙伴."
+      },
+      vi: {
+        ribbonText: "HR1VIETNAM CHINA DESK · TRUNG TÂM DỊCH VỤ NHÂN SỰ CHO DOANH NGHIỆP TRUNG QUỐC",
+        ribbonWechat: "Tư vấn WeChat",
+        headerBadge: "CHINA DESK<br>DỊCH VỤ HEADHUNTER & NHÂN TÀI TIẾNG TRUNG",
+        navServices: "Dịch Vụ B2B",
+        navJobs: "Việc Làm Tiếng Trung ↗",
+        navSectors: "Ngành Trọng Điểm",
+        navWhy: "Vì Sao Chọn HR1",
+        navContact: "Liên Hệ Chuyên Gia",
+        headerCta: "Gửi Yêu Cầu Tuyển Dụng",
+        heroMicro: "HR1Vietnam China Business Division",
+        heroH1Top: "Đồng Hành Cùng Doanh Nghiệp FDI",
+        heroH1Bot: "Headhunter Cấp Cao & Nhân Tài Song Ngữ Trung - Việt",
+        heroSub: "Giải pháp săn đầu người chuyên nghiệp và cung ứng nhân lực tiếng Trung hàng đầu tại Việt Nam",
+        heroIntro: "HR1VIETNAM với hơn 10 năm kinh nghiệm tại thị trường Việt Nam, sở hữu mạng lưới hơn 25,000+ ứng viên thành thạo tiếng Trung (Quản lý nhà máy, Kỹ sư, Chuyên viên, Phiên dịch). Am hiểu sâu sắc văn hóa doanh nghiệp Trung Quốc và luật lao động Việt Nam.",
+        heroBtnB2b: "Tôi là Doanh nghiệp: Nhận Báo giá",
+        heroBtnJobs: "Xem Danh Sách Việc Làm (Job Hub)",
+        heroBtnWechat: "Kết nối WeChat Doanh nghiệp",
+        formMicro: "Đăng Ký Tuyển Dụng B2B",
+        formTitle: "Gửi Yêu Cầu Tuyển Dụng Nhanh",
+        formSub: "Để lại thông tin nhu cầu nhân sự, Chuyên gia phụ trách China Desk sẽ liên hệ tư vấn trong vòng 2 giờ.",
+        lblCompany: "Tên Doanh Nghiệp (Company Name) *",
+        lblName: "Họ & Tên Người Liên Hệ *",
+        lblPhone: "Số Điện Thoại / WeChat ID *",
+        lblRoles: "Vị trí cần tuyển & Số lượng",
+        lblLoc: "Địa điểm làm việc (Khu công nghiệp / Tỉnh thành)",
+        btnSubmitHero: "Nhận Phương Án Nhân Sự & Báo Giá Miễn Phí",
+        stat1: "Năm kinh nghiệm Headhunter tại VN",
+        stat2: "Hồ sơ ứng viên tiếng Trung sẵn sàng",
+        stat3: "Ngày giới thiệu ứng viên đợt 1",
+        stat4: "Tỷ lệ ứng viên pass thử việc thành công",
+        sec1Title: "Giải pháp nhân sự toàn diện cho <em>Doanh nghiệp FDI Trung Quốc</em>",
+        sec1Lead: "Đáp ứng trọn gói nhu cầu từ xây dựng nhà máy mới, tuyển dụng hàng loạt đến săn đầu người cấp cao và tuân thủ luật lao động.",
+        srv1Title: "Headhunter Cấp Trung & Cao",
+        srv1Desc: "Săn tìm Giám đốc nhà máy, Giám đốc sản xuất, Giám đốc tài chính, Trưởng phòng kỹ thuật am hiểu tiếng Trung.",
+        srv1F1: "Check năng lực và thẩm định lý lịch (Background check) kỹ lưỡng",
+        srv1F2: "Bảo hành tuyển dụng và thay thế ứng viên miễn phí",
+        srv2Title: "Tuyển dụng Đại trà cho Nhà máy",
+        srv2Desc: "Cung ứng nhanh số lượng lớn kỹ thuật viên, tổ trưởng, QC/QA, nhân viên sản xuất cho các nhà máy mới thành lập.",
+        srv2F1: "Đảm bảo tiến độ vận hành nhà máy đúng hạn",
+        srv2F2: "Phủ sóng toàn bộ KCN miền Bắc và miền Nam",
+        srv3Title: "Nhân tài Chuyên môn Song ngữ",
+        srv3Desc: "Cung ứng nhân sự HSK 5-6 / Du học sinh Trung Quốc: Trợ lý Tổng giám đốc, Kế toán tổng hợp, Mua hàng, Sales B2B.",
+        srv3F1: "Giao tiếp trôi chảy không rào cản ngôn ngữ",
+        srv3F2: "Thích nghi nhanh với văn hóa làm việc của công ty",
+        srv4Title: "Tính lương & Pháp lý Lao động",
+        srv4Desc: "Dịch vụ tính lương Payroll, đóng bảo hiểm, xin Giấy phép lao động (Work Permit) & Thẻ tạm trú (TRC) cho chuyên gia.",
+        srv4F1: "Tránh rủi ro tranh chấp lao động tại Việt Nam",
+        srv4F2: "Tinh gọn bộ máy hành chính cho văn phòng đại diện",
+        sec2Title: "Danh mục việc làm <em>Tiếng Trung nổi bật đang tuyển</em>",
+        sec2Lead: "Minh chứng cho năng lực cung ứng job thực tế và liên tục của HR1VIETNAM cho các đối tác FDI hàng đầu.",
+        pillAll: "Tất cả vị trí (All)",
+        pillMfg: "Sản xuất / KCN (Manufacturing)",
+        pillExec: "Quản lý / Giám đốc (Management)",
+        pillIt: "IT / Phần mềm (IT - Software)",
+        pillFmcg: "FMCG / Kế toán / Sales",
+        candTitle: "Bạn là Ứng viên thành thạo Tiếng Trung?",
+        candDesc: "Chưa tìm thấy công việc ưng ý? Hãy gửi CV vào Talent Pool tiếng Trung của HR1 để nhận cơ hội phỏng vấn mức lương hấp dẫn.",
+        candBtn: "Gửi CV Ứng Tuyển Nhanh ↗",
+        sec3Title: "Phủ sóng sâu rộng các <em>Cụm ngành công nghiệp trọng điểm</em>",
+        sec3Lead: "HR1 không chỉ am hiểu săn đầu người mà còn thấu hiểu sâu sắc dây chuyền sản xuất và cơ cấu tổ chức của từng ngành.",
+        sec1T: "Điện tử & Bán dẫn (3C)",
+        sec1D: "SMT, lắp ráp, bo mạch PCB, linh kiện âm thanh, quang học cho cấp quản lý & kỹ sư.",
+        sec2T: "Năng lượng mặt trời & Pin Lithium",
+        sec2D: "Kỹ sư quy trình tấm pin năng lượng, EHS, giám đốc chuỗi cung ứng nhà máy mới.",
+        sec3T: "Dệt may, Giày da & Gỗ nội thất",
+        sec3D: "Giám đốc nhà máy gia công xuất khẩu quy mô lớn, kỹ sư IE, quản lý đơn hàng Merchandiser.",
+        sec4T: "Logistics & Kho bãi Xuyên biên giới",
+        sec4D: "Giám đốc thông quan hải quan, trưởng kho ngoại quan, quản lý vận tải đường bộ/biển.",
+        sec4Title: "Khởi đầu hợp tác: <em>Kết nối trực tiếp chuyên gia China Desk</em>",
+        sec4Lead: "Sẵn sàng hỗ trợ tư vấn tuyển dụng hoặc cung cấp báo cáo khảo sát lương nhân sự tiếng Trung tại Việt Nam.",
+        qrSecTitle: "Quét mã QR WeChat trao đổi nhanh",
+        qrSecDesc: "Đội ngũ chuyên trách tại TP.HCM và Hà Nội giao tiếp lưu loát tiếng Trung (Phổ thông & Quảng Đông).",
+        qrBoxTitle: "Quét QR kết nối Giám đốc China Desk",
+        contactPhone: "Hotline tư vấn: (+84) 28 3822 6666",
+        contactAddr: "Văn phòng: Q.1, TP.HCM / Cầu Giấy, Hà Nội",
+        b2bFormTitle: "Phiếu Đăng Ký Yêu Cầu Tuyển Dụng",
+        formFBtn: "Gửi Yêu Cầu · Nhận Phương Án Nhân Sự",
+        footerDesc: "Nhà cung cấp giải pháp Headhunter và Nhân sự chuyên nghiệp tại Việt Nam. China Desk chuyên hỗ trợ các doanh nghiệp FDI xây dựng đội ngũ vững mạnh.",
+        ftCol1T: "Dịch Vụ Cốt Lõi",
+        ftCol2T: "Hệ Sinh Thái HR1",
+        ftCol3T: "Địa Chỉ Văn Phòng",
+        ftCopy: "© 2026 HR1VIETNAM HOLDINGS. Bản quyền thuộc về HR1Vietnam. Đối tác nhân sự tin cậy của Doanh nghiệp FDI."
+      },
+      en: {
+        ribbonText: "HR1VIETNAM CHINA DESK · SPECIALIZED HR & RECRUITMENT SOLUTIONS FOR CHINESE ENTERPRISES",
+        ribbonWechat: "WeChat Inquiry",
+        headerBadge: "CHINA DESK<br>EXECUTIVE SEARCH & BILINGUAL TALENT",
+        navServices: "Services",
+        navJobs: "Chinese Jobs ↗",
+        navSectors: "Key Sectors",
+        navWhy: "Why HR1",
+        navContact: "Contact Us",
+        headerCta: "Request Recruitment",
+        heroMicro: "HR1Vietnam China Business Division",
+        heroH1Top: "Empowering FDI Enterprises",
+        heroH1Bot: "Executive Search & Chinese Bilingual Talent in Vietnam",
+        heroSub: "Leading recruitment and staffing solutions for Chinese and foreign-invested enterprises in Vietnam",
+        heroIntro: "With over 10 years of in-depth local experience, HR1VIETNAM maintains a premier talent network of 25,000+ Chinese-speaking executives, plant managers, and technical specialists across Vietnam.",
+        heroBtnB2b: "For Employers: Get Proposals",
+        heroBtnJobs: "Explore Open Mandates (Job Hub)",
+        heroBtnWechat: "Connect on Official WeChat",
+        formMicro: "B2B Talent Request",
+        formTitle: "Fast Recruitment Inquiry",
+        formSub: "Submit your hiring needs. Our China Desk Director will contact you within 2 hours with customized talent mapping.",
+        lblCompany: "Company Name *",
+        lblName: "Contact Person & Title *",
+        lblPhone: "Phone / WeChat ID *",
+        lblRoles: "Positions Needed & Headcount",
+        lblLoc: "Workplace Location (Province / Industrial Park)",
+        btnSubmitHero: "Get Free Talent Proposal & Quotation",
+        stat1: "Years of Local Headhunting Expertise",
+        stat2: "Chinese Bilingual Candidates in Pool",
+        stat3: "Days for 1st Batch Candidate Shortlist",
+        stat4: "Probation Success Pass Rate",
+        sec1Title: "Tailored Talent Solutions for <em>FDI & Chinese Enterprises</em>",
+        sec1Lead: "End-to-end recruitment support from greenfield plant setup and mass hiring to executive headhunting and labor compliance.",
+        srv1Title: "Executive Search",
+        srv1Desc: "Headhunting key leaders: Plant Directors, Operations Directors, Chief Accountants, and Technical Heads.",
+        srv1F1: "Thorough background check and competency verification",
+        srv1F2: "Free candidate replacement during guarantee period",
+        srv2Title: "Factory Mass RPO",
+        srv2Desc: "High-volume recruitment of supervisors, technicians, QA/QC, and production staff for newly built facilities.",
+        srv2F1: "Ensuring on-time plant commissioning",
+        srv2F2: "Covering key Northern and Southern Industrial Parks",
+        srv3Title: "Bilingual Professionals",
+        srv3Desc: "Providing HSK 5-6 specialists: Executive Assistants, Interpreters, Senior Accountants, and Sourcing Managers.",
+        srv3F1: "Seamless cross-border communication",
+        srv3F2: "Fast cultural integration into management style",
+        srv4Title: "Payroll & Legal Compliance",
+        srv4Desc: "Local payroll outsourcing, social insurance, and Work Permit / TRC processing for expat specialists.",
+        srv4F1: "Mitigating Vietnam labor dispute risks",
+        srv4F2: "Streamlining financial and administrative workflows",
+        sec2Title: "Active Mandates: <em>Featured Chinese Bilingual Jobs</em>",
+        sec2Lead: "Real-time demonstration of HR1's active pipeline and strong talent acquisition capability in the market.",
+        pillAll: "All Roles",
+        pillMfg: "Manufacturing",
+        pillExec: "Management",
+        pillIt: "IT & Software",
+        pillFmcg: "Finance & Sales",
+        candTitle: "Are you a Chinese-Speaking Candidate?",
+        candDesc: "Haven't found your ideal role? Register your resume into HR1's Bilingual Talent Pool for priority referrals.",
+        candBtn: "Submit Resume ↗",
+        sec3Title: "Deep Coverage of <em>Key Manufacturing Clusters</em>",
+        sec3Lead: "We understand both headhunting art and industrial manufacturing engineering workflows.",
+        sec1T: "3C Electronics & Semiconductor",
+        sec1D: "SMT, assembly, PCB, acoustic, and optical plant management & engineering talents.",
+        sec2T: "Solar PV & New Energy",
+        sec2D: "Wafer, cell, module process engineers, EHS, and supply chain executives.",
+        sec3T: "Garments, Footwear & Furniture",
+        sec3D: "Export plant directors, sample room engineers, IE specialists, and merchandising leads.",
+        sec4T: "Cross-Border Logistics & Warehousing",
+        sec4D: "Customs clearance heads, bonded warehouse managers, and freight forwarding directors.",
+        sec4Title: "Partner With Us: <em>Connect With China Desk Consultants</em>",
+        sec4Lead: "Whether you need immediate executive hiring or Vietnam industrial salary benchmarks, we are at your service.",
+        qrSecTitle: "Scan WeChat for Direct Chat",
+        qrSecDesc: "Our dedicated bilingual consulting team in HCMC and Hanoi speaks fluent Mandarin, Cantonese, and Vietnamese.",
+        qrBoxTitle: "Scan QR to Chat With Director",
+        contactPhone: "Hotline: (+84) 28 3822 6666",
+        contactAddr: "HQ: District 1, HCMC / Cau Giay, Hanoi",
+        b2bFormTitle: "Recruitment Inquiry Form",
+        formFBtn: "Submit Request · Get Tailored Plan",
+        footerDesc: "Leading executive search and human resources solution provider in Vietnam. Dedicated China Desk empowering foreign enterprises.",
+        ftCol1T: "Core Services",
+        ftCol2T: "HR1 Ecosystem",
+        ftCol3T: "Office Locations",
+        ftCopy: "© 2026 HR1VIETNAM HOLDINGS. All Rights Reserved. Trusted HR Partner for FDI Enterprises."
+      }
+    };
+
+    function setLanguage(lang) {
+      const data = i18n[lang];
+      if (!data) return;
+
+      // Update Active Button
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(`btn-${lang}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // Update Texts
+      document.getElementById('ribbon-text').innerText = data.ribbonText;
+      document.getElementById('ribbon-wechat').innerText = data.ribbonWechat;
+      document.getElementById('header-badge').innerHTML = data.headerBadge;
+      document.getElementById('nav-services').innerText = data.navServices;
+      document.getElementById('nav-jobs').innerText = data.navJobs;
+      document.getElementById('nav-sectors').innerText = data.navSectors;
+      document.getElementById('nav-why').innerText = data.navWhy;
+      document.getElementById('nav-contact').innerText = data.navContact;
+      document.getElementById('header-cta-text').innerText = data.headerCta;
+
+      document.getElementById('hero-micro').innerText = data.heroMicro;
+      document.getElementById('hero-h1-top').innerText = data.heroH1Top;
+      document.getElementById('hero-h1-bot').innerText = data.heroH1Bot;
+      document.getElementById('hero-sub').innerText = data.heroSub;
+      document.getElementById('hero-intro').innerText = data.heroIntro;
+      document.getElementById('hero-btn-b2b').innerText = data.heroBtnB2b;
+      document.getElementById('hero-btn-jobs').innerText = data.heroBtnJobs;
+      document.getElementById('hero-btn-wechat').innerText = data.heroBtnWechat;
+
+      document.getElementById('form-micro').innerText = data.formMicro;
+      document.getElementById('form-title').innerText = data.formTitle;
+      document.getElementById('form-sub').innerText = data.formSub;
+      document.getElementById('lbl-company').innerText = data.lblCompany;
+      document.getElementById('lbl-name').innerText = data.lblName;
+      document.getElementById('lbl-phone').innerText = data.lblPhone;
+      document.getElementById('lbl-roles').innerText = data.lblRoles;
+      document.getElementById('lbl-loc').innerText = data.lblLoc;
+      document.getElementById('btn-submit-hero').innerText = data.btnSubmitHero;
+
+      document.getElementById('stat-1').innerText = data.stat1;
+      document.getElementById('stat-2').innerText = data.stat2;
+      document.getElementById('stat-3').innerText = data.stat3;
+      document.getElementById('stat-4').innerText = data.stat4;
+
+      document.getElementById('sec1-title').innerHTML = data.sec1Title;
+      document.getElementById('sec1-lead').innerText = data.sec1Lead;
+      document.getElementById('srv1-title').innerText = data.srv1Title;
+      document.getElementById('srv1-desc').innerText = data.srv1Desc;
+      document.getElementById('srv1-f1').innerText = data.srv1F1;
+      document.getElementById('srv1-f2').innerText = data.srv1F2;
+
+      document.getElementById('srv2-title').innerText = data.srv2Title;
+      document.getElementById('srv2-desc').innerText = data.srv2Desc;
+      document.getElementById('srv2-f1').innerText = data.srv2F1;
+      document.getElementById('srv2-f2').innerText = data.srv2F2;
+
+      document.getElementById('srv3-title').innerText = data.srv3Title;
+      document.getElementById('srv3-desc').innerText = data.srv3Desc;
+      document.getElementById('srv3-f1').innerText = data.srv3F1;
+      document.getElementById('srv3-f2').innerText = data.srv3F2;
+
+      document.getElementById('srv4-title').innerText = data.srv4Title;
+      document.getElementById('srv4-desc').innerText = data.srv4Desc;
+      document.getElementById('srv4-f1').innerText = data.srv4F1;
+      document.getElementById('srv4-f2').innerText = data.srv4F2;
+
+      document.getElementById('sec2-title').innerHTML = data.sec2Title;
+      document.getElementById('sec2-lead').innerText = data.sec2Lead;
+      document.getElementById('pill-all').innerText = data.pillAll;
+      document.getElementById('pill-mfg').innerText = data.pillMfg;
+      document.getElementById('pill-exec').innerText = data.pillExec;
+      document.getElementById('pill-it').innerText = data.pillIt;
+      document.getElementById('pill-fmcg').innerText = data.pillFmcg;
+
+      document.getElementById('cand-title').innerText = data.candTitle;
+      document.getElementById('cand-desc').innerText = data.candDesc;
+      document.getElementById('cand-btn').innerText = data.candBtn;
+
+      document.getElementById('sec3-title').innerHTML = data.sec3Title;
+      document.getElementById('sec3-lead').innerText = data.sec3Lead;
+      document.getElementById('sec-1-t').innerText = data.sec1T;
+      document.getElementById('sec-1-d').innerText = data.sec1D;
+      document.getElementById('sec-2-t').innerText = data.sec2T;
+      document.getElementById('sec-2-d').innerText = data.sec2D;
+      document.getElementById('sec-3-t').innerText = data.sec3T;
+      document.getElementById('sec-3-d').innerText = data.sec3D;
+      document.getElementById('sec-4-t').innerText = data.sec4T;
+      document.getElementById('sec-4-d').innerText = data.sec4D;
+
+      document.getElementById('sec4-title').innerHTML = data.sec4Title;
+      document.getElementById('sec4-lead').innerText = data.sec4Lead;
+      document.getElementById('qr-sec-title').innerText = data.qrSecTitle;
+      document.getElementById('qr-sec-desc').innerText = data.qrSecDesc;
+      document.getElementById('qr-box-title').innerText = data.qrBoxTitle;
+      document.getElementById('contact-phone').innerText = data.contactPhone;
+      document.getElementById('contact-addr').innerText = data.contactAddr;
+      document.getElementById('b2b-form-title').innerText = data.b2bFormTitle;
+      document.getElementById('form-f-btn').innerText = data.formFBtn;
+
+      document.getElementById('footer-desc').innerText = data.footerDesc;
+      document.getElementById('ft-col1-t').innerText = data.ftCol1T;
+      document.getElementById('ft-col2-t').innerText = data.ftCol2T;
+      document.getElementById('ft-col3-t').innerText = data.ftCol3T;
+      document.getElementById('ft-copy').innerText = data.ftCopy;
+    }
+
+    // Scroll progress
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scrollBar').style.transform = `scaleX(${scrolled / 100})`;
+    });
+
+    // WeChat Modal
+    function openWechatModal() {
+      document.getElementById('wechatModal').classList.add('active');
+    }
+    function closeWechatModal() {
+      document.getElementById('wechatModal').classList.remove('active');
+    }
+
+    // Job Filter interaction demo
+    function filterJobs(category) {
+      const pills = document.querySelectorAll('.filter-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
