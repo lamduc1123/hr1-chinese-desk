@@ -250,8 +250,11 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      min-height: calc(100vh - 120px);
       border-bottom: 1px solid var(--line);
+    }
+    .hero-body {
+      position: relative;
+      min-height: calc(100vh - 120px - 140px);
     }
     .hero::before {
       content: "";
@@ -275,6 +278,7 @@
       flex-direction: column;
       padding-block: 28px;
       border-right: 1px solid var(--line);
+      z-index: 2;
     }
     .hero-rail span {
       writing-mode: vertical-rl;
@@ -292,7 +296,6 @@
 
     .hero-grid {
       display: grid;
-      min-height: calc(100vh - 120px);
       grid-template-columns: minmax(0, 1.25fr) minmax(400px, .75fr);
       gap: 44px;
       align-items: center;
@@ -989,91 +992,93 @@
   <!-- HERO SECTION -->
   <main>
     <section class="hero" id="hero">
-      <div class="hero-rail">
-        <span>CHINA DESK → TALENT ATLAS</span>
-        <i></i>
-        <span>HR1 • 2026</span>
-      </div>
-
-      <div class="shell hero-grid">
-        <div class="hero-copy">
-          <span class="micro-label" id="hero-micro">HR1Vietnam China Business Division</span>
-          
-          <!-- Tiêu đề Hero 2 dòng chuẩn, không bị rớt lẻ chữ -->
-          <h1>
-            <span id="hero-h1-top">专注中资企业</span>
-            <em id="hero-h1-bot">越南中高端猎头与双语人才</em>
-          </h1>
-
-          <p class="hero-sub" id="hero-sub">
-            助力中国企业扬帆出海，深耕越南本土市场
-          </p>
-
-          <p class="hero-intro" id="hero-intro">
-            HR1VIETNAM 依托 10 年越南本土猎头深耕积淀，拥有超过 25,000+ 精通中越双语的高管、工程师与专业人才库。我们深谙中越跨国商业文化与本地劳动合规体系，为在越制造业、科技与商贸企业快速组建核心团队。
-          </p>
-
-          <div class="hero-actions">
-            <a class="button primary" href="#contact">
-              <span id="hero-btn-b2b">我是雇主：获取招聘方案</span>
-              <span>↗</span>
-            </a>
-            <a class="button secondary" href="#jobs">
-              <i class="fa-solid fa-briefcase text-red-600"></i>
-              <span id="hero-btn-jobs">查看热招双语职位 (Job Hub)</span>
-            </a>
-            <button class="button wechat-btn" onclick="openWechatModal()">
-              <i class="fa-brands fa-weixin"></i>
-              <span id="hero-btn-wechat">添加微信直接沟通</span>
-            </button>
-          </div>
+      <div class="hero-body">
+        <div class="hero-rail">
+          <span>CHINA DESK → TALENT ATLAS</span>
+          <i></i>
+          <span>HR1 • 2026</span>
         </div>
 
-        <!-- Right Quick Form Card -->
-        <div class="hero-form-card">
-          <div class="micro-label" style="margin-bottom: 10px;" id="form-micro">B2B Direct Inquiry</div>
-          <h3 id="form-title">快速提交企业招聘委托</h3>
-          <p id="form-sub">提交您的用人需求，中国业务总监将在 2 小时内为您致电解答并提供人才画像。</p>
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <span class="micro-label" id="hero-micro">HR1Vietnam China Business Division</span>
+            
+            <!-- Tiêu đề Hero 2 dòng chuẩn, không bị rớt lẻ chữ -->
+            <h1>
+              <span id="hero-h1-top">专注中资企业</span>
+              <em id="hero-h1-bot">越南中高端猎头与双语人才</em>
+            </h1>
 
-          <form onsubmit="event.preventDefault(); alert('需求已收到！HR1 业务总监将在 2 小时内与您联系。');">
-            <div class="form-group">
-              <label id="lbl-company">企业名称 (Company Name) *</label>
-              <input type="text" class="form-control" required placeholder="如：某某科技（越南）有限公司">
+            <p class="hero-sub" id="hero-sub">
+              助力中国企业扬帆出海，深耕越南本土市场
+            </p>
+
+            <p class="hero-intro" id="hero-intro">
+              HR1VIETNAM 依托 10 年越南本土猎头深耕积淀，拥有超过 25,000+ 精通中越双语的高管、工程师与专业人才库。我们深谙中越跨国商业文化与本地劳动合规体系，为在越制造业、科技与商贸企业快速组建核心团队。
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="#contact">
+                <span id="hero-btn-b2b">我是雇主：获取招聘方案</span>
+                <span>↗</span>
+              </a>
+              <a class="button secondary" href="#jobs">
+                <i class="fa-solid fa-briefcase text-red-600"></i>
+                <span id="hero-btn-jobs">查看热招双语职位 (Job Hub)</span>
+              </a>
+              <button class="button wechat-btn" onclick="openWechatModal()">
+                <i class="fa-brands fa-weixin"></i>
+                <span id="hero-btn-wechat">添加微信直接沟通</span>
+              </button>
             </div>
+          </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <!-- Right Quick Form Card -->
+          <div class="hero-form-card">
+            <div class="micro-label" style="margin-bottom: 10px;" id="form-micro">B2B Direct Inquiry</div>
+            <h3 id="form-title">快速提交企业招聘委托</h3>
+            <p id="form-sub">提交您的用人需求，中国业务总监将在 2 小时内为您致电解答并提供人才画像。</p>
+
+            <form onsubmit="event.preventDefault(); alert('需求已收到！HR1 业务总监将在 2 小时内与您联系。');">
               <div class="form-group">
-                <label id="lbl-name">联系人姓名 *</label>
-                <input type="text" class="form-control" required placeholder="王总 / 张经理">
+                <label id="lbl-company">企业名称 (Company Name) *</label>
+                <input type="text" class="form-control" required placeholder="如：某某科技（越南）有限公司">
               </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="form-group">
+                  <label id="lbl-name">联系人姓名 *</label>
+                  <input type="text" class="form-control" required placeholder="王总 / 张经理">
+                </div>
+                <div class="form-group">
+                  <label id="lbl-phone">微信 / 电话 *</label>
+                  <input type="text" class="form-control" required placeholder="WeChat ID / 手机">
+                </div>
+              </div>
+
               <div class="form-group">
-                <label id="lbl-phone">微信 / 电话 *</label>
-                <input type="text" class="form-control" required placeholder="WeChat ID / 手机">
+                <label id="lbl-roles">拟猎聘岗位及人数</label>
+                <input type="text" class="form-control" placeholder="例：生产厂长 1名、双语总账会计 2名">
               </div>
-            </div>
 
-            <div class="form-group">
-              <label id="lbl-roles">拟猎聘岗位及人数</label>
-              <input type="text" class="form-control" placeholder="例：生产厂长 1名、双语总账会计 2名">
-            </div>
+              <div class="form-group">
+                <label id="lbl-loc">工作地点 (Location)</label>
+                <select class="form-control">
+                  <option>北宁省 / 北江省 (Bắc Ninh / Bắc Giang)</option>
+                  <option>海防市 / 广宁省 (Hải Phòng / Quảng Ninh)</option>
+                  <option>同奈省 / 平阳省 (Đồng Nai / Bình Dương)</option>
+                  <option>胡志明市 (TP. Hồ Chí Minh)</option>
+                  <option>河内市 (Hà Nội)</option>
+                  <option>其他省份工业园区</option>
+                </select>
+              </div>
 
-            <div class="form-group">
-              <label id="lbl-loc">工作地点 (Location)</label>
-              <select class="form-control">
-                <option>北宁省 / 北江省 (Bắc Ninh / Bắc Giang)</option>
-                <option>海防市 / 广宁省 (Hải Phòng / Quảng Ninh)</option>
-                <option>同奈省 / 平阳省 (Đồng Nai / Bình Dương)</option>
-                <option>胡志明市 (TP. Hồ Chí Minh)</option>
-                <option>河内市 (Hà Nội)</option>
-                <option>其他省份工业园区</option>
-              </select>
-            </div>
-
-            <button type="submit" class="button primary" style="width: 100%; margin-top: 8px;">
-              <span id="btn-submit-hero">免费获取人才匹配建议与报价</span>
-              <span>→</span>
-            </button>
-          </form>
+              <button type="submit" class="button primary" style="width: 100%; margin-top: 8px;">
+                <span id="btn-submit-hero">免费获取人才匹配建议与报价</span>
+                <span>→</span>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
 
