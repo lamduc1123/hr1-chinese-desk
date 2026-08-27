@@ -477,9 +477,9 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* Section Headings */
+    /* Section Headings - Full 1 dòng tối ưu */
     .section {
-      padding: 90px 0;
+      padding: 84px 0;
       border-bottom: 1px solid var(--line);
     }
     .section.dark {
@@ -488,22 +488,24 @@
     }
     .section-head {
       display: grid;
-      grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr);
-      gap: 50px;
-      align-items: end;
-      margin-bottom: 50px;
+      grid-template-columns: auto 1fr;
+      gap: 36px;
+      align-items: flex-end;
+      margin-bottom: 44px;
     }
     .section-index {
       display: flex;
       align-items: flex-end;
-      gap: 16px;
+      gap: 14px;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
     .section-index strong {
       display: inline-block;
       color: transparent;
       -webkit-text-stroke: 1px var(--red);
       font-family: var(--serif);
-      font-size: 72px;
+      font-size: 68px;
       font-weight: 600;
       line-height: .8;
       transition: color .35s var(--ease), transform .35s var(--ease);
@@ -517,12 +519,13 @@
       letter-spacing: .18em;
       text-transform: uppercase;
       padding-bottom: 6px;
+      white-space: nowrap;
     }
     .section-title {
-      font-size: clamp(26px, 2.8vw, 40px);
+      font-size: clamp(23px, 2.3vw, 34px);
       font-weight: 900;
-      letter-spacing: -.03em;
-      line-height: 1.2;
+      letter-spacing: -.02em;
+      line-height: 1.25;
       text-wrap: balance;
     }
     .section-title em {
@@ -536,9 +539,9 @@
       color: #FF6B6B;
     }
     .section-lead {
-      margin-top: 12px;
+      margin-top: 8px;
       font-size: 13.5px;
-      line-height: 1.7;
+      line-height: 1.65;
       color: var(--muted);
       text-wrap: pretty;
     }
