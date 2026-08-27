@@ -50,6 +50,16 @@
     button { color: inherit; background: transparent; border: 0; cursor: pointer; }
     ::selection { background: var(--red); color: #fff; }
 
+    /* Chống mồ côi chữ toàn trang (Prevent Orphans & Widows) */
+    h1, h2, h3, h4, h5, h6, .section-title, .hero h1, .service-title, .job-title {
+      text-wrap: balance;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    p, .section-lead, .hero-intro, .service-desc, .job-meta {
+      text-wrap: pretty;
+    }
+
     .shell {
       width: min(var(--max), calc(100% - 72px));
       margin-inline: auto;
@@ -86,7 +96,7 @@
     .ribbon-links {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     .lang-btn {
       padding: 3px 8px;
@@ -97,6 +107,7 @@
       background: transparent;
       border: 1px solid transparent;
       cursor: pointer;
+      white-space: nowrap;
       transition: all .2s;
     }
     .lang-btn:hover {
@@ -135,6 +146,7 @@
       font-weight: 900;
       letter-spacing: -0.04em;
       color: var(--red);
+      white-space: nowrap;
     }
     .brand-logo-text span {
       color: var(--ink);
@@ -148,6 +160,7 @@
       text-transform: uppercase;
       color: var(--deep-red);
       line-height: 1.3;
+      white-space: nowrap;
     }
 
     .main-nav {
@@ -162,6 +175,7 @@
       font-size: 13px;
       font-weight: 700;
       color: var(--graphite);
+      white-space: nowrap;
       transition: color .2s;
     }
     .main-nav a::after {
@@ -189,13 +203,14 @@
       min-height: 48px;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      padding: 0 22px;
+      gap: 10px;
+      padding: 0 20px;
       border: 1px solid var(--ink);
       background: transparent;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: .03em;
+      white-space: nowrap;
       cursor: pointer;
       transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .25s;
     }
@@ -278,10 +293,10 @@
     .hero-grid {
       display: grid;
       min-height: calc(100vh - 120px);
-      grid-template-columns: minmax(0, 1.2fr) minmax(420px, .8fr);
-      gap: 48px;
+      grid-template-columns: minmax(0, 1.25fr) minmax(400px, .75fr);
+      gap: 44px;
       align-items: center;
-      padding: 60px 0 60px 36px;
+      padding: 56px 0 56px 36px;
     }
     .micro-label {
       display: inline-flex;
@@ -300,63 +315,70 @@
       background: var(--red);
     }
     
+    /* Cấu trúc Tiêu đề Hero tối ưu hoàn toàn chống rớt chữ */
     .hero h1 {
-      margin: 28px 0 0;
-      font-size: clamp(42px, 5.2vw, 84px);
+      margin: 22px 0 0;
+      font-size: clamp(34px, 3.8vw, 58px);
       font-weight: 900;
-      letter-spacing: -.05em;
-      line-height: .98;
+      letter-spacing: -.03em;
+      line-height: 1.1;
       text-transform: uppercase;
+      text-wrap: balance;
     }
     .hero h1 span {
       display: block;
       color: var(--ink);
+      white-space: normal;
     }
     .hero h1 em {
       display: block;
-      margin-left: 4%;
+      margin-top: 6px;
       color: var(--red);
       font-family: var(--serif);
-      font-size: .88em;
+      font-size: .92em;
       font-weight: 500;
-      letter-spacing: -.03em;
+      letter-spacing: -.02em;
       line-height: 1.15;
       font-style: italic;
       text-transform: none;
+      word-break: keep-all;
+      text-wrap: balance;
     }
 
     .hero-sub {
       max-width: 620px;
-      margin: 28px 0 0;
+      margin: 24px 0 0;
       color: var(--graphite);
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 600;
       line-height: 1.6;
+      text-wrap: pretty;
     }
     .hero-intro {
       max-width: 650px;
-      margin: 14px 0 0;
+      margin: 12px 0 0;
       color: var(--muted);
       font-size: 13.5px;
       line-height: 1.8;
+      text-wrap: pretty;
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 32px;
+      margin-top: 28px;
     }
 
     /* Hero Right Form (Brutalist Card) */
     .hero-form-card {
       background: var(--white);
       border: 1px solid var(--ink);
-      padding: 32px;
-      box-shadow: 14px 14px 0 var(--deep-red);
+      padding: 30px 28px;
+      box-shadow: 12px 12px 0 var(--deep-red);
       position: relative;
     }
     .hero-form-card h3 {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 900;
       letter-spacing: -.02em;
       margin-bottom: 6px;
@@ -364,22 +386,23 @@
     .hero-form-card p {
       font-size: 12px;
       color: var(--muted);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
+      line-height: 1.5;
     }
     .form-group {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .form-group label {
       display: block;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: .02em;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       color: var(--graphite);
     }
     .form-control {
       width: 100%;
-      height: 42px;
+      height: 40px;
       padding: 0 12px;
       border: 1px solid var(--line);
       background: var(--paper);
@@ -393,8 +416,8 @@
       background: var(--white);
     }
     textarea.form-control {
-      height: 70px;
-      padding: 10px 12px;
+      height: 64px;
+      padding: 8px 12px;
     }
 
     /* Metric Strip */
@@ -406,7 +429,7 @@
       background: var(--white);
     }
     .metric {
-      padding: 26px 28px;
+      padding: 24px 26px;
       border-right: 1px solid var(--line);
     }
     .metric:first-child { padding-left: 52px; }
@@ -415,7 +438,7 @@
       display: block;
       color: var(--red);
       font-family: var(--serif);
-      font-size: 38px;
+      font-size: 36px;
       font-weight: 600;
       line-height: 1;
     }
@@ -425,7 +448,8 @@
       color: var(--muted);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .04em;
+      letter-spacing: .03em;
+      text-wrap: balance;
     }
 
     /* Kinetic Marquee */
@@ -455,7 +479,7 @@
 
     /* Section Headings */
     .section {
-      padding: 100px 0;
+      padding: 90px 0;
       border-bottom: 1px solid var(--line);
     }
     .section.dark {
@@ -464,10 +488,10 @@
     }
     .section-head {
       display: grid;
-      grid-template-columns: minmax(240px, .75fr) minmax(0, 1.25fr);
-      gap: 60px;
+      grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr);
+      gap: 50px;
       align-items: end;
-      margin-bottom: 56px;
+      margin-bottom: 50px;
     }
     .section-index {
       display: flex;
@@ -479,7 +503,7 @@
       color: transparent;
       -webkit-text-stroke: 1px var(--red);
       font-family: var(--serif);
-      font-size: 76px;
+      font-size: 72px;
       font-weight: 600;
       line-height: .8;
       transition: color .35s var(--ease), transform .35s var(--ease);
@@ -495,25 +519,28 @@
       padding-bottom: 6px;
     }
     .section-title {
-      font-size: clamp(28px, 3.2vw, 44px);
+      font-size: clamp(26px, 2.8vw, 40px);
       font-weight: 900;
       letter-spacing: -.03em;
-      line-height: 1.15;
+      line-height: 1.2;
+      text-wrap: balance;
     }
     .section-title em {
       font-family: var(--serif);
       font-style: italic;
       color: var(--red);
       font-weight: 500;
+      word-break: keep-all;
     }
     .section.dark .section-title em {
       color: #FF6B6B;
     }
     .section-lead {
-      margin-top: 14px;
-      font-size: 14px;
+      margin-top: 12px;
+      font-size: 13.5px;
       line-height: 1.7;
       color: var(--muted);
+      text-wrap: pretty;
     }
     .section.dark .section-lead {
       color: rgba(255,255,255,.65);
@@ -523,12 +550,12 @@
     .service-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 20px;
     }
     .service-card {
       background: var(--white);
       border: 1px solid var(--ink);
-      padding: 32px 26px;
+      padding: 30px 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -540,17 +567,18 @@
     }
     .service-num {
       font-family: var(--serif);
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 600;
       color: var(--red);
       line-height: 1;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .service-title {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 800;
       letter-spacing: -.01em;
       margin-bottom: 4px;
+      text-wrap: balance;
     }
     .service-en {
       font-size: 10px;
@@ -558,17 +586,18 @@
       letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .service-desc {
-      font-size: 12.5px;
+      font-size: 12px;
       color: var(--graphite);
       line-height: 1.65;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
+      text-wrap: pretty;
     }
     .service-features {
       border-top: 1px solid var(--line);
-      padding-top: 14px;
+      padding-top: 12px;
       font-size: 11px;
       color: var(--muted);
       list-style: none;
@@ -578,27 +607,30 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      text-wrap: pretty;
     }
     .service-features li i {
       color: var(--red);
       font-size: 10px;
+      flex-shrink: 0;
     }
 
     /* JOB SHOWCASE SECTION */
     .job-filters {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 36px;
+      gap: 8px;
+      margin-bottom: 32px;
       border-bottom: 1px solid var(--line);
-      padding-bottom: 18px;
+      padding-bottom: 16px;
     }
     .filter-pill {
-      padding: 8px 18px;
+      padding: 7px 16px;
       border: 1px solid var(--line);
       background: var(--white);
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 750;
+      white-space: nowrap;
       cursor: pointer;
       transition: all .2s;
     }
@@ -611,12 +643,12 @@
     .job-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 22px;
     }
     .job-card {
       background: var(--white);
       border: 1px solid var(--ink);
-      padding: 28px;
+      padding: 26px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -630,31 +662,33 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 16px;
+      gap: 14px;
       margin-bottom: 12px;
     }
     .job-tag {
       font-size: 10px;
       font-weight: 850;
-      letter-spacing: .08em;
+      letter-spacing: .06em;
       text-transform: uppercase;
       padding: 3px 8px;
       background: var(--paper-2);
       border: 1px solid var(--line);
+      white-space: nowrap;
     }
     .job-salary {
       font-family: var(--serif);
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 600;
       color: var(--red);
       white-space: nowrap;
     }
     .job-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 850;
-      line-height: 1.35;
-      margin-bottom: 12px;
+      line-height: 1.38;
+      margin-bottom: 10px;
       color: var(--ink);
+      text-wrap: balance;
     }
     .job-title:hover {
       color: var(--red);
@@ -663,24 +697,27 @@
       font-size: 12px;
       color: var(--graphite);
       line-height: 1.6;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .job-meta p {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 8px;
       margin-bottom: 4px;
+      text-wrap: pretty;
     }
     .job-meta i {
       color: var(--red);
       font-size: 11px;
       width: 14px;
+      margin-top: 3px;
+      flex-shrink: 0;
     }
     .job-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .job-chip {
       font-size: 10px;
@@ -689,31 +726,34 @@
       background: var(--paper);
       border: 1px solid var(--line);
       color: var(--muted);
+      white-space: nowrap;
     }
     .job-card-bottom {
       border-top: 1px solid var(--line);
-      padding-top: 16px;
+      padding-top: 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
     }
     .job-time {
       font-size: 10px;
       color: var(--muted);
       font-weight: 600;
+      white-space: nowrap;
     }
     .job-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
     .btn-job-quote {
       font-size: 11px;
       font-weight: 750;
       color: var(--graphite);
-      padding: 6px 10px;
+      padding: 5px 8px;
       border: 1px solid transparent;
+      white-space: nowrap;
       transition: all .2s;
     }
     .btn-job-quote:hover {
@@ -723,13 +763,14 @@
     .btn-job-apply {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       background: var(--red);
       color: #fff;
       font-size: 11px;
       font-weight: 800;
-      padding: 8px 14px;
+      padding: 7px 12px;
       border: 1px solid var(--red);
+      white-space: nowrap;
       transition: all .2s;
     }
     .btn-job-apply:hover {
@@ -740,12 +781,12 @@
     .sector-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
     .sector-card {
       border: 1px solid rgba(255,255,255,.15);
       background: rgba(255,255,255,.04);
-      padding: 28px 22px;
+      padding: 26px 20px;
       transition: background .3s, transform .3s;
     }
     .sector-card:hover {
@@ -754,51 +795,55 @@
       border-color: var(--red);
     }
     .sector-icon {
-      font-size: 26px;
+      font-size: 24px;
       color: #FF6B6B;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .sector-title {
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 800;
       margin-bottom: 6px;
       color: #fff;
+      text-wrap: balance;
     }
     .sector-desc {
-      font-size: 11.5px;
+      font-size: 11px;
       color: rgba(255,255,255,.6);
       line-height: 1.6;
+      text-wrap: pretty;
     }
 
     /* Contact Section */
     .contact-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-      gap: 48px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+      gap: 40px;
     }
     .contact-info-card {
       background: var(--paper-2);
       border: 1px solid var(--ink);
-      padding: 40px;
+      padding: 36px 32px;
       box-shadow: 10px 10px 0 var(--ink);
     }
     .qr-box {
       background: var(--white);
       border: 1px solid var(--ink);
-      padding: 20px;
+      padding: 18px;
       display: inline-block;
-      margin: 24px 0;
+      margin: 20px 0;
       text-align: center;
     }
     .qr-box p {
       font-size: 11px;
       font-weight: 800;
-      margin-top: 10px;
+      margin-top: 8px;
+      white-space: nowrap;
     }
     .qr-box small {
       display: block;
       font-size: 10px;
       color: var(--muted);
+      white-space: nowrap;
     }
 
     /* Footer */
@@ -806,22 +851,23 @@
       background: var(--graphite);
       color: rgba(255,255,255,.7);
       font-size: 12px;
-      padding: 70px 0 30px;
+      padding: 60px 0 28px;
       border-top: 1px solid var(--ink);
     }
     .footer-grid {
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 50px;
+      gap: 36px;
+      margin-bottom: 40px;
     }
     .footer-col h4 {
       color: #fff;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 800;
       letter-spacing: .08em;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      white-space: nowrap;
     }
     .footer-col ul {
       list-style: none;
@@ -835,11 +881,12 @@
     }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,.1);
-      padding-top: 24px;
+      padding-top: 20px;
       display: flex;
       justify-content: space-between;
       font-size: 11px;
       color: rgba(255,255,255,.45);
+      text-wrap: balance;
     }
 
     /* Modal */
@@ -864,27 +911,28 @@
     .modal-box {
       background: var(--paper);
       border: 1px solid var(--ink);
-      box-shadow: 16px 16px 0 var(--ink);
-      max-width: 400px;
+      box-shadow: 14px 14px 0 var(--ink);
+      max-width: 380px;
       width: 100%;
-      padding: 36px;
+      padding: 32px 28px;
       text-align: center;
       position: relative;
     }
 
     @media (max-width: 1024px) {
-      .hero-grid, .section-head, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+      .hero-grid, .section-head, .contact-layout { grid-template-columns: 1fr; gap: 36px; }
       .service-grid, .sector-grid { grid-template-columns: repeat(2, 1fr); }
       .job-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-rail { display: none; }
       .hero-grid { padding-left: 0; }
       .metric-strip { grid-template-columns: repeat(2, 1fr); }
-      .metric:first-child { padding-left: 28px; }
+      .metric:first-child { padding-left: 26px; }
     }
     @media (max-width: 640px) {
       .service-grid, .sector-grid, .metric-strip, .footer-grid { grid-template-columns: 1fr; }
       .main-nav { display: none; }
+      .hero h1 { font-size: 28px; }
     }
   </style>
 </head>
@@ -948,6 +996,7 @@
         <div class="hero-copy">
           <span class="micro-label" id="hero-micro">HR1Vietnam China Business Division</span>
           
+          <!-- Tiêu đề Hero 2 dòng chuẩn, không bị rớt lẻ chữ -->
           <h1>
             <span id="hero-h1-top">专注中资企业</span>
             <em id="hero-h1-bot">越南中高端猎头与双语人才</em>
@@ -979,7 +1028,7 @@
 
         <!-- Right Quick Form Card -->
         <div class="hero-form-card">
-          <div class="micro-label" style="margin-bottom: 12px;" id="form-micro">B2B Direct Inquiry</div>
+          <div class="micro-label" style="margin-bottom: 10px;" id="form-micro">B2B Direct Inquiry</div>
           <h3 id="form-title">快速提交企业招聘委托</h3>
           <p id="form-sub">提交您的用人需求，中国业务总监将在 2 小时内为您致电解答并提供人才画像。</p>
 
@@ -989,7 +1038,7 @@
               <input type="text" class="form-control" required placeholder="如：某某科技（越南）有限公司">
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
               <div class="form-group">
                 <label id="lbl-name">联系人姓名 *</label>
                 <input type="text" class="form-control" required placeholder="王总 / 张经理">
@@ -1017,7 +1066,7 @@
               </select>
             </div>
 
-            <button type="submit" class="button primary" style="width: 100%; margin-top: 10px;">
+            <button type="submit" class="button primary" style="width: 100%; margin-top: 8px;">
               <span id="btn-submit-hero">免费获取人才匹配建议与报价</span>
               <span>→</span>
             </button>
@@ -1285,7 +1334,7 @@
         </div>
 
         <!-- Candidate Banner -->
-        <div style="margin-top: 40px; padding: 28px 32px; background: var(--white); border: 1px solid var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div style="margin-top: 36px; padding: 26px 30px; background: var(--white); border: 1px solid var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
           <div>
             <div class="micro-label">Talent Registration</div>
             <h4 style="font-size: 15px; font-weight: 850; margin-top: 4px;" id="cand-title">您是精通中文的职场精英？(Bilingual Candidate)</h4>
@@ -1358,13 +1407,13 @@
           <!-- Left Info & WeChat QR -->
           <div class="contact-info-card">
             <div class="micro-label">China Desk Office</div>
-            <h3 style="font-size: 20px; font-weight: 900; margin: 8px 0 16px;" id="qr-sec-title">微信扫码直接咨询</h3>
-            <p style="font-size: 13px; color: var(--graphite); line-height: 1.6;" id="qr-sec-desc">
+            <h3 style="font-size: 19px; font-weight: 900; margin: 8px 0 14px;" id="qr-sec-title">微信扫码直接咨询</h3>
+            <p style="font-size: 12.5px; color: var(--graphite); line-height: 1.6;" id="qr-sec-desc">
               我们常驻胡志明市与河内的中国业务团队均精通普通话与粤语，为您提供高效沟通。
             </p>
 
             <div class="qr-box">
-              <svg style="width: 150px; height: 150px; margin: 0 auto;" viewBox="0 0 100 100" fill="currentColor">
+              <svg style="width: 140px; height: 140px; margin: 0 auto;" viewBox="0 0 100 100" fill="currentColor">
                 <path d="M0 0h30v30H0zm5 5v20h20V5zm45-5h30v30H50zm5 5v20h20V5zM0 50h30v30H0zm5 5v20h20V55zm40-5h10v10H45zm20 0h10v10H65zm-20 20h10v10H45zm20 0h10v10H65zm10-10h10v10H75zm0 20h10v10H75zm-30 0h10v10H45zm0-20h10v10H45z"/>
                 <circle cx="15" cy="15" r="5" fill="#B11116"/>
                 <circle cx="65" cy="15" r="5" fill="#B11116"/>
@@ -1374,7 +1423,7 @@
               <small>微信号: hr1vietnam_chinadesk</small>
             </div>
 
-            <div style="font-size: 13px; color: var(--graphite); line-height: 1.8;">
+            <div style="font-size: 12.5px; color: var(--graphite); line-height: 1.8;">
               <p><i class="fa-solid fa-phone" style="color: var(--red); width: 20px;"></i> <span id="contact-phone">服务热线: (+84) 28 3822 6666</span></p>
               <p><i class="fa-solid fa-envelope" style="color: var(--red); width: 20px;"></i> <span>专用邮箱: china.desk@hr1vietnam.com</span></p>
               <p><i class="fa-solid fa-location-dot" style="color: var(--red); width: 20px;"></i> <span id="contact-addr">越办总部: 胡志明市第1郡 / 河内市纸桥郡</span></p>
@@ -1382,12 +1431,12 @@
           </div>
 
           <!-- Right Form -->
-          <div style="background: var(--white); border: 1px solid var(--ink); padding: 40px; box-shadow: 10px 10px 0 var(--red);">
+          <div style="background: var(--white); border: 1px solid var(--ink); padding: 36px 32px; box-shadow: 10px 10px 0 var(--red);">
             <div class="micro-label">Consultation Request</div>
-            <h3 style="font-size: 20px; font-weight: 900; margin: 8px 0 20px;" id="b2b-form-title">提交委托需求表</h3>
+            <h3 style="font-size: 19px; font-weight: 900; margin: 8px 0 18px;" id="b2b-form-title">提交委托需求表</h3>
 
             <form onsubmit="event.preventDefault(); alert('委托已提交！顾问将即刻联系您。');">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
                 <div class="form-group">
                   <label id="form-f-company">企业名称 (Company Name) *</label>
                   <input type="text" class="form-control" required placeholder="如：某某科技越南有限公司">
@@ -1404,7 +1453,7 @@
                 </div>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
                 <div class="form-group">
                   <label id="form-f-name">联系人姓名及职务 *</label>
                   <input type="text" class="form-control" required placeholder="如：陈总 / HR Director">
@@ -1425,7 +1474,7 @@
                 <textarea class="form-control" placeholder="例：急招 1 名中文流利的注塑厂长，工作地点北宁，月薪预算 3000 USD..."></textarea>
               </div>
 
-              <button type="submit" class="button primary" style="width: 100%; margin-top: 10px;">
+              <button type="submit" class="button primary" style="width: 100%; margin-top: 8px;">
                 <span id="form-f-btn">确认提交委托 · 获取专业方案</span>
                 <span>→</span>
               </button>
@@ -1625,7 +1674,7 @@
         stat2: "Hồ sơ ứng viên tiếng Trung sẵn sàng",
         stat3: "Ngày giới thiệu ứng viên đợt 1",
         stat4: "Tỷ lệ ứng viên pass thử việc thành công",
-        sec1Title: "Giải pháp nhân sự toàn diện cho <em>Doanh nghiệp FDI Trung Quốc</em>",
+        sec1Title: "Giải pháp nhân sự toàn diện cho <em>Doanh nghiệp FDI</em>",
         sec1Lead: "Đáp ứng trọn gói nhu cầu từ xây dựng nhà máy mới, tuyển dụng hàng loạt đến săn đầu người cấp cao và tuân thủ luật lao động.",
         srv1Title: "Headhunter Cấp Trung & Cao",
         srv1Desc: "Săn tìm Giám đốc nhà máy, Giám đốc sản xuất, Giám đốc tài chính, Trưởng phòng kỹ thuật am hiểu tiếng Trung.",
@@ -1653,7 +1702,7 @@
         candTitle: "Bạn là Ứng viên thành thạo Tiếng Trung?",
         candDesc: "Chưa tìm thấy công việc ưng ý? Hãy gửi CV vào Talent Pool tiếng Trung của HR1 để nhận cơ hội phỏng vấn mức lương hấp dẫn.",
         candBtn: "Gửi CV Ứng Tuyển Nhanh ↗",
-        sec3Title: "Phủ sóng sâu rộng các <em>Cụm ngành công nghiệp trọng điểm</em>",
+        sec3Title: "Phủ sóng sâu rộng các <em>Cụm ngành trọng điểm</em>",
         sec3Lead: "HR1 không chỉ am hiểu săn đầu người mà còn thấu hiểu sâu sắc dây chuyền sản xuất và cơ cấu tổ chức của từng ngành.",
         sec1T: "Điện tử & Bán dẫn (3C)",
         sec1D: "SMT, lắp ráp, bo mạch PCB, linh kiện âm thanh, quang học cho cấp quản lý & kỹ sư.",
@@ -1663,7 +1712,7 @@
         sec3D: "Giám đốc nhà máy gia công xuất khẩu quy mô lớn, kỹ sư IE, quản lý đơn hàng Merchandiser.",
         sec4T: "Logistics & Kho bãi Xuyên biên giới",
         sec4D: "Giám đốc thông quan hải quan, trưởng kho ngoại quan, quản lý vận tải đường bộ/biển.",
-        sec4Title: "Khởi đầu hợp tác: <em>Kết nối trực tiếp chuyên gia China Desk</em>",
+        sec4Title: "Khởi đầu hợp tác: <em>Kết nối chuyên gia China Desk</em>",
         sec4Lead: "Sẵn sàng hỗ trợ tư vấn tuyển dụng hoặc cung cấp báo cáo khảo sát lương nhân sự tiếng Trung tại Việt Nam.",
         qrSecTitle: "Quét mã QR WeChat trao đổi nhanh",
         qrSecDesc: "Đội ngũ chuyên trách tại TP.HCM và Hà Nội giao tiếp lưu loát tiếng Trung (Phổ thông & Quảng Đông).",
@@ -1690,7 +1739,7 @@
         headerCta: "Request Recruitment",
         heroMicro: "HR1Vietnam China Business Division",
         heroH1Top: "Empowering FDI Enterprises",
-        heroH1Bot: "Executive Search & Chinese Bilingual Talent in Vietnam",
+        heroH1Bot: "Executive Search & Chinese Bilingual Talent",
         heroSub: "Leading recruitment and staffing solutions for Chinese and foreign-invested enterprises in Vietnam",
         heroIntro: "With over 10 years of in-depth local experience, HR1VIETNAM maintains a premier talent network of 25,000+ Chinese-speaking executives, plant managers, and technical specialists across Vietnam.",
         heroBtnB2b: "For Employers: Get Proposals",
