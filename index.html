@@ -645,6 +645,28 @@
       background: var(--ink);
       color: #fff;
     }
+    .view-switcher {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      background: var(--paper);
+      border: 1px solid var(--ink);
+    }
+    .view-btn {
+      padding: 6px 14px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--graphite);
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: transparent;
+      white-space: nowrap;
+      transition: all .2s;
+    }
+    .view-btn.active {
+      background: var(--ink);
+      color: #fff;
+    }
 
     .job-grid {
       display: grid;
@@ -1195,150 +1217,52 @@
           </div>
         </header>
 
-        <!-- Filter Tabs -->
-        <div class="job-filters">
-          <button class="filter-pill active" onclick="filterJobs('all')" id="pill-all">全部职位 (All)</button>
-          <button class="filter-pill" onclick="filterJobs('mfg')" id="pill-mfg">制造业 / 工业区 (Manufacturing)</button>
-          <button class="filter-pill" onclick="filterJobs('exec')" id="pill-exec">高管 / 厂长 (Management)</button>
-          <button class="filter-pill" onclick="filterJobs('it')" id="pill-it">IT / 软件技术 (IT - Software)</button>
-          <button class="filter-pill" onclick="filterJobs('fmcg')" id="pill-fmcg">快消 / 财务 / 销售 (Finance & Sales)</button>
+        <!-- View Switcher & Filters Row -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 24px;">
+          <!-- Filter Tabs -->
+          <div class="job-filters" style="margin-bottom: 0; padding-bottom: 0; border-bottom: 0;" id="jobFilterContainer">
+            <button class="filter-pill active" onclick="filterJobs('all', event)" id="pill-all">全部职位 (All)</button>
+            <button class="filter-pill" onclick="filterJobs('mfg', event)" id="pill-mfg">制造业 / 工业区 (Manufacturing)</button>
+            <button class="filter-pill" onclick="filterJobs('exec', event)" id="pill-exec">高管 / 厂长 (Management)</button>
+            <button class="filter-pill" onclick="filterJobs('it', event)" id="pill-it">IT / 软件技术 (IT - Software)</button>
+            <button class="filter-pill" onclick="filterJobs('fmcg', event)" id="pill-fmcg">快消 / 财务 / 销售 (Finance & Sales)</button>
+          </div>
+
+          <!-- Dual View Switcher -->
+          <div class="view-switcher">
+            <button class="view-btn active" id="viewBtnCards" onclick="switchJobView('cards')">
+              <i class="fa-solid fa-table-cells-large mr-1"></i> <span id="lblViewCards">精选卡片 (Cards)</span>
+            </button>
+            <button class="view-btn" id="viewBtnIframe" onclick="switchJobView('iframe')">
+              <i class="fa-solid fa-window-maximize mr-1"></i> <span id="lblViewIframe">系统原版内嵌 (DEV Iframe)</span>
+            </button>
+          </div>
         </div>
 
-        <!-- Job Grid -->
-        <div class="job-grid">
-          
-          <!-- Job 1 -->
-          <div class="job-card">
-            <div>
-              <div class="job-card-top">
-                <span class="job-tag">制造业 · 同奈省</span>
-                <div class="job-salary">3,000 - 4,500 USD</div>
-              </div>
-              <h3 class="job-title">
-                <a href="https://hr1vietnam.com/search-job?keywords=chinese" target="_blank" id="job1-title">
-                  工厂生产运营总监 / Production Director (中文/English)
-                </a>
-              </h3>
-              <div class="job-meta">
-                <p><i class="fa-solid fa-location-dot"></i> <span id="job1-loc">工作地点: 越南同奈省工业区 (Đồng Nai)</span></p>
-                <p><i class="fa-solid fa-briefcase"></i> <span id="job1-req">行业要求: 电子/精密制造 8 年以上经验，中文流利汇报</span></p>
-              </div>
-              <div class="job-chips">
-                <span class="job-chip">Fluent Chinese</span>
-                <span class="job-chip">Lean Production</span>
-                <span class="job-chip">Plant Management</span>
-              </div>
-            </div>
-            <div class="job-card-bottom">
-              <span class="job-time"><i class="fa-regular fa-clock"></i> 2天前更新</span>
-              <div class="job-actions">
-                <a href="#contact" class="btn-job-quote">招聘同类人才？</a>
-                <a href="https://hr1vietnam.com/search-job?keywords=chinese" target="_blank" class="btn-job-apply">
-                  <span>查看详情 ↗</span>
-                </a>
-              </div>
-            </div>
-          </div>
+        <!-- 1. Real Jobs Dynamic Grid (Option A) -->
+        <div class="job-grid" id="jobGridContainer">
+          <!-- Dynamically populated from realJobs array in Javascript -->
+        </div>
 
-          <!-- Job 2 -->
-          <div class="job-card">
-            <div>
-              <div class="job-card-top">
-                <span class="job-tag">IT 软件 · 胡志明市</span>
-                <div class="job-salary">1,500 - 2,200 USD</div>
-              </div>
-              <h3 class="job-title">
-                <a href="https://hr1vietnam.com/search-job?keywords=chinese" target="_blank" id="job2-title">
-                  IT 项目经理 / Project Manager (Java, Chinese & English)
-                </a>
-              </h3>
-              <div class="job-meta">
-                <p><i class="fa-solid fa-location-dot"></i> <span id="job2-loc">工作地点: 胡志明市第1郡 (TP. Hồ Chí Minh)</span></p>
-                <p><i class="fa-solid fa-briefcase"></i> <span id="job2-req">行业要求: 具备 Java 开发背景，能直接与中国研发中心无障碍沟通</span></p>
-              </div>
-              <div class="job-chips">
-                <span class="job-chip">Java</span>
-                <span class="job-chip">Chinese</span>
-                <span class="job-chip">Agile Scrum</span>
-              </div>
-            </div>
-            <div class="job-card-bottom">
-              <span class="job-time"><i class="fa-regular fa-clock"></i> 3天前更新</span>
-              <div class="job-actions">
-                <a href="#contact" class="btn-job-quote">招聘同类人才？</a>
-                <a href="https://hr1vietnam.com/search-job?keywords=chinese" target="_blank" class="btn-job-apply">
-                  <span>查看详情 ↗</span>
-                </a>
-              </div>
-            </div>
+        <!-- 2. DEV Iframe Container (Toggleable) -->
+        <div id="jobIframeContainer" style="display: none; background: var(--white); border: 1px solid var(--ink); box-shadow: 10px 10px 0 var(--ink); padding: 16px; margin-bottom: 30px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--line);">
+            <span style="font-size: 11px; font-weight: 800; color: var(--red); text-transform: uppercase;">
+              <i class="fa-solid fa-circle-check text-green-600 mr-1.5"></i> 实时同步自 HR1VIETNAM 营销系统 (Source: hr1vietnam.com/jobsmarketing)
+            </span>
+            <a href="https://hr1vietnam.com/jobsmarketing" target="_blank" style="font-size: 11px; font-weight: 700; color: var(--red);">
+              在新标签页打开原版 ↗
+            </a>
           </div>
+          <iframe style="width: 100%; height: 970px; border: none; background: #fff;" src="https://hr1vietnam.com/jobsmarketing" loading="lazy"></iframe>
+        </div>
 
-          <!-- Job 3 -->
-          <div class="job-card">
-            <div>
-              <div class="job-card-top">
-                <span class="job-tag">快消零售 · 河内</span>
-                <div class="job-salary">50,000,000+ VND</div>
-              </div>
-              <h3 class="job-title">
-                <a href="https://hr1vietnam.com/tim-viec?keywords=ti%E1%BA%BFng+trung" target="_blank" id="job3-title">
-                  越南全国业务销售总监 / Sales Director (Tiếng Trung)
-                </a>
-              </h3>
-              <div class="job-meta">
-                <p><i class="fa-solid fa-location-dot"></i> <span id="job3-loc">工作地点: 河内市 / 全越南 (Hà Nội)</span></p>
-                <p><i class="fa-solid fa-briefcase"></i> <span id="job3-req">行业要求: 拓展在越中资企业及本地商超渠道，具备团队组建经验</span></p>
-              </div>
-              <div class="job-chips">
-                <span class="job-chip">B2B Sales</span>
-                <span class="job-chip">Tiếng Trung</span>
-                <span class="job-chip">FMCG</span>
-              </div>
-            </div>
-            <div class="job-card-bottom">
-              <span class="job-time"><i class="fa-regular fa-clock"></i> 4天前更新</span>
-              <div class="job-actions">
-                <a href="#contact" class="btn-job-quote">招聘同类人才？</a>
-                <a href="https://hr1vietnam.com/tim-viec?keywords=ti%E1%BA%BFng+trung" target="_blank" class="btn-job-apply">
-                  <span>查看详情 ↗</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Job 4 -->
-          <div class="job-card">
-            <div>
-              <div class="job-card-top">
-                <span class="job-tag">财务与税务 · 北宁</span>
-                <div class="job-salary">面议 (Negotiable)</div>
-              </div>
-              <h3 class="job-title">
-                <a href="https://hr1vietnam.com/tim-viec?keywords=ti%E1%BA%BFng+trung" target="_blank" id="job4-title">
-                  资深双语总账会计主管 / Chief Accountant (Tiếng Trung/Việt)
-                </a>
-              </h3>
-              <div class="job-meta">
-                <p><i class="fa-solid fa-location-dot"></i> <span id="job4-loc">工作地点: 越南北宁省/北江省工业区</span></p>
-                <p><i class="fa-solid fa-briefcase"></i> <span id="job4-req">行业要求: 熟悉越南税务与海关核销，能独立向中方总部汇报</span></p>
-              </div>
-              <div class="job-chips">
-                <span class="job-chip">Chief Accountant</span>
-                <span class="job-chip">Vietnam Tax</span>
-                <span class="job-chip">Chinese</span>
-              </div>
-            </div>
-            <div class="job-card-bottom">
-              <span class="job-time"><i class="fa-regular fa-clock"></i> 1周前更新</span>
-              <div class="job-actions">
-                <a href="#contact" class="btn-job-quote">招聘同类人才？</a>
-                <a href="https://hr1vietnam.com/tim-viec?keywords=ti%E1%BA%BFng+trung" target="_blank" class="btn-job-apply">
-                  <span>查看详情 ↗</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
+        <!-- View All Jobs Action -->
+        <div style="text-align: center; margin-top: 28px;">
+          <a href="https://hr1vietnam.com/search-job?keywords=chinese" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; color: var(--red); padding: 10px 20px; border: 1px solid var(--red); background: var(--white); box-shadow: 4px 4px 0 var(--ink); text-decoration: none; transition: transform .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+            <span id="lblViewAllJobs">前往查看全部 16+ 个在招中文岗位 (View All Chinese Jobs on HR1Vietnam)</span>
+            <span>→</span>
+          </a>
         </div>
 
         <!-- Candidate Banner -->
@@ -1645,6 +1569,9 @@
         contactAddr: "越办总部: 胡志明市第1郡 / 河内市纸桥郡",
         b2bFormTitle: "提交委托需求表",
         formFBtn: "确认提交委托 · 获取专业方案",
+        lblViewCards: "精选卡片 (Cards)",
+        lblViewIframe: "系统原版内嵌 (DEV Iframe)",
+        lblViewAllJobs: "前往查看全部 16+ 个在招中文岗位 (View All Chinese Jobs on HR1Vietnam) →",
         footerDesc: "越南专业中高端猎头与人力资源解决方案提供商。中国服务专区专注助力出海中资企业完成团队本土化建设与合规用工。",
         ftCol1T: "核心业务",
         ftCol2T: "HR1 生态体系",
@@ -1729,6 +1656,9 @@
         contactAddr: "Văn phòng: Q.1, TP.HCM / Cầu Giấy, Hà Nội",
         b2bFormTitle: "Phiếu Đăng Ký Yêu Cầu Tuyển Dụng",
         formFBtn: "Gửi Yêu Cầu · Nhận Phương Án Nhân Sự",
+        lblViewCards: "Tuyển chọn VIP (Cards)",
+        lblViewIframe: "Nhúng hệ thống trực tiếp (DEV Iframe)",
+        lblViewAllJobs: "Xem thêm toàn bộ 16+ việc làm tiếng Trung trên HR1Vietnam →",
         footerDesc: "Nhà cung cấp giải pháp Headhunter và Nhân sự chuyên nghiệp tại Việt Nam. China Desk chuyên hỗ trợ các doanh nghiệp FDI xây dựng đội ngũ vững mạnh.",
         ftCol1T: "Dịch Vụ Cốt Lõi",
         ftCol2T: "Hệ Sinh Thái HR1",
@@ -1813,6 +1743,9 @@
         contactAddr: "HQ: District 1, HCMC / Cau Giay, Hanoi",
         b2bFormTitle: "Recruitment Inquiry Form",
         formFBtn: "Submit Request · Get Tailored Plan",
+        lblViewCards: "Curated Cards (VIP)",
+        lblViewIframe: "Live System Embed (Iframe)",
+        lblViewAllJobs: "Explore All 16+ Chinese Bilingual Jobs on HR1Vietnam →",
         footerDesc: "Leading executive search and human resources solution provider in Vietnam. Dedicated China Desk empowering foreign enterprises.",
         ftCol1T: "Core Services",
         ftCol2T: "HR1 Ecosystem",
@@ -1821,7 +1754,210 @@
       }
     };
 
+    // DỮ LIỆU JOB THẬT ĐƯỢC CHỌN LỌC TỪ DEV (https://hr1vietnam.com/jobsmarketing)
+    const realJobs = [
+      {
+        id: "6250",
+        cat: "mfg",
+        url: "https://hr1vietnam.com/job/phien-dich-tieng-trung-6250.html",
+        tag: { zh: "电子制造 · 同奈省", vi: "Sản xuất Điện tử · Đồng Nai", en: "Electronics · Dong Nai" },
+        salary: { zh: "12 - 20 百万越盾", vi: "12 - 20 Triệu VNĐ", en: "12 - 20 Million VND" },
+        title: { zh: "驻厂中文翻译主管 / Chinese Interpreter (电子制造)", vi: "Phiên Dịch Tiếng Trung (Ngành Điện Tử)", en: "Chinese Interpreter (Electronics Mfg)" },
+        loc: { zh: "越南同奈省工业区 (Đồng Nai)", vi: "Đồng Nai (Khu công nghiệp)", en: "Dong Nai Industrial Park" },
+        req: { zh: "熟练中越口译笔译，协调中方工程师与车间生产排产", vi: "Thành thạo dịch thuật Trung - Việt, phối hợp kỹ sư và xưởng sản xuất", en: "Fluent CN-VN translation, shopfloor & engineering coordination" },
+        chips: ["HSK 5-6", "Electronics", "Dong Nai"],
+        time: { zh: "实时更新", vi: "Vừa cập nhật", en: "Recently updated" }
+      },
+      {
+        id: "4958",
+        cat: "exec",
+        url: "https://hr1vietnam.com/job/giam-doc-kinh-doanh-tieng-trung-4958.html",
+        tag: { zh: "快消零售 · 胡志明市", vi: "FMCG · TP. Hồ Chí Minh", en: "FMCG · HCMC" },
+        salary: { zh: "50+ 百万越盾起 (≈ 2,000+ USD)", vi: "Trên 50 Triệu VNĐ", en: "Over 50 Million VND (>2,000 USD)" },
+        title: { zh: "销售业务总监 / Sales Director (中文业务线)", vi: "Giám Đốc Kinh Doanh (Tiếng Trung)", en: "Sales Director (Chinese-speaking)" },
+        loc: { zh: "胡志明市 (TP. Hồ Chí Minh)", vi: "TP. Hồ Chí Minh (Toàn quốc)", en: "Ho Chi Minh City / Nationwide" },
+        req: { zh: "5年以上B2B及商超销售拓展经验，精通中文汇报与团队组建", vi: "5+ năm kinh nghiệm phát triển kênh B2B/siêu thị, tiếng Trung lưu loát", en: "5+ years in B2B/FMCG expansion, fluent Chinese reporting" },
+        chips: ["Sales Director", "FMCG", "B2B"],
+        time: { zh: "3天前更新", vi: "3 ngày trước", en: "3 days ago" }
+      },
+      {
+        id: "6233",
+        cat: "fmcg",
+        url: "https://hr1vietnam.com/job/ke-toan-truong-tieng-trung-6233.html",
+        tag: { zh: "制造业财务 · 同奈省", vi: "Kế toán · Đồng Nai", en: "Finance · Dong Nai" },
+        salary: { zh: "40 - 50 百万越盾 (≈ 1,600 - 2,000 USD)", vi: "40 - 50 Triệu VNĐ", en: "40 - 50 Million VND" },
+        title: { zh: "制造工厂总账主管 / Chief Accountant (精通中文)", vi: "Kế Toán Trưởng (Tiếng Trung)", en: "Chief Accountant (Chinese-speaking)" },
+        loc: { zh: "越南同奈省工业区 (Đồng Nai)", vi: "Đồng Nai", en: "Dong Nai Province" },
+        req: { zh: "具备首席会计师证书，熟悉越南税法与海关核销，直接向中方汇报", vi: "Có chứng chỉ KTT, am hiểu quyết toán thuế & hải quan, báo cáo trực tiếp sếp Trung", en: "Chief Accountant certificate, Vietnam tax compliance, reporting to HQ" },
+        chips: ["Chief Accountant", "VAS", "Vietnam Tax"],
+        time: { zh: "2天前更新", vi: "2 ngày trước", en: "2 days ago" }
+      },
+      {
+        id: "5713",
+        cat: "mfg",
+        url: "https://hr1vietnam.com/job/ki-su-co-khi-tieng-trung-5713.html",
+        tag: { zh: "机械工程 · 北宁省", vi: "Cơ khí chế tạo · Bắc Ninh", en: "Mechanical · Bac Ninh" },
+        salary: { zh: "最高 35 百万越盾 (≈ 1,400 USD)", vi: "Đến 35 Triệu VNĐ", en: "Up to 35 Million VND" },
+        title: { zh: "机械自动化工程师 / Mechanical Engineer (懂中文)", vi: "Kĩ Sư Cơ Khí (Tiếng Trung)", en: "Mechanical Engineer (Chinese-speaking)" },
+        loc: { zh: "越南北宁省工业区 (Bắc Ninh)", vi: "Bắc Ninh", en: "Bac Ninh Province" },
+        req: { zh: "负责自动化产线治具与模具维护，可使用中文进行技术交流", vi: "Bảo trì khuôn mẫu & dây chuyền tự động hóa, giao tiếp kỹ thuật bằng tiếng Trung", en: "Jig & tooling maintenance, technical Chinese communication" },
+        chips: ["Mechanical", "Automation", "Bac Ninh"],
+        time: { zh: "4天前更新", vi: "4 ngày trước", en: "4 days ago" }
+      },
+      {
+        id: "4723",
+        cat: "it",
+        url: "https://hr1vietnam.com/job/it-comtor-ba-translator-tieng-trung-4723.html",
+        tag: { zh: "IT软件 · 胡志明市", vi: "Công nghệ thông tin · TP.HCM", en: "IT Software · HCMC" },
+        salary: { zh: "800 - 1,000 USD", vi: "800 - 1,000 USD (20 - 25 Triệu)", en: "800 - 1,000 USD" },
+        title: { zh: "IT Comtor / 软件业务分析与翻译 (中英双语)", vi: "IT Comtor / BA / Translator (Tiếng Trung)", en: "IT Comtor / BA / Translator (Chinese-English)" },
+        loc: { zh: "胡志明市第1郡 (TP. Hồ Chí Minh)", vi: "Hồ Chí Minh (Quận 1)", en: "Ho Chi Minh City (District 1)" },
+        req: { zh: "对接中国技术研发团队，翻译需求规格说明书 (SRS) 与跟进开发进度", vi: "Cầu nối đội dev Trung Quốc, dịch tài liệu spec SRS và theo dõi tiến độ", en: "Bridging Chinese dev team, translating specs & requirements" },
+        chips: ["IT Comtor", "Business Analyst", "Chinese IT"],
+        time: { zh: "1周前更新", vi: "1 tuần trước", en: "1 week ago" }
+      },
+      {
+        id: "6107",
+        cat: "fmcg",
+        url: "https://hr1vietnam.com/job/ke-toan-tong-hop-tieng-trung-6107.html",
+        tag: { zh: "审计财务 · 平阳省", vi: "Kế toán tổng hợp · Bình Dương", en: "Accounting · Binh Duong" },
+        salary: { zh: "20 - 30 百万越盾 (≈ 800 - 1,200 USD)", vi: "20 - 30 Triệu VNĐ", en: "20 - 30 Million VND" },
+        title: { zh: "双语总账会计 / Senior General Accountant", vi: "Kế Toán Tổng Hợp (Tiếng Trung)", en: "Senior General Accountant (Chinese)" },
+        loc: { zh: "越南平阳省工业区 (Bình Dương)", vi: "Bình Dương", en: "Binh Duong Province" },
+        req: { zh: "3年以上制造工厂总账经验，熟练使用中文编制报表及财务沟通", vi: "3+ năm kinh nghiệm kế toán tổng hợp nhà máy, lập báo cáo tiếng Trung", en: "3+ years plant general accounting, Chinese reporting" },
+        chips: ["General Accountant", "VAS", "Binh Duong"],
+        time: { zh: "5天前更新", vi: "5 ngày trước", en: "5 days ago" }
+      },
+      {
+        id: "4967",
+        cat: "mfg",
+        url: "https://hr1vietnam.com/job/tro-ly-phien-dich-san-xuat-kiem-ho-tro-giam-doc-nha-may-4967.html",
+        tag: { zh: "制造业 · 同奈省", vi: "Sản xuất chế tạo · Đồng Nai", en: "Manufacturing · Dong Nai" },
+        salary: { zh: "20 - 30 百万越盾", vi: "20 - 30 Triệu VNĐ", en: "20 - 30 Million VND" },
+        title: { zh: "厂长助理兼生产翻译 / Plant Assistant & Interpreter", vi: "Trợ Lý Phiên Dịch Sản Xuất Kiêm Hỗ Trợ GĐ Nhà Máy", en: "Plant Director Assistant & Production Interpreter" },
+        loc: { zh: "越南同奈省 (Đồng Nai)", vi: "Đồng Nai", en: "Dong Nai Province" },
+        req: { zh: "协助中方厂长管理日常车间排产、行政交办及中越人员沟通", vi: "Hỗ trợ Giám đốc nhà máy điều phối sản xuất, truyền đạt chỉ thị và dịch thuật", en: "Assisting Plant Director in production scheduling & translation" },
+        chips: ["Plant Assistant", "Production", "Dong Nai"],
+        time: { zh: "3天前更新", vi: "3 ngày trước", en: "3 days ago" }
+      },
+      {
+        id: "4913",
+        cat: "exec",
+        url: "https://hr1vietnam.com/job/chu-quan-tuyen-dung-4913.html",
+        tag: { zh: "人力资源 · 北江省", vi: "Tuyển dụng nhân sự · Bắc Giang", en: "HR & Recruitment · Bac Giang" },
+        salary: { zh: "面议 · 高薪待遇 (Negotiable)", vi: "Lương Thỏa Thuận Hấp Dẫn", en: "Negotiable Competitive Salary" },
+        title: { zh: "招聘人事主管 / HR Recruitment Supervisor (中越双语)", vi: "Chủ Quản Tuyển Dụng (Tiếng Trung)", en: "Recruitment Supervisor (Chinese-speaking)" },
+        loc: { zh: "越南北江省工业区 (Bắc Giang)", vi: "Bắc Giang", en: "Bac Giang Province" },
+        req: { zh: "负责北江大型制造工厂千人级员工批量招聘与渠道开发，中文流利", vi: "Phụ trách tuyển dụng số lượng lớn cho nhà máy Bắc Giang, tiếng Trung tốt", en: "Mass hiring for electronics plant in Bac Giang, fluent Chinese" },
+        chips: ["HR Supervisor", "Mass Hiring", "Bac Giang"],
+        time: { zh: "1周前更新", vi: "1 tuần trước", en: "1 week ago" }
+      }
+    ];
+
+    let currentLang = 'zh';
+    let currentFilter = 'all';
+
+    function renderJobs(lang, filter) {
+      const container = document.getElementById('jobGridContainer');
+      if (!container) return;
+
+      const filtered = filter === 'all' 
+        ? realJobs 
+        : realJobs.filter(j => j.cat === filter);
+
+      const quoteBtnText = {
+        zh: "招聘同类人才？",
+        vi: "Tuyển vị trí tương tự?",
+        en: "Hire Similar Roles?"
+      }[lang] || "招聘同类人才？";
+
+      const detailBtnText = {
+        zh: "查看详情 ↗",
+        vi: "Xem chi tiết ↗",
+        en: "View Details ↗"
+      }[lang] || "查看详情 ↗";
+
+      const locLabel = {
+        zh: "工作地点",
+        vi: "Địa điểm",
+        en: "Location"
+      }[lang] || "Location";
+
+      const reqLabel = {
+        zh: "岗位要求",
+        vi: "Yêu cầu",
+        en: "Key Specs"
+      }[lang] || "Key Specs";
+
+      container.innerHTML = filtered.map(job => `
+        <div class="job-card">
+          <div>
+            <div class="job-card-top">
+              <span class="job-tag">${job.tag[lang] || job.tag['zh']}</span>
+              <div class="job-salary">${job.salary[lang] || job.salary['zh']}</div>
+            </div>
+            <h3 class="job-title">
+              <a href="${job.url}" target="_blank" title="${job.title[lang]}">
+                ${job.title[lang] || job.title['zh']}
+              </a>
+            </h3>
+            <div class="job-meta">
+              <p><i class="fa-solid fa-location-dot"></i> <span><strong>${locLabel}:</strong> ${job.loc[lang] || job.loc['zh']}</span></p>
+              <p><i class="fa-solid fa-briefcase"></i> <span><strong>${reqLabel}:</strong> ${job.req[lang] || job.req['zh']}</span></p>
+            </div>
+            <div class="job-chips">
+              ${job.chips.map(chip => `<span class="job-chip">${chip}</span>`).join('')}
+            </div>
+          </div>
+          <div class="job-card-bottom">
+            <span class="job-time"><i class="fa-regular fa-clock"></i> ${job.time[lang] || job.time['zh']}</span>
+            <div class="job-actions">
+              <a href="#contact" class="btn-job-quote" onclick="inquireJob('${(job.title[lang] || job.title['zh']).replace(/'/g, "\\'")}')">${quoteBtnText}</a>
+              <a href="${job.url}" target="_blank" class="btn-job-apply">
+                <span>${detailBtnText}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function switchJobView(view) {
+      const cardsContainer = document.getElementById('jobGridContainer');
+      const iframeContainer = document.getElementById('jobIframeContainer');
+      const filterRow = document.getElementById('jobFilterContainer');
+      const btnCards = document.getElementById('viewBtnCards');
+      const btnIframe = document.getElementById('viewBtnIframe');
+
+      if (view === 'cards') {
+        cardsContainer.style.display = 'grid';
+        iframeContainer.style.display = 'none';
+        if (filterRow) filterRow.style.visibility = 'visible';
+        btnCards.classList.add('active');
+        btnIframe.classList.remove('active');
+      } else {
+        cardsContainer.style.display = 'none';
+        iframeContainer.style.display = 'block';
+        if (filterRow) filterRow.style.visibility = 'hidden';
+        btnCards.classList.remove('active');
+        btnIframe.classList.add('active');
+      }
+    }
+
+    function inquireJob(jobTitle) {
+      const contactSec = document.getElementById('contact');
+      if (contactSec) {
+        contactSec.scrollIntoView({ behavior: 'smooth' });
+        const inputRoles = document.querySelector('#contact input[placeholder*="生产厂长"]');
+        if (inputRoles) {
+          inputRoles.value = (currentLang === 'vi' ? 'Cần tuyển vị trí tương tự: ' : currentLang === 'en' ? 'Inquiry for similar role: ' : '拟招聘同类岗位: ') + jobTitle;
+          inputRoles.focus();
+        }
+      }
+    }
+
     function setLanguage(lang) {
+      currentLang = lang;
       const data = i18n[lang];
       if (!data) return;
 
@@ -1895,6 +2031,10 @@
       document.getElementById('pill-it').innerText = data.pillIt;
       document.getElementById('pill-fmcg').innerText = data.pillFmcg;
 
+      if (data.lblViewCards) document.getElementById('lblViewCards').innerText = data.lblViewCards;
+      if (data.lblViewIframe) document.getElementById('lblViewIframe').innerText = data.lblViewIframe;
+      if (data.lblViewAllJobs) document.getElementById('lblViewAllJobs').innerText = data.lblViewAllJobs;
+
       document.getElementById('cand-title').innerText = data.candTitle;
       document.getElementById('cand-desc').innerText = data.candDesc;
       document.getElementById('cand-btn').innerText = data.candBtn;
@@ -1925,6 +2065,9 @@
       document.getElementById('ft-col2-t').innerText = data.ftCol2T;
       document.getElementById('ft-col3-t').innerText = data.ftCol3T;
       document.getElementById('ft-copy').innerText = data.ftCopy;
+
+      // Render job cards with updated language
+      renderJobs(currentLang, currentFilter);
     }
 
     // Scroll progress
@@ -1943,12 +2086,21 @@
       document.getElementById('wechatModal').classList.remove('active');
     }
 
-    // Job Filter interaction demo
-    function filterJobs(category) {
+    // Job Filter interaction
+    function filterJobs(category, event) {
+      currentFilter = category;
       const pills = document.querySelectorAll('.filter-pill');
       pills.forEach(p => p.classList.remove('active'));
-      event.target.classList.add('active');
+      if (event && event.target) {
+        event.target.classList.add('active');
+      }
+      renderJobs(currentLang, currentFilter);
     }
+
+    // Khởi tạo ban đầu khi load trang
+    document.addEventListener('DOMContentLoaded', () => {
+      renderJobs('zh', 'all');
+    });
   </script>
 </body>
 </html>
