@@ -947,6 +947,42 @@
       position: relative;
     }
 
+    /* Floating Quick Contact Dock */
+    .floating-dock {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+    .float-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      font-size: 12px;
+      font-weight: 850;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .float-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .float-btn.wechat {
+      background: #07C160;
+      color: #fff;
+    }
+    .float-btn.phone {
+      background: var(--red);
+      color: #fff;
+    }
+
     @media (max-width: 1024px) {
       .hero-grid, .section-head, .contact-layout { grid-template-columns: 1fr; gap: 36px; }
       .service-grid, .sector-grid { grid-template-columns: repeat(2, 1fr); }
@@ -961,6 +997,9 @@
       .service-grid, .sector-grid, .metric-strip, .footer-grid { grid-template-columns: 1fr; }
       .main-nav { display: none; }
       .hero h1 { font-size: 28px; }
+      .floating-dock { bottom: 16px; right: 16px; }
+      .float-text { display: none; }
+      .float-btn { padding: 12px; width: 44px; height: 44px; justify-content: center; }
     }
   </style>
 </head>
@@ -1104,8 +1143,8 @@
         </div>
       </div>
 
-      <!-- METRIC STRIP -->
-      <div class="metric-strip">
+      <!-- METRIC STRIP / WHY HR1 -->
+      <div class="metric-strip" id="why">
         <div class="metric">
           <strong>10+</strong>
           <span id="stat-1">年越南本土猎头经验</span>
@@ -1465,6 +1504,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- FLOATING QUICK CONTACT DOCK -->
+  <div class="floating-dock">
+    <button class="float-btn wechat" onclick="openWechatModal()" title="WeChat Direct Contact">
+      <i class="fa-brands fa-weixin"></i>
+      <span class="float-text" id="float-wechat-text">微信咨询</span>
+    </button>
+    <a class="float-btn phone" href="tel:+842838226666" title="Hotline Call">
+      <i class="fa-solid fa-phone"></i>
+      <span class="float-text">Hotline</span>
+    </a>
+  </div>
 
   <!-- WECHAT MODAL -->
   <div class="modal-backdrop" id="wechatModal" onclick="if(event.target===this) closeWechatModal()">
@@ -1969,6 +2020,7 @@
       // Update Texts
       document.getElementById('ribbon-text').innerText = data.ribbonText;
       document.getElementById('ribbon-wechat').innerText = data.ribbonWechat;
+      if (document.getElementById('float-wechat-text')) document.getElementById('float-wechat-text').innerText = data.ribbonWechat;
       document.getElementById('header-badge').innerHTML = data.headerBadge;
       document.getElementById('nav-services').innerText = data.navServices;
       document.getElementById('nav-jobs').innerText = data.navJobs;
