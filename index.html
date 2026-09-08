@@ -983,9 +983,109 @@
       color: #fff;
     }
 
+    /* Client Partners Grid */
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .client-card {
+      background: var(--white);
+      border: 1px solid var(--ink);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+    }
+    .client-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 7px 7px 0 var(--ink);
+    }
+    .client-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      gap: 12px;
+    }
+    .client-logo-box {
+      min-width: 54px;
+      height: 54px;
+      padding: 0 10px;
+      background: var(--paper-2);
+      border: 1px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--red);
+      letter-spacing: .03em;
+    }
+    .client-region-badge {
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      white-space: nowrap;
+    }
+    .client-name-vn {
+      font-size: 13.5px;
+      font-weight: 850;
+      line-height: 1.42;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .client-group {
+      font-size: 11.5px;
+      font-weight: 750;
+      color: var(--red);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .client-sector-tag {
+      display: inline-block;
+      font-size: 11px;
+      color: var(--graphite);
+      background: var(--paper-2);
+      padding: 3px 8px;
+      border: 1px dashed var(--line);
+      margin-bottom: 16px;
+      line-height: 1.35;
+    }
+    .client-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-size: 11.5px;
+      font-weight: 800;
+    }
+    .client-link-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--red);
+    }
+    .client-link-action.internal {
+      color: var(--ink);
+    }
+    .client-card:hover .client-link-action {
+      text-decoration: underline;
+    }
+
     @media (max-width: 1024px) {
       .hero-grid, .section-head, .contact-layout { grid-template-columns: 1fr; gap: 36px; }
-      .service-grid, .sector-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-grid, .sector-grid, .client-grid { grid-template-columns: repeat(2, 1fr); }
       .job-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-rail { display: none; }
@@ -994,7 +1094,7 @@
       .metric:first-child { padding-left: 26px; }
     }
     @media (max-width: 640px) {
-      .service-grid, .sector-grid, .metric-strip, .footer-grid { grid-template-columns: 1fr; }
+      .service-grid, .sector-grid, .client-grid, .metric-strip, .footer-grid { grid-template-columns: 1fr; }
       .main-nav { display: none; }
       .hero h1 { font-size: 28px; }
       .floating-dock { bottom: 16px; right: 16px; }
@@ -1037,6 +1137,7 @@
         <a href="#services" id="nav-services">核心业务</a>
         <a href="#jobs" class="active" id="nav-jobs">在招双语岗位 ↗</a>
         <a href="#sectors" id="nav-sectors">重点行业</a>
+        <a href="#clients" id="nav-clients">合作客户</a>
         <a href="#why" id="nav-why">为什么选HR1</a>
         <a href="#contact" id="nav-contact">联系顾问</a>
       </nav>
@@ -1360,17 +1461,60 @@
       </div>
     </section>
 
-    <!-- SECTION 04: B2B CONTACT & WECHAT -->
-    <section class="section" id="contact">
+    <!-- SECTION 04: CLIENT PARTNERS & PROVEN CASES -->
+    <section class="section" id="clients" style="background: var(--paper-2);">
       <div class="shell">
         <header class="section-head">
           <div class="section-index">
             <strong>04</strong>
+            <span>PROVEN CLIENT PORTFOLIO</span>
+          </div>
+          <div>
+            <h2 class="section-title" id="sec4-client-title">深受在越中资与跨国企业信赖的<em>合作标杆伙伴</em></h2>
+            <p class="section-lead" id="sec4-client-lead">从上市跨国工业集团到新设在越生产制造基地，HR1VIETNAM 持续以高匹配中高端猎聘与人事交付赋能企业出海落地。</p>
+          </div>
+        </header>
+
+        <!-- Partner Filter Pills -->
+        <div class="job-filters" style="margin-bottom: 24px;">
+          <button class="filter-pill active" onclick="filterClients('all', event)" id="pill-client-all">全部合作企业 (All 9+)</button>
+          <button class="filter-pill" onclick="filterClients('cn', event)" id="pill-client-cn">🇨🇳 中资企业 (China Mainland)</button>
+          <button class="filter-pill" onclick="filterClients('tw', event)" id="pill-client-tw">🇹🇼 台资制造业 (Taiwan)</button>
+          <button class="filter-pill" onclick="filterClients('hk', event)" id="pill-client-hk">🇭🇰 港资企业 (Hong Kong)</button>
+        </div>
+
+        <!-- Clients Grid -->
+        <div class="client-grid" id="clientGridContainer">
+          <!-- Dynamically populated from clientPartners array in Javascript -->
+        </div>
+
+        <!-- Trust Bottom Strip -->
+        <div style="margin-top: 32px; padding: 20px 24px; background: var(--white); border: 1px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <i class="fa-solid fa-shield-halved" style="font-size: 22px; color: var(--red);"></i>
+            <div>
+              <div style="font-size: 13px; font-weight: 850; color: var(--ink);" id="client-trust-title">严格遵循商业保密与合规保障体系</div>
+              <div style="font-size: 11.5px; color: var(--muted); margin-top: 2px;" id="client-trust-desc">100% 客户均签订保密协议 (NDA)，保障候选人履历核验真实性及企业核心人才架构安全。</div>
+            </div>
+          </div>
+          <a href="#contact" class="button primary" style="padding: 10px 20px; font-size: 12px;">
+            <span id="client-cta-btn">成为 HR1 合作伙伴 · 委托招聘 ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05: B2B CONTACT & WECHAT -->
+    <section class="section" id="contact">
+      <div class="shell">
+        <header class="section-head">
+          <div class="section-index">
+            <strong>05</strong>
             <span>CONTACT & ENGAGEMENT</span>
           </div>
           <div>
-            <h2 class="section-title" id="sec4-title">开启合作：<em>对接您的专属猎头顾问</em></h2>
-            <p class="section-lead" id="sec4-lead">无论是具体的岗位猎头委托，还是获取越南各省工业区最新薪酬调研报告，欢迎随时联络。</p>
+            <h2 class="section-title" id="sec5-title">开启合作：<em>对接您的专属猎头顾问</em></h2>
+            <p class="section-lead" id="sec5-lead">无论是具体的岗位猎头委托，还是获取越南各省工业区最新薪酬调研报告，欢迎随时联络。</p>
           </div>
         </header>
 
@@ -1476,6 +1620,7 @@
             <li><a href="#services" id="ft-s2">工厂大规模招聘 (RPO)</a></li>
             <li><a href="#services" id="ft-s3">中越双语人才配置</a></li>
             <li><a href="#services" id="ft-s4">薪资代发与劳动合规</a></li>
+            <li><a href="#clients" id="ft-s5">标杆合作客户案例 ↗</a></li>
           </ul>
         </div>
 
@@ -1611,8 +1756,18 @@
         sec3D: "大型外销代工厂厂长、跟单主管、打样工程师及IE精益生产专家。",
         sec4T: "跨境物流与海外仓",
         sec4D: "清关报关总监、海外仓运营经理、国际干线物流及跨境电商运营。",
-        sec4Title: "开启合作：<em>对接您的专属猎头顾问</em>",
-        sec4Lead: "无论是具体的岗位猎头委托，还是获取越南各省工业区最新薪酬调研报告，欢迎随时联络。",
+        navClients: "合作客户",
+        sec4ClientTitle: "深受在越中资与跨国企业信赖的<em>合作标杆伙伴</em>",
+        sec4ClientLead: "从上市跨国工业集团到新设在越生产制造基地，HR1VIETNAM 持续以高匹配中高端猎聘与人事交付赋能企业出海落地。",
+        pillClientAll: "全部合作企业 (All 9+)",
+        pillClientCn: "🇨🇳 中资企业 (China Mainland)",
+        pillClientTw: "🇹🇼 台资制造业 (Taiwan)",
+        pillClientHk: "🇭🇰 港资企业 (Hong Kong)",
+        clientTrustTitle: "严格遵循商业保密与合规保障体系",
+        clientTrustDesc: "100% 客户均签订商业保密协议 (NDA)，保障候选人履历核验真实性及企业核心人才架构安全。",
+        clientCtaBtn: "成为 HR1 合作伙伴 · 委托招聘 ↗",
+        sec5Title: "开启合作：<em>对接您的专属猎头顾问</em>",
+        sec5Lead: "无论是具体的岗位猎头委托，还是获取越南各省工业区最新薪酬调研报告，欢迎随时联络。",
         qrSecTitle: "微信扫码直接咨询",
         qrSecDesc: "我们常驻胡志明市与河内的中国业务团队均精通普通话与粤语，为您提供高效沟通。",
         qrBoxTitle: "微信扫码直联业务总监",
@@ -1636,6 +1791,7 @@
         navServices: "Dịch Vụ B2B",
         navJobs: "Việc Làm Tiếng Trung ↗",
         navSectors: "Ngành Trọng Điểm",
+        navClients: "Khách Hàng Đối Tác",
         navWhy: "Vì Sao Chọn HR1",
         navContact: "Liên Hệ Chuyên Gia",
         headerCta: "Gửi Yêu Cầu Tuyển Dụng",
@@ -1698,8 +1854,18 @@
         sec3D: "Giám đốc nhà máy gia công xuất khẩu quy mô lớn, kỹ sư IE, quản lý đơn hàng Merchandiser.",
         sec4T: "Logistics & Kho bãi Xuyên biên giới",
         sec4D: "Giám đốc thông quan hải quan, trưởng kho ngoại quan, quản lý vận tải đường bộ/biển.",
-        sec4Title: "Khởi đầu hợp tác: <em>Kết nối chuyên gia China Desk</em>",
-        sec4Lead: "Sẵn sàng hỗ trợ tư vấn tuyển dụng hoặc cung cấp báo cáo khảo sát lương nhân sự tiếng Trung tại Việt Nam.",
+        navClients: "Khách Hàng Đối Tác",
+        sec4ClientTitle: "Đối tác doanh nghiệp FDI <em>Tin tưởng đồng hành cùng HR1</em>",
+        sec4ClientLead: "Từ các tập đoàn công nghiệp đa quốc gia niêm yết đến các dự án nhà máy mới thành lập tại Việt Nam, HR1 luôn là đối tác cung ứng nhân lực chiến lược.",
+        pillClientAll: "Tất cả đối tác (9+ doanh nghiệp)",
+        pillClientCn: "🇨🇳 Doanh nghiệp Trung Quốc",
+        pillClientTw: "🇹🇼 Doanh nghiệp Đài Loan",
+        pillClientHk: "🇭🇰 Doanh nghiệp Hồng Kông",
+        clientTrustTitle: "Cam kết bảo mật thông tin (NDA) và tuân thủ pháp lý",
+        clientTrustDesc: "100% Khách hàng được bảo đảm bằng hợp đồng bảo hành nhân sự dài hạn và cam kết bảo mật chiến lược tổ chức.",
+        clientCtaBtn: "Trở thành đối tác của HR1 · Gửi yêu cầu tuyển dụng ↗",
+        sec5Title: "Khởi đầu hợp tác: <em>Kết nối chuyên gia China Desk</em>",
+        sec5Lead: "Sẵn sàng hỗ trợ tư vấn tuyển dụng hoặc cung cấp báo cáo khảo sát lương nhân sự tiếng Trung tại Việt Nam.",
         qrSecTitle: "Quét mã QR WeChat trao đổi nhanh",
         qrSecDesc: "Đội ngũ chuyên trách tại TP.HCM và Hà Nội giao tiếp lưu loát tiếng Trung (Phổ thông & Quảng Đông).",
         qrBoxTitle: "Quét QR kết nối Giám đốc China Desk",
@@ -1723,6 +1889,7 @@
         navServices: "Services",
         navJobs: "Chinese Jobs ↗",
         navSectors: "Key Sectors",
+        navClients: "Clients",
         navWhy: "Why HR1",
         navContact: "Contact Us",
         headerCta: "Request Recruitment",
@@ -1785,8 +1952,17 @@
         sec3D: "Export plant directors, sample room engineers, IE specialists, and merchandising leads.",
         sec4T: "Cross-Border Logistics & Warehousing",
         sec4D: "Customs clearance heads, bonded warehouse managers, and freight forwarding directors.",
-        sec4Title: "Partner With Us: <em>Connect With China Desk Consultants</em>",
-        sec4Lead: "Whether you need immediate executive hiring or Vietnam industrial salary benchmarks, we are at your service.",
+        sec4ClientTitle: "Trusted by Leading <em>FDI & Chinese Enterprises</em>",
+        sec4ClientLead: "From listed multinational conglomerates to greenfield plant setups across Vietnam, HR1 delivers verified bilingual executive talent.",
+        pillClientAll: "All Clients (9+)",
+        pillClientCn: "🇨🇳 China Mainland",
+        pillClientTw: "🇹🇼 Taiwan",
+        pillClientHk: "🇭🇰 Hong Kong",
+        clientTrustTitle: "Strict NDA & Legal Compliance Assurance",
+        clientTrustDesc: "100% of client engagements are backed by NDAs, background verification, and replacement guarantees.",
+        clientCtaBtn: "Partner With HR1 · Request Talent ↗",
+        sec5Title: "Partner With Us: <em>Connect With China Desk Consultants</em>",
+        sec5Lead: "Whether you need immediate executive hiring or Vietnam industrial salary benchmarks, we are at your service.",
         qrSecTitle: "Scan WeChat for Direct Chat",
         qrSecDesc: "Our dedicated bilingual consulting team in HCMC and Hanoi speaks fluent Mandarin, Cantonese, and Vietnamese.",
         qrBoxTitle: "Scan QR to Chat With Director",
@@ -1904,6 +2080,282 @@
         time: { zh: "1周前更新", vi: "1 tuần trước", en: "1 week ago" }
       }
     ];
+
+    // DỮ LIỆU ĐỐI TÁC / KHÁCH HÀNG DOANH NGHIỆP CỦA HR1VIETNAM
+    const clientPartners = [
+      {
+        id: "hailianke",
+        cat: "cn",
+        name: {
+          zh: "永隆海联科生物技术有限公司",
+          vi: "CÔNG TY TNHH KỸ THUẬT SINH VẬT HAILIANKE VĨNH LONG",
+          en: "VINH LONG HAILIANKE BIOTECHNOLOGY CO., LTD"
+        },
+        group: {
+          zh: "广东海大集团 (GUANGDONG HAID GROUP)",
+          vi: "TẬP ĐOÀN GUANGDONG HAID GROUP (TRUNG QUỐC)",
+          en: "GUANGDONG HAID GROUP (CHINA)"
+        },
+        sector: {
+          zh: "农牧与生物科技 · 现代化水产与畜禽饲料核心产业链",
+          vi: "Nông nghiệp & Công nghệ sinh học · Thức ăn chăn nuôi & thủy sản",
+          en: "Agri-Biotech & Modern Aquaculture Feed"
+        },
+        region: { zh: "🇨🇳 中国广东", vi: "🇨🇳 Trung Quốc", en: "🇨🇳 China (Guangdong)" },
+        monogram: "HAID",
+        url: "https://en.haid.com.cn/",
+        hasWebsite: true
+      },
+      {
+        id: "mycall",
+        cat: "cn",
+        name: {
+          zh: "MYCALL 科技通信有限公司",
+          vi: "CÔNG TY MYCALL (VIỆT NAM)",
+          en: "MYCALL COMPANY LIMITED"
+        },
+        group: {
+          zh: "MYCALL 科技集团 (中国)",
+          vi: "MYCALL GROUP (TRUNG QUỐC)",
+          en: "MYCALL GROUP (CHINA)"
+        },
+        sector: {
+          zh: "智能通信系统 · 数字网络交互与企业级云端服务",
+          vi: "Viễn thông thông minh & Dịch vụ công nghệ số doanh nghiệp",
+          en: "Smart Telecom & Enterprise Cloud Solutions"
+        },
+        region: { zh: "🇨🇳 中国", vi: "🇨🇳 Trung Quốc", en: "🇨🇳 China" },
+        monogram: "MYCALL",
+        url: "https://www.mycall.top/pages/user/register",
+        hasWebsite: true
+      },
+      {
+        id: "okia",
+        cat: "hk",
+        name: {
+          zh: "OKIA 光学眼镜有限公司 (越南基地)",
+          vi: "CÔNG TY TNHH OKIA OPTICAL (NHÀ MÁY VIỆT NAM)",
+          en: "OKIA OPTICAL COMPANY LIMITED"
+        },
+        group: {
+          zh: "OKIA OPTICAL GROUP (中国香港)",
+          vi: "OKIA OPTICAL – HỒNG KÔNG",
+          en: "OKIA OPTICAL GROUP (HONG KONG)"
+        },
+        sector: {
+          zh: "高品质光学眼镜 · 国际知名品牌精密代工与出口",
+          vi: "Kính mắt quang học cao cấp · Gia công chính xác xuất khẩu toàn cầu",
+          en: "Premium Optical Eyewear & High-Precision Export Mfg"
+        },
+        region: { zh: "🇭🇰 中国香港", vi: "🇭🇰 Hồng Kông", en: "🇭🇰 Hong Kong" },
+        monogram: "OKIA",
+        url: "https://www.okia.com/okia-vietnam-factory",
+        hasWebsite: true
+      },
+      {
+        id: "johnson",
+        cat: "tw",
+        name: {
+          zh: "乔山健康科技 (越南) 有限公司",
+          vi: "CÔNG TY TNHH JOHNSON HEALTH TECH (VIỆT NAM)",
+          en: "JOHNSON HEALTH TECH (VIETNAM) CO., LTD"
+        },
+        group: {
+          zh: "乔山健康科技集团 (中国台湾上市公司)",
+          vi: "JOHNSON HEALTH TECH (ĐÀI LOAN)",
+          en: "JOHNSON HEALTH TECH (TAIWAN LISTED)"
+        },
+        sector: {
+          zh: "全球领先商用及家用健身器材 · 智能健康运动装备",
+          vi: "Thiết bị thể thao, thể hình & Chăm sóc sức khỏe thông minh",
+          en: "Global Fitness & Smart Health Tech Equipment"
+        },
+        region: { zh: "🇹🇼 中国台湾", vi: "🇹🇼 Đài Loan", en: "🇹🇼 Taiwan" },
+        monogram: "JHT",
+        url: "https://www.johnsonhealthtech.com/",
+        hasWebsite: true
+      },
+      {
+        id: "hengfeng",
+        cat: "cn",
+        name: {
+          zh: "恒丰休闲用品 (越南) 有限公司",
+          vi: "CÔNG TY HENGFENG TOP LEISURE",
+          en: "HENGFENG TOP LEISURE CO., LTD"
+        },
+        group: {
+          zh: "恒丰休闲用品集团 (中国)",
+          vi: "HENGFENG TOP LEISURE (TRUNG QUỐC)",
+          en: "HENGFENG TOP LEISURE (CHINA)"
+        },
+        sector: {
+          zh: "户外休闲家具 · 野营野战装备与折叠装备全球供应链",
+          vi: "Nội thất dã ngoại, cắm trại & Đồ dùng ngoài trời xuất khẩu",
+          en: "Outdoor Leisure Furniture & Camping Gear Export"
+        },
+        region: { zh: "🇨🇳 中国", vi: "🇨🇳 Trung Quốc", en: "🇨🇳 China" },
+        monogram: "HENGFENG",
+        url: "https://www.hengfeng-china.com/AboutUS",
+        hasWebsite: true
+      },
+      {
+        id: "taya",
+        cat: "tw",
+        name: {
+          zh: "大明帆布 (越南) 有限公司",
+          vi: "CÔNG TY TNHH TAYA CANVAS (VIỆT NAM)",
+          en: "TAYA CANVAS (VIETNAM) CO., LTD"
+        },
+        group: {
+          zh: "TAYA 大明工业集团 (中国台湾)",
+          vi: "TAYA CANVAS GROUPS (ĐÀI LOAN)",
+          en: "TAYA CANVAS GROUPS (TAIWAN)"
+        },
+        sector: {
+          zh: "环保工业涂层织物 · 建筑与数码印花复合特种面料",
+          vi: "Dệt may công nghiệp, bạt phủ PVC & Vật liệu in kỹ thuật số",
+          en: "Industrial Canvas & High-Tech Coated Technical Fabrics"
+        },
+        region: { zh: "🇹🇼 中国台湾", vi: "🇹🇼 Đài Loan", en: "🇹🇼 Taiwan" },
+        monogram: "TAYA",
+        url: "http://www.tayagroups.com/",
+        hasWebsite: true
+      },
+      {
+        id: "taicera",
+        cat: "tw",
+        name: {
+          zh: "泰和陶瓷股份公司 (TAICERA)",
+          vi: "CÔNG TY CỔ PHẦN GỐM SỨ TAICERA",
+          en: "TAICERA ENTERPRISE CO., LTD"
+        },
+        group: {
+          zh: "TAICERA 泰和陶瓷集团 (中国台湾上市公司)",
+          vi: "GỐM SỨ TAICERA (ĐÀI LOAN)",
+          en: "TAICERA CERAMICS GROUP (TAIWAN)"
+        },
+        sector: {
+          zh: "高端全瓷抛光砖、瓷质釉面砖及绿色低碳建筑建材",
+          vi: "Gạch ốp lát granite, gốm sứ cao cấp & Vật liệu xây dựng",
+          en: "Premium Architectural Ceramics & Porcelain Tiles"
+        },
+        region: { zh: "🇹🇼 中国台湾", vi: "🇹🇼 Đài Loan", en: "🇹🇼 Taiwan" },
+        monogram: "TAICERA",
+        url: "http://www.taicera.com/",
+        hasWebsite: true
+      },
+      {
+        id: "topsec",
+        cat: "cn",
+        name: {
+          zh: "天融信 (越南) 有限公司",
+          vi: "CÔNG TY TNHH TOPSEC VIỆT NAM",
+          en: "TOPSEC VIETNAM CO., LTD"
+        },
+        group: {
+          zh: "天融信科技集团 (中国网安领军企业)",
+          vi: "TOPSEC TECHNOLOGIES GROUP (TRUNG QUỐC)",
+          en: "TOPSEC TECHNOLOGIES GROUP (CHINA)"
+        },
+        sector: {
+          zh: "网络安全与数据安全防护 · 在越外资企业数字基建保障",
+          vi: "An ninh mạng, an toàn dữ liệu & Hạ tầng số (Dự án FDI mới)",
+          en: "Cybersecurity & Data Protection for Cross-Border Enterprises"
+        },
+        region: { zh: "🇨🇳 中国", vi: "🇨🇳 Trung Quốc", en: "🇨🇳 China" },
+        monogram: "TOPSEC",
+        url: "#hero",
+        hasWebsite: false
+      },
+      {
+        id: "best",
+        cat: "cn",
+        name: {
+          zh: "百世冷链供应链 (越南) 有限公司",
+          vi: "CÔNG TY TNHH CHUỖI CUNG ỨNG LẠNH BEST VIỆT NAM",
+          en: "BEST COLD CHAIN LOGISTICS VIETNAM CO., LTD"
+        },
+        group: {
+          zh: "百世集团 (BEST Inc. - 中国现代物流领军品牌)",
+          vi: "BEST INC. (TRUNG QUỐC)",
+          en: "BEST INC. (CHINA)"
+        },
+        sector: {
+          zh: "智能冷链物流仓储 · 跨境中越生鲜温控干线运输网络",
+          vi: "Kho vận, logistics & Chuỗi cung ứng lạnh thông minh (Dự án FDI mới)",
+          en: "Smart Cold Chain Logistics & Cross-Border Freight Network"
+        },
+        region: { zh: "🇨🇳 中国", vi: "🇨🇳 Trung Quốc", en: "🇨🇳 China" },
+        monogram: "BEST",
+        url: "#hero",
+        hasWebsite: false
+      }
+    ];
+
+    let currentClientFilter = 'all';
+
+    function renderClients(lang, filter) {
+      const container = document.getElementById('clientGridContainer');
+      if (!container) return;
+
+      const filtered = filter === 'all'
+        ? clientPartners
+        : clientPartners.filter(c => c.cat === filter);
+
+      const linkLabelWeb = {
+        zh: "访问企业官网 ↗",
+        vi: "Ghé thăm website ↗",
+        en: "Visit Official Website ↗"
+      }[lang] || "Ghé thăm website ↗";
+
+      const linkLabelDesk = {
+        zh: "在越新设基地 · 了解 China Desk ⤶",
+        vi: "Dự án mới · Về trang chủ China Desk ⤶",
+        en: "New Greenfield · Back to China Desk ⤶"
+      }[lang] || "Về trang chủ China Desk ⤶";
+
+      const statusTagWeb = {
+        zh: "已建厂运营 / 跨国集团",
+        vi: "Đang vận hành / Tập đoàn FDI",
+        en: "Operational / Multinational"
+      }[lang] || "Đang vận hành";
+
+      const statusTagSetup = {
+        zh: "新设项目 · 筹建阶段",
+        vi: "Dự án mới thành lập tại VN",
+        en: "Greenfield Plant Setup"
+      }[lang] || "Dự án mới";
+
+      container.innerHTML = filtered.map(item => `
+        <a class="client-card" href="${item.url}" ${item.hasWebsite ? 'target="_blank" rel="noopener"' : ''} title="${item.name[lang] || item.name['vi']}">
+          <div>
+            <div class="client-top">
+              <div class="client-logo-box">${item.monogram}</div>
+              <span class="client-region-badge">${item.region[lang] || item.region['zh']}</span>
+            </div>
+            <h3 class="client-name-vn">${item.name[lang] || item.name['vi']}</h3>
+            <div class="client-group"><i class="fa-solid fa-building-flag"></i> ${item.group[lang] || item.group['vi']}</div>
+            <div class="client-sector-tag">${item.sector[lang] || item.sector['vi']}</div>
+          </div>
+          <div class="client-footer">
+            <span class="client-status-tag">${item.hasWebsite ? statusTagWeb : statusTagSetup}</span>
+            <span class="client-link-action ${item.hasWebsite ? '' : 'internal'}">
+              ${item.hasWebsite ? linkLabelWeb : linkLabelDesk}
+            </span>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    function filterClients(category, event) {
+      currentClientFilter = category;
+      const pills = document.querySelectorAll('#clients .filter-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      if (event && event.target) {
+        event.target.classList.add('active');
+      }
+      renderClients(currentLang, currentClientFilter);
+    }
 
     let currentLang = 'zh';
     let currentFilter = 'all';
@@ -2102,15 +2554,26 @@
       document.getElementById('sec-4-t').innerText = data.sec4T;
       document.getElementById('sec-4-d').innerText = data.sec4D;
 
-      document.getElementById('sec4-title').innerHTML = data.sec4Title;
-      document.getElementById('sec4-lead').innerText = data.sec4Lead;
-      document.getElementById('qr-sec-title').innerText = data.qrSecTitle;
-      document.getElementById('qr-sec-desc').innerText = data.qrSecDesc;
-      document.getElementById('qr-box-title').innerText = data.qrBoxTitle;
-      document.getElementById('contact-phone').innerText = data.contactPhone;
-      document.getElementById('contact-addr').innerText = data.contactAddr;
-      document.getElementById('b2b-form-title').innerText = data.b2bFormTitle;
-      document.getElementById('form-f-btn').innerText = data.formFBtn;
+      if (document.getElementById('nav-clients')) document.getElementById('nav-clients').innerText = data.navClients;
+      if (document.getElementById('sec4-client-title')) document.getElementById('sec4-client-title').innerHTML = data.sec4ClientTitle;
+      if (document.getElementById('sec4-client-lead')) document.getElementById('sec4-client-lead').innerText = data.sec4ClientLead;
+      if (document.getElementById('pill-client-all')) document.getElementById('pill-client-all').innerText = data.pillClientAll;
+      if (document.getElementById('pill-client-cn')) document.getElementById('pill-client-cn').innerText = data.pillClientCn;
+      if (document.getElementById('pill-client-tw')) document.getElementById('pill-client-tw').innerText = data.pillClientTw;
+      if (document.getElementById('pill-client-hk')) document.getElementById('pill-client-hk').innerText = data.pillClientHk;
+      if (document.getElementById('client-trust-title')) document.getElementById('client-trust-title').innerText = data.clientTrustTitle;
+      if (document.getElementById('client-trust-desc')) document.getElementById('client-trust-desc').innerText = data.clientTrustDesc;
+      if (document.getElementById('client-cta-btn')) document.getElementById('client-cta-btn').innerText = data.clientCtaBtn;
+
+      if (document.getElementById('sec5-title')) document.getElementById('sec5-title').innerHTML = data.sec5Title;
+      if (document.getElementById('sec5-lead')) document.getElementById('sec5-lead').innerText = data.sec5Lead;
+      if (document.getElementById('qr-sec-title')) document.getElementById('qr-sec-title').innerText = data.qrSecTitle;
+      if (document.getElementById('qr-sec-desc')) document.getElementById('qr-sec-desc').innerText = data.qrSecDesc;
+      if (document.getElementById('qr-box-title')) document.getElementById('qr-box-title').innerText = data.qrBoxTitle;
+      if (document.getElementById('contact-phone')) document.getElementById('contact-phone').innerText = data.contactPhone;
+      if (document.getElementById('contact-addr')) document.getElementById('contact-addr').innerText = data.contactAddr;
+      if (document.getElementById('b2b-form-title')) document.getElementById('b2b-form-title').innerText = data.b2bFormTitle;
+      if (document.getElementById('form-f-btn')) document.getElementById('form-f-btn').innerText = data.formFBtn;
 
       document.getElementById('footer-desc').innerText = data.footerDesc;
       document.getElementById('ft-col1-t').innerText = data.ftCol1T;
@@ -2120,6 +2583,9 @@
 
       // Render job cards with updated language
       renderJobs(currentLang, currentFilter);
+
+      // Render client partners with updated language
+      renderClients(currentLang, currentClientFilter);
     }
 
     // Scroll progress
@@ -2141,7 +2607,7 @@
     // Job Filter interaction
     function filterJobs(category, event) {
       currentFilter = category;
-      const pills = document.querySelectorAll('.filter-pill');
+      const pills = document.querySelectorAll('#jobs .filter-pill');
       pills.forEach(p => p.classList.remove('active'));
       if (event && event.target) {
         event.target.classList.add('active');
@@ -2152,6 +2618,7 @@
     // Khởi tạo ban đầu khi load trang
     document.addEventListener('DOMContentLoaded', () => {
       renderJobs('zh', 'all');
+      renderClients('zh', 'all');
     });
   </script>
 </body>
