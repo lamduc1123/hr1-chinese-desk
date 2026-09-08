@@ -1,0 +1,954 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> TAYA Groups 達亞集團 – Taiwan’s Leading Coating Specialists</title>
+<meta content="TAYA Groups 達亞集團 – Taiwan’s Leading Coating Specialists" name="keywords">
+<meta content="TAYA Groups 達亞集團 – Taiwan’s Leading Coating Specialists" name="description">
+<meta content="TAYA Groups 達亞集團 – Taiwan’s Leading Coating Specialists" name="company">
+<meta content="TAYA Groups 達亞集團 – Taiwan’s Leading Coating Specialists" name="copyright">
+<meta content="TAYA Groups 達亞集團 – Taiwan’s Leading Coating Specialists" name="Author" />
+<meta content="MSHTML 6.00.2745.2800" name="GENERATOR" />
+<meta content="01-apr-2012 20:00:05" NAME="Creation-Date" />
+<meta content="general" name="rating">
+<meta content="all" name="robots">
+<meta content="3 days" name="revisit-after" />
+<LINK href="favicon.ico" rel="SHORTCUT ICON"></LINK>
+<LINK href="favicon.ico" rel="bookmark"></LINK>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="images/share_pic.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700&family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<meta name="format-detection" content="telephone=no"><script type="text/javascript" src="js/jquery1.11.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script type="text/javascript" src="js/jQueryRotateCompressed.2.1.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all" />
+<link href="css/hover.css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="css/lang_en.css" type="text/css" media="all" />
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.menu_open').click(function(){
+    $(this).hide();
+    $('.header_small_close').show();
+    $('.header_small_menu').show();
+    $('.header_small_menu').addClass("open");
+  });
+  $('.header_small_close').click(function(){
+    $(this).hide()
+    $('.menu_open').show();
+    $('.header_small_menu').removeClass("open");
+    $('.header_small_menu').hide();
+  });
+  $('.top').click(function(){
+    $('html, body').animate ({scrollTop:0}, 200);
+  });
+  
+  var menu2_o = 1;
+  var menu3_o = 1;
+  $('.small_ul').click(function(){
+    $(this).children("ul").stop().slideToggle();
+    if(menu2_o == 1){
+    $(this).children("ul li .small_open").stop().rotate({ animateTo:-90 }, 300 );
+    menu2_o = 2;
+    }else{
+    $(this).children("ul li .small_open").stop().rotate({ animateTo: 0 }, 300 );
+    menu2_o = 1;
+    }
+  });
+  $('.small_ul2').click(function(){
+    $(this).children("ul").stop().slideToggle();
+    if(menu3_o == 1){
+    $(this).children("ul li .small_open").stop().rotate({ animateTo:-90 }, 300 );
+    menu3_o = 2;
+    }else{
+    $(this).children("ul li .small_open").stop().rotate({ animateTo: 0 }, 300 );
+    menu3_o = 1;
+    }
+  });
+
+  $('.menu_list4 .menu ul li').click(function(){
+    $(this).children("ul").stop().slideToggle("fast");
+  });
+
+  $('.header_small_li .small_href').each(function() {
+    $(this).click(function(){
+      var hasActive = $(this).next('.down-arrow').hasClass("active");
+      if(hasActive == true){
+        $(this).next('.down-arrow').removeClass("active");
+        $(this).next().next('.header_menu_open').hide();
+      }else{
+        $(this).next('.down-arrow').addClass("active");
+        $(this).next().next('.header_menu_open').show();
+      }
+    });
+  });
+
+  $('.share_icon').each(function() {
+    $(this).hover(function() {
+      var share = $(this).data("title2");
+      $(this).attr("src","images/"+share);
+    },function(){
+      var share = $(this).data("title1");
+      $(this).attr("src","images/"+share);
+    });
+  });
+  $('.products_kind1').each(function() {
+    if($(this).hasClass('active')){
+
+    }else{
+      $(this).hover(function() {
+        var share = $(this).find('.share_icon').data("title2");
+        $(this).find('.share_icon').attr("src","images/"+share);
+      },function(){
+        var share = $(this).find('.share_icon').data("title1");
+        $(this).find('.share_icon').attr("src","images/"+share);
+      });
+    }
+  });
+  $('.news_button').each(function() {
+    $(this).hover(function() {
+      var share = $(this).find('.news_icon').data("title2");
+      $(this).find('.news_icon').attr("src","images/"+share);
+    },function(){
+      var share = $(this).find('.news_icon').data("title1");
+      $(this).find('.news_icon').attr("src","images/"+share);
+    });
+  });
+  $('.shareimg').each(function() {
+    $(this).hover(function() {
+      var share = $(this).data("title2");
+      $(this).attr("src","images/socialmedia/"+share);
+    },function(){
+      var share = $(this).data("title1");
+      $(this).attr("src","images/socialmedia/"+share);
+    });
+  });
+
+  $('.shareimg2').each(function() {
+    $(this).hover(function() {
+      var share = $(this).data("title2");
+      $(this).attr("src","images/"+share);
+    },function(){
+      var share = $(this).data("title1");
+      $(this).attr("src","images/"+share);
+    });
+  });
+  
+  
+  $(".menu_open1").click(function() {
+    if($(".menu_open3 ul").css('display') === 'block'){
+      $(".menu_open3").children("ul").stop().slideToggle(200);
+    }
+    if($(".menu_open2 ul").css('display') === 'block'){
+      $(".menu_open2").children("ul").stop().slideToggle(200);
+    }
+    $(this).children("ul").stop().slideToggle();
+  });
+  
+  $(".menu_open2").click(function() {
+    if($(".menu_open1 ul").css('display') === 'block'){
+      $(".menu_open1").children("ul").stop().slideToggle(200);
+    }
+    if($(".menu_open3 ul").css('display') === 'block'){
+      $(".menu_open3").children("ul").stop().slideToggle(200);
+    }
+    $(this).children("ul").stop().slideToggle();
+  });
+  $(".menu_open3").click(function() {
+    if($(".menu_open1 ul").css('display') === 'block'){
+      $(".menu_open1").children("ul").stop().slideToggle(200);
+    }
+    if($(".menu_open2 ul").css('display') === 'block'){
+      $(".menu_open2").children("ul").stop().slideToggle(200);
+    }
+    $(this).children("ul").stop().slideToggle();
+  });
+
+
+	var controller = new ScrollMagic.Controller();
+
+ //fade
+  $(".fade").each(function(){
+    $(this).addClass('out');
+    new ScrollMagic.Scene({
+      triggerElement: this,
+      triggerHook: 0.65
+    })
+    .on("enter", function(ev){$(ev.target.triggerElement()).removeClass('out');})
+    .addTo(controller);
+  });
+  $(".fade2").each(function(){
+    $(this).addClass('out');
+    new ScrollMagic.Scene({
+      triggerElement: this,
+      triggerHook: 0.65
+    })
+    .on("enter", function(ev){$(ev.target.triggerElement()).removeClass('out');})
+    .addTo(controller);
+  });
+  $(".fade3").each(function(){
+    $(this).addClass('out');
+    new ScrollMagic.Scene({
+      triggerElement: this,
+      triggerHook: 0.65
+    })
+    .on("enter", function(ev){$(ev.target.triggerElement()).removeClass('out');})
+    .addTo(controller);
+  });
+
+  $('.container').removeClass('out');
+});
+function iEsc(){ return false; }
+function iRec(){ return true; }
+function DisableKeys() {
+    if(event.ctrlKey || event.altKey || event.metaKey)  {
+    window.event.returnValue=false;
+    iEsc();}
+}
+
+document.ondragstart=iEsc;
+document.onkeydown=DisableKeys;
+document.oncontextmenu=iEsc;
+
+if (typeof document.onselectstart !="undefined") document.onselectstart=iEsc;
+else
+{
+    document.onmousedown=iEsc;
+    document.onmouseup=iRec;
+}
+
+function DisableRightClick(e)
+{
+  if (window.Event){ if (e.which == 2 || e.which == 3) iEsc();}
+    else
+  if (event.button == 2 || event.button == 3)
+  {
+    event.cancelBubble = true
+    event.returnValue = false;
+    iEsc();
+  }
+}
+</script>
+<script type="application/javascript">
+</script><link rel="stylesheet" href="js/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="js/assets/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<script src="js/owl.carousel.js"></script>
+<script src="js/pop.js"></script>
+<link rel="stylesheet" href="css/lite-yt-embed.css" />
+<link rel="stylesheet" href="css/index.css?172838" type="text/css" media="all" />
+
+<script type="text/javascript">
+$(document).ready(function() {
+  
+  $('.owl-one').owlCarousel({
+    nav:true,
+    loop:true,
+    items:1,
+    dots:false,
+    margin:0,
+    stagePadding:0,
+    smartSpeed:650,
+    autoplay:true,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
+    autoHeight: false,
+    animateOut: 'fadeOut',
+    navText: [$('.owl-prev2'),$('.owl-next2')]
+  });
+  
+  $('.owl-two').owlCarousel({
+    loop:true,
+    nav:true,
+    items:1,
+    margin:20,
+    dots:false,
+    stagePadding:0,
+    smartSpeed:650,
+    autoplay:false,
+    autoplayTimeout:60000,
+    autoplayHoverPause:true,
+    navText: ["<img src='images/arrow_left.svg' width:'100%'>","<img src='images/arrow_right.svg' width:'100%'>"]
+  });
+  $('.owl-three').owlCarousel({
+    loop:true,
+    nav:true,
+    items:1,
+    margin:30,
+    dots:false,
+    stagePadding:0,
+    smartSpeed:650,
+    autoplay:true,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
+    navText: ["<img src='images/arrow_left.svg' width:'100%'>","<img src='images/arrow_right.svg' width:'100%'>"],
+    responsive : {
+      600 : {
+        items:2
+      },
+      1000 : {
+        items:3
+      }
+    }
+  });
+  
+  $('.owl-two').find('.owl-nav').removeClass('disabled');
+  
+  $('.owl-two').on('changed.owl-two', function(event) {
+    $(this).find('.owl-nav').removeClass('disabled');
+  });
+  
+}); 
+</script>
+
+</head>
+
+<body>
+
+<div id="header">
+  <div class="header_block">
+    <div class="logo"><a href="index.php?lang=en"><img src="images/logo_w.svg"></a></div>
+    <div class="menu_open"><img src="images/menu_open.svg"width="100%"></div>
+  </div>
+</div>
+<div class="header_small_menu">
+  <div class="header_small_logo"><a href="index.php?lang=en"><img src="images/logo_w.svg"></a></div>
+  <div class="header_small_close"><img src="images/menu_close.svg"></div>
+  <div class="menu_list">
+
+
+    <div class="menu_list2">
+      <div class="menu">
+        <ul>
+          <li><div class="menu_get"><img src="images/menu_icon.svg" class="menu_icons"><span>Taya Groups</span></div>
+            <ul>
+                            <li><a href="about.php?lang=en&kind1=1">Who We Are</a></li>
+                            <li><a href="about.php?lang=en&kind1=2">Mission And Vision</a></li>
+                            <li><a href="about.php?lang=en&kind1=3">Milestone</a></li>
+                          </ul>
+          </li>
+        </ul>
+        <div class="menu_clear"></div>
+        <ul>
+          <li><div class="menu_get"><img src="images/menu_icon.svg" class="menu_icons"><span>Business Scope</span></div>
+            <ul>
+                            <li><a href="business.php?lang=en&kind1=1">Certifications</a></li>
+                            <li><a href="location.php?lang=en">Locations</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><div class="menu_get"><img src="images/menu_icon.svg" class="menu_icons"><span>Products</span></div>
+            <ul>
+                            <li><a href="products.php?lang=en&kind1=1">Industrial Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=2">Healthcare Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=3">Belt Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=4">Architectural Membrane</a></li>
+                            <li><a href="products.php?lang=en&kind1=5">Airtight Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=6">Patio Awning</a></li>
+                            <li><a href="products.php?lang=en&kind1=7"> Signage</a></li>
+                          </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><div class="menu_get"><img src="images/menu_icon.svg" class="menu_icons"><span>News Centre</span></div>
+            <ul>
+                            <li><a href="news.php?lang=en&kind1=1">Press Release</a></li>
+                            <li><a href="news.php?lang=en&kind1=2">Newsletter</a></li>
+                            <li><a href="news.php?lang=en&kind1=3">Trade Shows &amp; Events</a></li>
+                            <li><a href="news.php?lang=en&kind1=4">Video</a></li>
+                          </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><div class="menu_get"><img src="images/menu_icon.svg" class="menu_icons"><span>CSR</span></div>
+          <ul>
+                        <li><a href="csr.php?lang=en&kind1=4">Corporate Sustainability</a></li>
+                        <li><a href="csr.php?lang=en&kind1=1">Environmental Sustainability</a></li>
+                        <li><a href="csr.php?lang=en&kind1=2">Sustainable Social Prosperity</a></li>
+                        <li><a href="csr_reports.php?lang=en">CSR Report</a></li>
+          </ul>
+          </li>
+        </ul>
+      <div class="menu_clear"></div>
+      <ul>
+        <li><div class="menu_get"><img src="images/menu_icon.svg" class="menu_icons"><span>Contact Us</span></div>
+          <ul>
+            <li>Get in touch <a href="contact.php?lang=en">here</a></li>
+          </ul>
+        </li>
+      </ul>
+      </div>
+    </div>
+
+    <div class="menu_list3">
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;Taya Groups            <ul>
+                            <li><a href="about.php?lang=en&kind1=1">Who We Are</a></li>
+                            <li><a href="about.php?lang=en&kind1=2">Mission And Vision</a></li>
+                            <li><a href="about.php?lang=en&kind1=3">Milestone</a></li>
+                          </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;Business Scope            <ul>
+                            <li><a href="business.php?lang=en&kind1=1">Certifications</a></li>
+                            <li><a href="location.php?lang=en">Locations</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu_clear2"></div>
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;Products            <ul>
+                            <li><a href="products.php?lang=en&kind1=1">Industrial Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=2">Healthcare Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=3">Belt Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=4">Architectural Membrane</a></li>
+                            <li><a href="products.php?lang=en&kind1=5">Airtight Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=6">Patio Awning</a></li>
+                            <li><a href="products.php?lang=en&kind1=7"> Signage</a></li>
+                          </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;News Centre            <ul>
+                            <li><a href="news.php?lang=en&kind1=1">Press Release</a></li>
+                            <li><a href="news.php?lang=en&kind1=2">Newsletter</a></li>
+                            <li><a href="news.php?lang=en&kind1=3">Trade Shows &amp; Events</a></li>
+                            <li><a href="news.php?lang=en&kind1=4">Video</a></li>
+                          </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu_clear2"></div>
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;CSR          <ul>  
+                        <li><a href="csr.php?lang=en&kind1=4">Corporate Sustainability</a></li>
+                        <li><a href="csr.php?lang=en&kind1=1">Environmental Sustainability</a></li>
+                        <li><a href="csr.php?lang=en&kind1=2">Sustainable Social Prosperity</a></li>
+                        <li><a href="csr_reports.php?lang=en">CSR Report</a></li>
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;Contact Us          <ul>
+            <li>Get in touch <a href="contact.php?lang=en">here</a></li>
+          </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="menu_list4">
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;Taya Groups <span style="float: right;">+</span>
+            <ul style="display: none;">
+                            <li><a href="about.php?lang=en&kind1=1">Who We Are</a></li>
+                            <li><a href="about.php?lang=en&kind1=2">Mission And Vision</a></li>
+                            <li><a href="about.php?lang=en&kind1=3">Milestone</a></li>
+                          </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;Business Scope <span style="float: right;">+</span>
+            <ul style="display: none;">
+                            <li><a href="business.php?lang=en&kind1=1">Certifications</a></li>
+                            <li><a href="location.php?lang=en">Locations</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu_clear2"></div>
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;Products <span style="float: right;">+</span>
+            <ul style="display: none;">
+                            <li><a href="products.php?lang=en&kind1=1">Industrial Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=2">Healthcare Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=3">Belt Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=4">Architectural Membrane</a></li>
+                            <li><a href="products.php?lang=en&kind1=5">Airtight Fabric</a></li>
+                            <li><a href="products.php?lang=en&kind1=6">Patio Awning</a></li>
+                            <li><a href="products.php?lang=en&kind1=7"> Signage</a></li>
+                          </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;News Centre <span style="float: right;">+</span>
+            <ul style="display: none;">
+                            <li><a href="news.php?lang=en&kind1=1">Press Release</a></li>
+                            <li><a href="news.php?lang=en&kind1=2">Newsletter</a></li>
+                            <li><a href="news.php?lang=en&kind1=3">Trade Shows &amp; Events</a></li>
+                            <li><a href="news.php?lang=en&kind1=4">Video</a></li>
+                          </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu_clear2"></div>
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;CSR <span style="float: right;">+</span>
+            <ul style="display: none;">  
+                        <li><a href="csr.php?lang=en&kind1=4">Corporate Sustainability</a></li>
+                        <li><a href="csr.php?lang=en&kind1=1">Environmental Sustainability</a></li>
+                        <li><a href="csr.php?lang=en&kind1=2">Sustainable Social Prosperity</a></li>
+                        <li><a href="csr_reports.php?lang=en">CSR Report</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><img src="images/menu_icon.svg" class="menu_icons">&nbsp;&nbsp;Contact Us <span style="float: right;">+</span>
+            <ul style="display: none;">
+            <li>Get in touch <a href="contact.php?lang=en">here</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lang2">
+      <ul>
+              <li class="active">
+          <div class="lang_word2">En</div>
+          <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 24C0 12.6863 0 7.02944 3.51472 3.51472C7.02944 0 12.6863 0 24 0V0C35.3137 0 40.9706 0 44.4853 3.51472C48 7.02944 48 12.6863 48 24V24C48 35.3137 48 40.9706 44.4853 44.4853C40.9706 48 35.3137 48 24 48V48C12.6863 48 7.02944 48 3.51472 44.4853C0 40.9706 0 35.3137 0 24V24Z" fill="url(#paint0_linear_1108_1560)"/>
+            <defs>
+            <linearGradient id="paint0_linear_1108_1560" x1="48" y1="48" x2="-4.95444" y2="6.2901" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#6F9DBF"/>
+            <stop offset="1" stop-color="#627594"/>
+            </linearGradient>
+            </defs>
+          </svg>
+        </li>
+                <li onclick="location.href='index.php?lang=zh'">
+          <div class="lang_word2">繁</div>
+          <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24,2c10.8,0,16.1,0,19.1,2.9S46,13.2,46,24s0,16.1-2.9,19.1S34.8,46,24,46S7.9,46,4.9,43.1S2,34.8,2,24S2,7.9,4.9,4.9S13.2,2,24,2 M24,0C12.7,0,7,0,3.5,3.5S0,12.7,0,24s0,17,3.5,20.5S12.7,48,24,48s17,0,20.5-3.5S48,35.3,48,24s0-17-3.5-20.5S35.3,0,24,0z" fill="url(#paint0_linear_1108_1560)"/>
+            <defs>
+              <linearGradient id="paint0_linear_1108_1560" x1="48" y1="48" x2="-4.95444" y2="6.2901" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6F9DBF"/>
+              <stop offset="1" stop-color="#627594"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </li>
+                <li onclick="location.href='index.php?lang=cn'">
+          <div class="lang_word2">简</div>
+          <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24,2c10.8,0,16.1,0,19.1,2.9S46,13.2,46,24s0,16.1-2.9,19.1S34.8,46,24,46S7.9,46,4.9,43.1S2,34.8,2,24S2,7.9,4.9,4.9S13.2,2,24,2 M24,0C12.7,0,7,0,3.5,3.5S0,12.7,0,24s0,17,3.5,20.5S12.7,48,24,48s17,0,20.5-3.5S48,35.3,48,24s0-17-3.5-20.5S35.3,0,24,0z" fill="url(#paint0_linear_1108_1560)"/>
+            <defs>
+              <linearGradient id="paint0_linear_1108_1560" x1="48" y1="48" x2="-4.95444" y2="6.2901" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6F9DBF"/>
+              <stop offset="1" stop-color="#627594"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </li>
+                <li onclick="location.href='index.php?lang=jp'">
+          <div class="lang_word2">日</div>
+          <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24,2c10.8,0,16.1,0,19.1,2.9S46,13.2,46,24s0,16.1-2.9,19.1S34.8,46,24,46S7.9,46,4.9,43.1S2,34.8,2,24S2,7.9,4.9,4.9S13.2,2,24,2 M24,0C12.7,0,7,0,3.5,3.5S0,12.7,0,24s0,17,3.5,20.5S12.7,48,24,48s17,0,20.5-3.5S48,35.3,48,24s0-17-3.5-20.5S35.3,0,24,0z" fill="url(#paint0_linear_1108_1560)"/>
+            <defs>
+              <linearGradient id="paint0_linear_1108_1560" x1="48" y1="48" x2="-4.95444" y2="6.2901" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6F9DBF"/>
+              <stop offset="1" stop-color="#627594"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </li>
+                <li onclick="location.href='index.php?lang=vn'">
+          <div class="lang_word2">VN</div>
+          <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24,2c10.8,0,16.1,0,19.1,2.9S46,13.2,46,24s0,16.1-2.9,19.1S34.8,46,24,46S7.9,46,4.9,43.1S2,34.8,2,24S2,7.9,4.9,4.9S13.2,2,24,2 M24,0C12.7,0,7,0,3.5,3.5S0,12.7,0,24s0,17,3.5,20.5S12.7,48,24,48s17,0,20.5-3.5S48,35.3,48,24s0-17-3.5-20.5S35.3,0,24,0z" fill="url(#paint0_linear_1108_1560)"/>
+            <defs>
+              <linearGradient id="paint0_linear_1108_1560" x1="48" y1="48" x2="-4.95444" y2="6.2901" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6F9DBF"/>
+              <stop offset="1" stop-color="#627594"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </li>
+              </ul>
+    </div>
+
+
+  </div>
+</div>
+<div id="banner">
+    <div class="banner_1">
+    <div class="loop owl-one owl-carousel owl-theme">
+            <div class="item" style="background-image: url('index_banner/238220214.jpg')">
+        <div class="banner_word">
+          <div class="bannera_title1">QUALITY</div>
+          <div class="bannera_title2"><p>Quality refers to how good something is compared to other similar things. In other words, its degree of excellence. When used to describe people, it refers to a distinctive characteristic or attribute that they possess.&nbsp;</p>
+</div>
+        </div>
+        <div class="banner_bg"></div>
+      </div>
+            <div class="item" style="background-image: url('index_banner/123992919.jpg')">
+        <div class="banner_word">
+          <div class="bannera_title1">Efficiency</div>
+          <div class="bannera_title2"><p>Efficiency is a key principle throughout every stage of engagement with our clients. Our team are highly-trained to deliver fast, effective service from first contact, during the sales experience, and right through to after-sales and beyond.&nbsp;</p>
+</div>
+        </div>
+        <div class="banner_bg"></div>
+      </div>
+            <div class="item" style="background-image: url('index_banner/782592773.jpg')">
+        <div class="banner_word">
+          <div class="bannera_title1">Innovation</div>
+          <div class="bannera_title2"><p>TAYA is made up of innovators who specialise in developing new and cutting-edge solutions that truly meet the needs of the market. We take sustainable growth seriously, and always have our sights set on the future.&nbsp;</p>
+</div>
+        </div>
+        <div class="banner_bg"></div>
+      </div>
+            <div class="item" style="background-image: url('index_banner/983825683.jpg')">
+        <div class="banner_word">
+          <div class="bannera_title1">Trust</div>
+          <div class="bannera_title2"><p>TAYA believes that trust is the foundation of all relationships, and this is a value that we carry with us at all times when conducting business, both within the company and with our customers worldwide.</p>
+</div>
+        </div>
+        <div class="banner_bg"></div>
+      </div>
+          </div>
+    <div class="owl-prev2">
+      <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.32497 16.825C8.86936 17.2807 8.13067 17.2807 7.67505 16.825L0.6751 9.82504C0.219491 9.36943 0.219491 8.63074 0.6751 8.17513L7.67505 1.17512C8.13066 0.71951 8.86936 0.719509 9.32497 1.17512C9.78058 1.63073 9.78059 2.36942 9.32498 2.82504L4.31663 7.83341L22.5001 7.83341C23.1444 7.83341 23.6667 8.35575 23.6667 9.00008C23.6667 9.64441 23.1444 10.1667 22.5001 10.1667L4.31663 10.1667L9.32498 15.1751C9.78059 15.6307 9.78058 16.3694 9.32497 16.825Z" fill="#333333"/></svg>
+    </div>
+    <div class="owl-next2">
+      <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M14.6751 1.17496C15.1307 0.719348 15.8694 0.71935 16.325 1.17496L23.3249 8.17496C23.7805 8.63058 23.7805 9.36926 23.3249 9.82488L16.325 16.8249C15.8694 17.2805 15.1307 17.2805 14.6751 16.8249C14.2194 16.3693 14.2194 15.6306 14.6751 15.175L19.6834 10.1666H1.49998C0.855647 10.1666 0.333313 9.64425 0.333313 8.99992C0.333313 8.35559 0.855647 7.83325 1.49998 7.83325H19.6834L14.6751 2.82487C14.2194 2.36926 14.2194 1.63057 14.6751 1.17496Z" fill="#333333"/>
+      </svg>
+    </div>
+  </div>
+  <div class="banner_arrow"><img src="images/scroll_arrow.svg"></div>
+  <div class="lang">
+    <ul>
+                <li class="active">
+          <a href="index.php?lang=en">
+            <div class="lang_word">En</div>
+            <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 24C0 12.6863 0 7.02944 3.51472 3.51472C7.02944 0 12.6863 0 24 0C35.3137 0 40.9706 0 44.4853 3.51472C48 7.02944 48 12.6863 48 24C48 35.3137 48 40.9706 44.4853 44.4853C40.9706 48 35.3137 48 24 48C12.6863 48 7.02944 48 3.51472 44.4853C0 40.9706 0 35.3137 0 24Z" fill="url(#paint0_linear_1023_1939)"/>
+              <defs>
+              <linearGradient id="paint0_linear_1023_1939" x1="0" y1="0" x2="57.4858" y2="18.4593" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#284A7F"/>
+                <stop offset="1" stop-color="#284E95"/>
+              </linearGradient>
+              </defs>
+            </svg>
+          </a>
+        </li>
+                <li onclick="location.href='index.php?lang=zh'">
+          <div class="lang_word">繁</div>
+          <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <!-- 外框圓（預設顯示） -->
+            <path class="ring" d="M24,2C34.75,2,40.14,2,43.07,4.93S46,13.25,46,24s0,16.14-2.93,19.07S34.75,46,24,46,7.86,46,4.93,43.07,2,34.75,2,24,2,7.86,4.93,4.93,13.25,2,24,2m0-2C12.69,0,7,0,3.51,3.51S0,12.69,0,24,0,41,3.51,44.49,12.69,48,24,48s17,0,20.49-3.51S48,35.31,48,24,48,7,44.49,3.51,35.31,0,24,0Z" fill="url(#paint0_linear_1023_1939)"/>
+            <!-- 實心圓（hover / active 時顯示） -->
+            <path class="fill-circle" d="M0 24C0 12.6863 0 7.02944 3.51472 3.51472C7.02944 0 12.6863 0 24 0C35.3137 0 40.9706 0 44.4853 3.51472C48 7.02944 48 12.6863 48 24C48 35.3137 48 40.9706 44.4853 44.4853C40.9706 48 35.3137 48 24 48C12.6863 48 7.02944 48 3.51472 44.4853C0 40.9706 0 35.3137 0 24Z" fill="url(#paint0_linear_1023_1939)"/>
+            <defs>
+              <linearGradient id="paint0_linear_1023_1939" x1="48" y1="48" x2="-4.95444" y2="6.2901" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#284A7F"/>
+                <stop offset="1" stop-color="#284E95"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </li>
+                <li onclick="location.href='index.php?lang=cn'">
+          <div class="lang_word">简</div>
+          <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <!-- 外框圓（預設顯示） -->
+            <path class="ring" d="M24,2C34.75,2,40.14,2,43.07,4.93S46,13.25,46,24s0,16.14-2.93,19.07S34.75,46,24,46,7.86,46,4.93,43.07,2,34.75,2,24,2,7.86,4.93,4.93,13.25,2,24,2m0-2C12.69,0,7,0,3.51,3.51S0,12.69,0,24,0,41,3.51,44.49,12.69,48,24,48s17,0,20.49-3.51S48,35.31,48,24,48,7,44.49,3.51,35.31,0,24,0Z" fill="url(#paint0_linear_1023_1939)"/>
+            <!-- 實心圓（hover / active 時顯示） -->
+            <path class="fill-circle" d="M0 24C0 12.6863 0 7.02944 3.51472 3.51472C7.02944 0 12.6863 0 24 0C35.3137 0 40.9706 0 44.4853 3.51472C48 7.02944 48 12.6863 48 24C48 35.3137 48 40.9706 44.4853 44.4853C40.9706 48 35.3137 48 24 48C12.6863 48 7.02944 48 3.51472 44.4853C0 40.9706 0 35.3137 0 24Z" fill="url(#paint0_linear_1023_1939)"/>
+            <defs>
+              <linearGradient id="paint0_linear_1023_1939" x1="48" y1="48" x2="-4.95444" y2="6.2901" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#284A7F"/>
+                <stop offset="1" stop-color="#284E95"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </li>
+                <li onclick="location.href='index.php?lang=jp'">
+          <div class="lang_word">日</div>
+          <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <!-- 外框圓（預設顯示） -->
+            <path class="ring" d="M24,2C34.75,2,40.14,2,43.07,4.93S46,13.25,46,24s0,16.14-2.93,19.07S34.75,46,24,46,7.86,46,4.93,43.07,2,34.75,2,24,2,7.86,4.93,4.93,13.25,2,24,2m0-2C12.69,0,7,0,3.51,3.51S0,12.69,0,24,0,41,3.51,44.49,12.69,48,24,48s17,0,20.49-3.51S48,35.31,48,24,48,7,44.49,3.51,35.31,0,24,0Z" fill="url(#paint0_linear_1023_1939)"/>
+            <!-- 實心圓（hover / active 時顯示） -->
+            <path class="fill-circle" d="M0 24C0 12.6863 0 7.02944 3.51472 3.51472C7.02944 0 12.6863 0 24 0C35.3137 0 40.9706 0 44.4853 3.51472C48 7.02944 48 12.6863 48 24C48 35.3137 48 40.9706 44.4853 44.4853C40.9706 48 35.3137 48 24 48C12.6863 48 7.02944 48 3.51472 44.4853C0 40.9706 0 35.3137 0 24Z" fill="url(#paint0_linear_1023_1939)"/>
+            <defs>
+              <linearGradient id="paint0_linear_1023_1939" x1="48" y1="48" x2="-4.95444" y2="6.2901" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#284A7F"/>
+                <stop offset="1" stop-color="#284E95"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </li>
+                <li onclick="location.href='index.php?lang=vn'">
+          <div class="lang_word">VN</div>
+          <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <!-- 外框圓（預設顯示） -->
+            <path class="ring" d="M24,2C34.75,2,40.14,2,43.07,4.93S46,13.25,46,24s0,16.14-2.93,19.07S34.75,46,24,46,7.86,46,4.93,43.07,2,34.75,2,24,2,7.86,4.93,4.93,13.25,2,24,2m0-2C12.69,0,7,0,3.51,3.51S0,12.69,0,24,0,41,3.51,44.49,12.69,48,24,48s17,0,20.49-3.51S48,35.31,48,24,48,7,44.49,3.51,35.31,0,24,0Z" fill="url(#paint0_linear_1023_1939)"/>
+            <!-- 實心圓（hover / active 時顯示） -->
+            <path class="fill-circle" d="M0 24C0 12.6863 0 7.02944 3.51472 3.51472C7.02944 0 12.6863 0 24 0C35.3137 0 40.9706 0 44.4853 3.51472C48 7.02944 48 12.6863 48 24C48 35.3137 48 40.9706 44.4853 44.4853C40.9706 48 35.3137 48 24 48C12.6863 48 7.02944 48 3.51472 44.4853C0 40.9706 0 35.3137 0 24Z" fill="url(#paint0_linear_1023_1939)"/>
+            <defs>
+              <linearGradient id="paint0_linear_1023_1939" x1="48" y1="48" x2="-4.95444" y2="6.2901" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#284A7F"/>
+                <stop offset="1" stop-color="#284E95"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </li>
+            </ul>
+  </div>
+</div>
+<div id="content">
+  <div class="content">
+    <div class="content_1">
+      <div class="content_title1" style="text-transform:uppercase;">Taya Groups</div>
+    </div>
+    <div class="content_2">
+      <div class="content_title2" style="text-transform:uppercase;">Who We Are</div>
+      <div class="content_clear"></div>
+      <div class="content_title3">
+            <p>TAYA is a pioneer in flexible composite textiles, with over 50 years of expertise in delivering world-class fabrics across diverse industries and applications worldwide. Our name has long been synonymous with quality, reliability, and innovation.</p>
+      <p>&nbsp;</p>
+      <p>Recognising the urgent need for sustainable alternatives, TAYA took a bold step more than a decade ago to develop KAVALAN, our groundbreaking range of PVC-free coated banner materials. What began with large-format printing media for the signage and advertising sector has since expanded into industrial applications, as we continue to push boundaries and pave the way toward a greener future.</p>
+      <p>&nbsp;</p>
+      <p>All our products are produced in accordance with international standards and regulations such as ISO9001, ISO14001, REACH, RoHs, 6P and DIN4102-B1, and these cover a range of technology areas including fireproof, waterproof, anti-static, and lacquering. TAYA is the reliable and innovative global leader in technical textiles, offering flexible solutions that are guaranteed to meet your needs.</p>
+            </div>
+    </div>
+    <div class="content_button" style="text-transform: uppercase" onclick="location.href='about.php?lang=en&kind1=1'">
+      Who We Are&nbsp;&nbsp;
+      <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M11 0.9375C11 0.419733 10.5803 0 10.0625 0H2.54949C2.03172 0 1.61199 0.419733 1.61199 0.9375C1.61199 1.45527 2.03172 1.875 2.54949 1.875H7.79917L1.22367 8.45051C0.857549 8.81663 0.857549 9.41022 1.22367 9.77633C1.58978 10.1425 2.18337 10.1425 2.54949 9.77633L9.125 3.20083V8.45051C9.125 8.96828 9.54473 9.38801 10.0625 9.38801C10.5803 9.38801 11 8.96828 11 8.45051V0.9375Z" fill="white"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div id="video" style="background-image: url('images/3b4cddfbb013a22ab1cf3ee8f36c5c6c.gif')">
+  <div class="video_content">
+        <div class="video_title1">OUR PHILOSOPHY</div>
+    <div class="content_clear2"></div>
+    <div class="video_title2">TAYA is an agile, versatile business that isn’t afraid to challenge the status quo. We are always adapting and evolving, continuously looking for ways to innovate and exceed the expectations of our customers. Partnering with TAYA means working with a company that views the world through your lens, and is focused on moving your operations forward. </div>
+    
+    <div class="content_clear2"></div>
+
+    <div class="video_title3">
+      <img src="images/characteristics/iso_9001.svg">
+      <img src="images/characteristics/iso_14001.svg">
+      <img src="images/characteristics/iso_45001.svg">
+      <img src="images/characteristics/iso_50001.svg">
+      <img src="images/characteristics/reach.svg">
+      <img src="images/characteristics/rohs.svg">
+      <img src="images/characteristics/en-71.svg">
+      <img src="images/characteristics/lca.svg">
+    </div>
+
+    <div class="video_title4">
+
+      <div class="video_icon1">
+        <div class="video_icon"><img src="images/characteristics/iso_9001.svg"></div>
+        <div class="video_icon"><img src="images/characteristics/iso_14001.svg"></div>
+        <div class="video_icon"><img src="images/characteristics/iso_45001.svg"></div>
+        <div class="video_icon"><img src="images/characteristics/iso_50001.svg"></div>
+      </div>
+
+      <div class="video_clear"></div>
+
+      <div class="video_icon1">
+        <div class="video_icon"><img src="images/characteristics/reach.svg"></div>
+        <div class="video_icon"><img src="images/characteristics/rohs.svg"></div>
+        <div class="video_icon"><img src="images/characteristics/en-71.svg"></div>
+        <div class="video_icon"><img src="images/characteristics/lca.svg"></div>
+      </div>
+
+    </div>
+
+    <div class="content_clear2"></div>
+    <div class="video_button" onclick='window.open("https://www.youtube.com/channel/UCI19IwIuv3XTMA-tArGN1Cg")'>
+        Visit Our Channel
+            &nbsp;&nbsp;
+      <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M11 0.9375C11 0.419733 10.5803 0 10.0625 0H2.54949C2.03172 0 1.61199 0.419733 1.61199 0.9375C1.61199 1.45527 2.03172 1.875 2.54949 1.875H7.79917L1.22367 8.45051C0.857549 8.81663 0.857549 9.41022 1.22367 9.77633C1.58978 10.1425 2.18337 10.1425 2.54949 9.77633L9.125 3.20083V8.45051C9.125 8.96828 9.54473 9.38801 10.0625 9.38801C10.5803 9.38801 11 8.96828 11 8.45051V0.9375Z" fill="white"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div id="content">
+    <div class="csr_title">CSR OF TAYA</div>
+  <div class="content_clear3"></div>
+  <div class="csr">
+    <img src="images/index_csr_1.svg">
+    <div class="csr_title1">Corporate Sustainability</div>
+    <div class="csr_title2">TAYA Groups is committed to protecting the rights and welfare of its employees, and creating a safe working environment for our staff. We are dedicated to providing a safe place for our staff, free from pollution and hazards.</div>
+  </div>
+  <div class="csr">
+    <img src="images/index_csr_2.svg">
+    <div class="csr_title1">Environmental Sustainability</div>
+    <div class="csr_title2">TAYA Groups has been advocating for the concept of sustainability, and actively strengthening its corporate sustainability governance. We have developed an internal CSR framework that echoes the Sustainable Development Goals (SDGs) set out by the United Nations.</div>
+  </div>
+  <div class="csr">
+    <img src="images/index_csr_3.svg">
+    <div class="csr_title1">Sustainable Social Prosperity</div>
+    <div class="csr_title2">TAYA is a self-proclaimed pioneer of the green revolution, and the expectation that through the construction of an inclusive culture, scientific innovation, support for public and social initiatives, and environmental sustainability.</div>
+  </div>
+  </div>
+
+<div id="stay" style="background-image: url('images/index_stay.jpg')">
+  <div class="stay_bg">
+    <div class="stay_content">
+            <div class="video_title1">STAY STUNED</div>
+      <div class="content_clear2"></div>
+      <div class="stay_1">
+        <div class="stay_title1"><img src="images/index_message.svg">How Can We Help You?</div>
+        <div class="stay_title2">We would love to hear from you directly. Please fill out <a href="contact.php?lang=en">this form</a> and we will get back in touch with you as soon as possible.</div>
+      </div>
+      <div class="stay_2">
+        <div class="stay_title1"><img src="images/index_message2.svg">Subscribe to the e-Newsletter</div>
+        <div class="stay_title2">Please enter your email here to receive the latest information from TAYA Groups.</div>
+        <form name="newle1" method="post" action="https://www.tayagroups.com/" enctype="application/x-www-form-urlencoded">
+        <div class="footer_email"><input type="email" name="emailaa" class="send_email" placeholder="Entry Your E-mail"><button type="submit" class="send_button"><img src="images/send_arrow.svg"></button></div>
+        <input type="hidden" name="modaa" value="1">
+        </form> 
+      </div>
+          </div>
+  </div>
+</div>
+
+<div id="footer">
+  
+  <img src="images/top.svg" class="top">
+  <div class="footer">
+    <div class="footer_1">
+      <div class="footer_title1">Taya Groups</div>
+      <ul class="footer_title2">
+                <li><a href="about.php?lang=en&kind1=1">Who We Are</a></li>
+                <li><a href="about.php?lang=en&kind1=2">Mission And Vision</a></li>
+                <li><a href="about.php?lang=en&kind1=3">Milestone</a></li>
+              </ul>
+      <div class="footer_clear2"></div>
+      <div class="footer_title1">Products</div>
+      <ul class="footer_title2">
+                <li><a href="products.php?lang=en&kind1=1">Industrial Fabric</a></li>
+                <li><a href="products.php?lang=en&kind1=2">Healthcare Fabric</a></li>
+                <li><a href="products.php?lang=en&kind1=3">Belt Fabric</a></li>
+                <li><a href="products.php?lang=en&kind1=4">Architectural Membrane</a></li>
+                <li><a href="products.php?lang=en&kind1=5">Airtight Fabric</a></li>
+                <li><a href="products.php?lang=en&kind1=6">Patio Awning</a></li>
+                <li><a href="products.php?lang=en&kind1=7"> Signage</a></li>
+              </ul>
+      <div class="footer_clear2"></div>
+      <div class="footer_title1">News Centre</div>
+      <ul class="footer_title2">
+                <li><a href="news.php?lang=en&kind1=1">Press Release</a></li>
+                <li><a href="news.php?lang=en&kind1=2">Newsletter</a></li>
+                <li><a href="news.php?lang=en&kind1=3">Trade Shows &amp; Events</a></li>
+                <li><a href="news.php?lang=en&kind1=4">Video</a></li>
+              </ul>
+      <div class="footer_clear2"></div>
+      <div class="footer_title1">CSR</div>
+      <ul class="footer_title2">
+                <li><a href="csr.php?lang=en&kind1=4">Corporate Sustainability</a></li>
+                <li><a href="csr.php?lang=en&kind1=1">Environmental Sustainability</a></li>
+                <li><a href="csr.php?lang=en&kind1=2">Sustainable Social Prosperity</a></li>
+                <li><a href="csr_reports.php?lang=en">CSR Report</a></li>
+      </ul>
+      <div class="footer_clear2"></div>
+      <div class="footer_title1">CERTIFICATIONS</div>
+      <ul class="footer_title2">
+        <li>ISO 9001</li>
+        <li>ISO 14001</li>
+        <li>ISO 45001</li>
+        <li>ISO 50001</li>
+        <li>REACH Compliant</li>
+        <li>ROHS Compliant</li>
+        <li>EN-71</li>
+        <li>LCA</li>
+      </ul>
+    </div>
+    <div class="footer_2">
+      <div class="footer_title1">Business Scope</div>
+      <ul class="footer_title2">
+                <li><a href="business.php?lang=en&kind1=1">Certifications</a></li>
+                <li><a href="location.php?lang=en">Locations</a></li>
+      </ul>
+      <div class="footer_clear2"></div>
+      <div class="footer_title1">HEADQUARTERS</div>
+      <ul class="footer_title2" style="text-transform:none;">
+        <li>No.777, Fengguan Road, Jinshan District, Shanghai 201501, China<br />Tel: <a href="tel:+86 21 6463 2409" style="color: #fff;">+86 21 6463 2409</a><br />E-mail: <a href="mailto:info@tayagroups.com" style="color: #fff;">info@tayagroups.com</a></li>
+      </ul>
+      <div class="footer_clear2"></div>
+      <div class="footer_title1">Contact Us</div>
+      <ul class="footer_title2" style="text-transform:none;">
+        <li>Get in touch <a href="contact.php?lang=en" style="color: #6fa5cc;">here</a></li>
+      </ul>
+      <div class="footer_clear2"></div>
+      <div class="footer_title1">STAY TUNED</div>
+      <ul class="footer_title2" style="text-transform:none;">
+        <li>Fill in your e-mail address to receive our newsletter.</li>
+      </ul>
+      <div class="footer_email">
+        <form name="newle1" method="post" action="https://www.tayagroups.com/" enctype="application/x-www-form-urlencoded">
+          <input type="email" name="emailaa" class="send_email" placeholder="Enter your email">
+          <button type="submit" class="send_button"><img src="images/send_arrow.svg"></button>
+          <input type="hidden" name="modaa" value="1">
+          <!-- honeypot: 人類看不到,機器人會自動填 -->
+          <input type="text" name="website" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
+          <!-- 送出時間戳,防止機器人瞬間提交 -->
+          <input type="hidden" name="ts" value="1788859718">
+        </form>
+      </div>
+      <div class="footer_clear2"></div>
+      <div class="footer_title1">STAY CONNECTED</div>
+      <div class="footer_share">
+        <div class="footer_share_icon"><a href="https://www.facebook.com/people/Taya-Canvas-Company-Limited/100063679575549/#" target="_blank"><img src="images/share_fb_1.svg" data-title1="share_fb_1.svg" data-title2="share_fb_2.svg" class="share_icon"></a></div>
+        <div class="footer_share_icon"><a href="https://www.linkedin.com/company/ta-ya-canvas-shanghai-co-ltd-/" target="_blank"><img src="images/share_in_1.svg" data-title1="share_in_1.svg" data-title2="share_in_2.svg" class="share_icon"></a></div>
+                <div class="footer_share_icon"><a href="https://www.youtube.com/@tayagroups5797" target="_blank"><img src="images/share_yu_1.svg" data-title1="share_yu_1.svg" data-title2="share_yu_2.svg" class="share_icon"></a></div>
+        <div class="footer_share_icon"><a href="https://mp.weixin.qq.com/s/FbY8-mbRXi-F5-xinLEnUQ" target="_blank"><img src="images/share_we_1.svg" data-title1="share_we_1.svg" data-title2="share_we_2.svg" class="share_icon"></a></div>
+      </div>
+    </div>
+    <div class="footer_line"></div>
+    <div class="footer_clear"></div>
+    <div class="footer_3">
+      <p class="footer_copyright" style="display: inline-block; margin: 0 14px 0 0;">© 2026 TAYA CANVAS (SHANGHAI) Co., Ltd. 沪公网安备 31011602001584 号</p>
+      <p class="footer_copyright" style="display: inline-block; margin: 0 14px 0 0;"><a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" style="color: #cccccc;">沪ICP备18028219号-1</a></p>
+    </div>
+    <div class="footer_4">
+      <div class="footer_logo"><img src="images/logo_w.svg"></div>
+    </div>
+    <div class="footer_clear" style="height: 1px;"></div>
+  </div>
+</div>
+
+</body>
+ 	
+</html>

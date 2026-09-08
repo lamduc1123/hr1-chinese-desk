@@ -983,104 +983,78 @@
       color: #fff;
     }
 
-    /* Client Partners Grid */
+    /* Minimalist Client Cards (Matching Reference Screenshot) */
     .client-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
     }
     .client-card {
       background: var(--white);
-      border: 1px solid var(--ink);
-      padding: 24px;
+      border: 1px solid rgba(16, 24, 40, .14);
+      border-radius: 8px;
+      padding: 24px 16px 20px;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: space-between;
       text-decoration: none;
       color: inherit;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s;
+      min-height: 220px;
       position: relative;
-      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
     }
     .client-card:hover {
       transform: translateY(-4px);
-      box-shadow: 7px 7px 0 var(--ink);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: var(--ink);
     }
-    .client-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 14px;
-      gap: 12px;
-    }
-    .client-logo-box {
-      min-width: 54px;
-      height: 54px;
-      padding: 0 10px;
-      background: var(--paper-2);
-      border: 1px solid var(--ink);
+    .client-logo-wrapper {
+      height: 76px;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--serif);
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--red);
-      letter-spacing: .03em;
+      margin-bottom: 14px;
+      padding: 6px;
     }
-    .client-region-badge {
-      font-size: 10.5px;
-      font-weight: 800;
-      padding: 3px 8px;
-      border: 1px solid var(--line);
-      background: var(--paper);
-      white-space: nowrap;
+    .client-logo-wrapper img {
+      max-height: 54px;
+      max-width: 135px;
+      object-fit: contain;
+      filter: grayscale(15%);
+      transition: filter .25s, transform .25s;
     }
-    .client-name-vn {
-      font-size: 13.5px;
+    .client-card:hover .client-logo-wrapper img {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+    .client-card-name {
+      font-size: 13px;
       font-weight: 850;
-      line-height: 1.42;
       color: var(--ink);
-      margin-bottom: 6px;
-    }
-    .client-group {
-      font-size: 11.5px;
-      font-weight: 750;
-      color: var(--red);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .client-sector-tag {
-      display: inline-block;
-      font-size: 11px;
-      color: var(--graphite);
-      background: var(--paper-2);
-      padding: 3px 8px;
-      border: 1px dashed var(--line);
-      margin-bottom: 16px;
+      text-align: center;
       line-height: 1.35;
-    }
-    .client-footer {
+      margin-bottom: 14px;
+      height: 38px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      font-size: 11.5px;
+      justify-content: center;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+    }
+    .client-card-country {
+      font-size: 11px;
       font-weight: 800;
-    }
-    .client-link-action {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      color: var(--red);
-    }
-    .client-link-action.internal {
-      color: var(--ink);
-    }
-    .client-card:hover .client-link-action {
-      text-decoration: underline;
+      padding: 4px 12px;
+      border-radius: 4px;
+      background: #1e50e2;
+      color: #ffffff;
+      letter-spacing: .04em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(30,80,226,.25);
     }
 
     /* Form Row 2-Columns */
@@ -1153,7 +1127,8 @@
     /* Tablet & Small Desktop (<= 1024px) */
     @media (max-width: 1024px) {
       .hero-grid, .section-head, .contact-layout { grid-template-columns: 1fr; gap: 36px; }
-      .service-grid, .sector-grid, .client-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-grid, .sector-grid { grid-template-columns: repeat(2, 1fr); }
+      .client-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
       .job-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-rail { display: none; }
@@ -1265,8 +1240,34 @@
       }
 
       /* Metric Strip */
-      .service-grid, .sector-grid, .client-grid, .metric-strip, .footer-grid {
+      .service-grid, .sector-grid, .metric-strip, .footer-grid {
         grid-template-columns: 1fr;
+      }
+      .client-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px;
+      }
+      .client-card {
+        min-height: 185px;
+        padding: 16px 10px 14px;
+      }
+      .client-logo-wrapper {
+        height: 60px;
+        margin-bottom: 8px;
+        padding: 4px;
+      }
+      .client-logo-wrapper img {
+        max-height: 44px;
+        max-width: 105px;
+      }
+      .client-card-name {
+        font-size: 11.5px;
+        height: 32px;
+        margin-bottom: 8px;
+      }
+      .client-card-country {
+        font-size: 10px;
+        padding: 3px 8px;
       }
       .metric {
         padding: 14px 18px;
@@ -2428,22 +2429,21 @@
         id: "hailianke",
         cat: "cn",
         name: {
-          zh: "永隆海联科生物技术有限公司",
+          zh: "海大集团 (海联科)",
+          vi: "HAID GROUP (HAILIANKE)",
+          en: "HAID GROUP (HAILIANKE)"
+        },
+        fullName: {
+          zh: "永隆海联科生物技术有限公司 (广东海大集团)",
           vi: "CÔNG TY TNHH KỸ THUẬT SINH VẬT HAILIANKE VĨNH LONG",
           en: "VINH LONG HAILIANKE BIOTECHNOLOGY CO., LTD"
         },
-        group: {
-          zh: "广东海大集团 (GUANGDONG HAID GROUP)",
-          vi: "TẬP ĐOÀN GUANGDONG HAID GROUP (TRUNG QUỐC)",
-          en: "GUANGDONG HAID GROUP (CHINA)"
+        country: {
+          zh: "🇨🇳 中国",
+          vi: "🇨🇳 TRUNG QUỐC",
+          en: "🇨🇳 CHINA"
         },
-        sector: {
-          zh: "农牧与生物科技 · 现代化水产与畜禽饲料核心产业链",
-          vi: "Nông nghiệp & Công nghệ sinh học · Thức ăn chăn nuôi & thủy sản",
-          en: "Agri-Biotech & Modern Aquaculture Feed"
-        },
-        region: { zh: "🇨🇳 中国广东", vi: "🇨🇳 Trung Quốc", en: "🇨🇳 China (Guangdong)" },
-        monogram: "HAID",
+        logo: "assets/logos/haid.png",
         url: "https://en.haid.com.cn/",
         hasWebsite: true
       },
@@ -2451,22 +2451,21 @@
         id: "mycall",
         cat: "cn",
         name: {
-          zh: "MYCALL 科技通信有限公司",
-          vi: "CÔNG TY MYCALL (VIỆT NAM)",
+          zh: "MYCALL 科技通信",
+          vi: "MYCALL TELECOM",
+          en: "MYCALL TELECOM"
+        },
+        fullName: {
+          zh: "MYCALL 科技通信有限公司 (中国)",
+          vi: "CÔNG TY MYCALL (TRUNG QUỐC)",
           en: "MYCALL COMPANY LIMITED"
         },
-        group: {
-          zh: "MYCALL 科技集团 (中国)",
-          vi: "MYCALL GROUP (TRUNG QUỐC)",
-          en: "MYCALL GROUP (CHINA)"
+        country: {
+          zh: "🇨🇳 中国",
+          vi: "🇨🇳 TRUNG QUỐC",
+          en: "🇨🇳 CHINA"
         },
-        sector: {
-          zh: "智能通信系统 · 数字网络交互与企业级云端服务",
-          vi: "Viễn thông thông minh & Dịch vụ công nghệ số doanh nghiệp",
-          en: "Smart Telecom & Enterprise Cloud Solutions"
-        },
-        region: { zh: "🇨🇳 中国", vi: "🇨🇳 Trung Quốc", en: "🇨🇳 China" },
-        monogram: "MYCALL",
+        logo: "assets/logos/mycall.svg",
         url: "https://www.mycall.top/pages/user/register",
         hasWebsite: true
       },
@@ -2474,22 +2473,21 @@
         id: "okia",
         cat: "hk",
         name: {
-          zh: "OKIA 光学眼镜有限公司 (越南基地)",
-          vi: "CÔNG TY TNHH OKIA OPTICAL (NHÀ MÁY VIỆT NAM)",
+          zh: "OKIA 光学眼镜",
+          vi: "OKIA OPTICAL",
+          en: "OKIA OPTICAL"
+        },
+        fullName: {
+          zh: "OKIA 光学眼镜有限公司 (中国香港)",
+          vi: "CÔNG TY TNHH OKIA OPTICAL (HỒNG KÔNG)",
           en: "OKIA OPTICAL COMPANY LIMITED"
         },
-        group: {
-          zh: "OKIA OPTICAL GROUP (中国香港)",
-          vi: "OKIA OPTICAL – HỒNG KÔNG",
-          en: "OKIA OPTICAL GROUP (HONG KONG)"
+        country: {
+          zh: "🇭🇰 中国香港",
+          vi: "🇭🇰 HỒNG KÔNG",
+          en: "🇭🇰 HONG KONG"
         },
-        sector: {
-          zh: "高品质光学眼镜 · 国际知名品牌精密代工与出口",
-          vi: "Kính mắt quang học cao cấp · Gia công chính xác xuất khẩu toàn cầu",
-          en: "Premium Optical Eyewear & High-Precision Export Mfg"
-        },
-        region: { zh: "🇭🇰 中国香港", vi: "🇭🇰 Hồng Kông", en: "🇭🇰 Hong Kong" },
-        monogram: "OKIA",
+        logo: "assets/logos/okia.jpg",
         url: "https://www.okia.com/okia-vietnam-factory",
         hasWebsite: true
       },
@@ -2497,22 +2495,21 @@
         id: "johnson",
         cat: "tw",
         name: {
-          zh: "乔山健康科技 (越南) 有限公司",
-          vi: "CÔNG TY TNHH JOHNSON HEALTH TECH (VIỆT NAM)",
+          zh: "乔山健康科技",
+          vi: "JOHNSON HEALTH TECH",
+          en: "JOHNSON HEALTH TECH"
+        },
+        fullName: {
+          zh: "乔山健康科技 (越南) 有限公司 (中国台湾上市公司)",
+          vi: "CÔNG TY TNHH JOHNSON HEALTH TECH (ĐÀI LOAN)",
           en: "JOHNSON HEALTH TECH (VIETNAM) CO., LTD"
         },
-        group: {
-          zh: "乔山健康科技集团 (中国台湾上市公司)",
-          vi: "JOHNSON HEALTH TECH (ĐÀI LOAN)",
-          en: "JOHNSON HEALTH TECH (TAIWAN LISTED)"
+        country: {
+          zh: "🇹🇼 中国台湾",
+          vi: "🇹🇼 ĐÀI LOAN",
+          en: "🇹🇼 TAIWAN"
         },
-        sector: {
-          zh: "全球领先商用及家用健身器材 · 智能健康运动装备",
-          vi: "Thiết bị thể thao, thể hình & Chăm sóc sức khỏe thông minh",
-          en: "Global Fitness & Smart Health Tech Equipment"
-        },
-        region: { zh: "🇹🇼 中国台湾", vi: "🇹🇼 Đài Loan", en: "🇹🇼 Taiwan" },
-        monogram: "JHT",
+        logo: "assets/logos/johnson.svg",
         url: "https://www.johnsonhealthtech.com/",
         hasWebsite: true
       },
@@ -2520,22 +2517,21 @@
         id: "hengfeng",
         cat: "cn",
         name: {
-          zh: "恒丰休闲用品 (越南) 有限公司",
-          vi: "CÔNG TY HENGFENG TOP LEISURE",
+          zh: "恒丰休闲用品",
+          vi: "HENGFENG TOP LEISURE",
+          en: "HENGFENG TOP LEISURE"
+        },
+        fullName: {
+          zh: "恒丰休闲用品 (越南) 有限公司 (中国)",
+          vi: "CÔNG TY HENGFENG TOP LEISURE (TRUNG QUỐC)",
           en: "HENGFENG TOP LEISURE CO., LTD"
         },
-        group: {
-          zh: "恒丰休闲用品集团 (中国)",
-          vi: "HENGFENG TOP LEISURE (TRUNG QUỐC)",
-          en: "HENGFENG TOP LEISURE (CHINA)"
+        country: {
+          zh: "🇨🇳 中国",
+          vi: "🇨🇳 TRUNG QUỐC",
+          en: "🇨🇳 CHINA"
         },
-        sector: {
-          zh: "户外休闲家具 · 野营野战装备与折叠装备全球供应链",
-          vi: "Nội thất dã ngoại, cắm trại & Đồ dùng ngoài trời xuất khẩu",
-          en: "Outdoor Leisure Furniture & Camping Gear Export"
-        },
-        region: { zh: "🇨🇳 中国", vi: "🇨🇳 Trung Quốc", en: "🇨🇳 China" },
-        monogram: "HENGFENG",
+        logo: "assets/logos/hengfeng.png",
         url: "https://www.hengfeng-china.com/AboutUS",
         hasWebsite: true
       },
@@ -2543,22 +2539,21 @@
         id: "taya",
         cat: "tw",
         name: {
-          zh: "大明帆布 (越南) 有限公司",
+          zh: "大明帆布 (TAYA)",
+          vi: "TAYA CANVAS",
+          en: "TAYA CANVAS"
+        },
+        fullName: {
+          zh: "大明帆布 (越南) 有限公司 (中国台湾)",
           vi: "CÔNG TY TNHH TAYA CANVAS (VIỆT NAM)",
           en: "TAYA CANVAS (VIETNAM) CO., LTD"
         },
-        group: {
-          zh: "TAYA 大明工业集团 (中国台湾)",
-          vi: "TAYA CANVAS GROUPS (ĐÀI LOAN)",
-          en: "TAYA CANVAS GROUPS (TAIWAN)"
+        country: {
+          zh: "🇹🇼 中国台湾",
+          vi: "🇹🇼 ĐÀI LOAN",
+          en: "🇹🇼 TAIWAN"
         },
-        sector: {
-          zh: "环保工业涂层织物 · 建筑与数码印花复合特种面料",
-          vi: "Dệt may công nghiệp, bạt phủ PVC & Vật liệu in kỹ thuật số",
-          en: "Industrial Canvas & High-Tech Coated Technical Fabrics"
-        },
-        region: { zh: "🇹🇼 中国台湾", vi: "🇹🇼 Đài Loan", en: "🇹🇼 Taiwan" },
-        monogram: "TAYA",
+        logo: "assets/logos/taya.svg",
         url: "http://www.tayagroups.com/",
         hasWebsite: true
       },
@@ -2566,22 +2561,21 @@
         id: "taicera",
         cat: "tw",
         name: {
-          zh: "泰和陶瓷股份公司 (TAICERA)",
-          vi: "CÔNG TY CỔ PHẦN GỐM SỨ TAICERA",
+          zh: "泰和陶瓷 (TAICERA)",
+          vi: "GỐM SỨ TAICERA",
+          en: "TAICERA CERAMICS"
+        },
+        fullName: {
+          zh: "泰和陶瓷股份公司 (中国台湾上市公司)",
+          vi: "CÔNG TY CỔ PHẦN GỐM SỨ TAICERA (ĐÀI LOAN)",
           en: "TAICERA ENTERPRISE CO., LTD"
         },
-        group: {
-          zh: "TAICERA 泰和陶瓷集团 (中国台湾上市公司)",
-          vi: "GỐM SỨ TAICERA (ĐÀI LOAN)",
-          en: "TAICERA CERAMICS GROUP (TAIWAN)"
+        country: {
+          zh: "🇹🇼 中国台湾",
+          vi: "🇹🇼 ĐÀI LOAN",
+          en: "🇹🇼 TAIWAN"
         },
-        sector: {
-          zh: "高端全瓷抛光砖、瓷质釉面砖及绿色低碳建筑建材",
-          vi: "Gạch ốp lát granite, gốm sứ cao cấp & Vật liệu xây dựng",
-          en: "Premium Architectural Ceramics & Porcelain Tiles"
-        },
-        region: { zh: "🇹🇼 中国台湾", vi: "🇹🇼 Đài Loan", en: "🇹🇼 Taiwan" },
-        monogram: "TAICERA",
+        logo: "assets/logos/taicera.png",
         url: "http://www.taicera.com/",
         hasWebsite: true
       },
@@ -2589,22 +2583,21 @@
         id: "topsec",
         cat: "cn",
         name: {
-          zh: "天融信 (越南) 有限公司",
-          vi: "CÔNG TY TNHH TOPSEC VIỆT NAM",
+          zh: "天融信科技",
+          vi: "TOPSEC VIỆT NAM",
+          en: "TOPSEC VIETNAM"
+        },
+        fullName: {
+          zh: "天融信 (越南) 有限公司 (中国网安领军企业)",
+          vi: "CÔNG TY TNHH TOPSEC VIỆT NAM (TRUNG QUỐC)",
           en: "TOPSEC VIETNAM CO., LTD"
         },
-        group: {
-          zh: "天融信科技集团 (中国网安领军企业)",
-          vi: "TOPSEC TECHNOLOGIES GROUP (TRUNG QUỐC)",
-          en: "TOPSEC TECHNOLOGIES GROUP (CHINA)"
+        country: {
+          zh: "🇨🇳 中国",
+          vi: "🇨🇳 TRUNG QUỐC",
+          en: "🇨🇳 CHINA"
         },
-        sector: {
-          zh: "网络安全与数据安全防护 · 在越外资企业数字基建保障",
-          vi: "An ninh mạng, an toàn dữ liệu & Hạ tầng số (Dự án FDI mới)",
-          en: "Cybersecurity & Data Protection for Cross-Border Enterprises"
-        },
-        region: { zh: "🇨🇳 中国", vi: "🇨🇳 Trung Quốc", en: "🇨🇳 China" },
-        monogram: "TOPSEC",
+        logo: "assets/logos/topsec.svg",
         url: "#hero",
         hasWebsite: false
       },
@@ -2612,22 +2605,21 @@
         id: "best",
         cat: "cn",
         name: {
-          zh: "百世冷链供应链 (越南) 有限公司",
+          zh: "百世冷链物流",
+          vi: "BEST COLD CHAIN",
+          en: "BEST COLD CHAIN"
+        },
+        fullName: {
+          zh: "百世冷链供应链 (越南) 有限公司 (百世集团)",
           vi: "CÔNG TY TNHH CHUỖI CUNG ỨNG LẠNH BEST VIỆT NAM",
           en: "BEST COLD CHAIN LOGISTICS VIETNAM CO., LTD"
         },
-        group: {
-          zh: "百世集团 (BEST Inc. - 中国现代物流领军品牌)",
-          vi: "BEST INC. (TRUNG QUỐC)",
-          en: "BEST INC. (CHINA)"
+        country: {
+          zh: "🇨🇳 中国",
+          vi: "🇨🇳 TRUNG QUỐC",
+          en: "🇨🇳 CHINA"
         },
-        sector: {
-          zh: "智能冷链物流仓储 · 跨境中越生鲜温控干线运输网络",
-          vi: "Kho vận, logistics & Chuỗi cung ứng lạnh thông minh (Dự án FDI mới)",
-          en: "Smart Cold Chain Logistics & Cross-Border Freight Network"
-        },
-        region: { zh: "🇨🇳 中国", vi: "🇨🇳 Trung Quốc", en: "🇨🇳 China" },
-        monogram: "BEST",
+        logo: "assets/logos/best.svg",
         url: "#hero",
         hasWebsite: false
       }
@@ -2643,49 +2635,21 @@
         ? clientPartners
         : clientPartners.filter(c => c.cat === filter);
 
-      const linkLabelWeb = {
-        zh: "访问企业官网 ↗",
-        vi: "Ghé thăm website ↗",
-        en: "Visit Official Website ↗"
-      }[lang] || "Ghé thăm website ↗";
+      container.innerHTML = filtered.map(item => {
+        const displayName = (item.name && (item.name[lang] || item.name['vi'])) || '';
+        const displayCountry = (item.country && (item.country[lang] || item.country['vi'])) || '';
+        const displayTitle = (item.fullName && (item.fullName[lang] || item.fullName['vi'])) || displayName;
 
-      const linkLabelDesk = {
-        zh: "在越新设基地 · 了解 China Desk ⤶",
-        vi: "Dự án mới · Về trang chủ China Desk ⤶",
-        en: "New Greenfield · Back to China Desk ⤶"
-      }[lang] || "Về trang chủ China Desk ⤶";
-
-      const statusTagWeb = {
-        zh: "已建厂运营 / 跨国集团",
-        vi: "Đang vận hành / Tập đoàn FDI",
-        en: "Operational / Multinational"
-      }[lang] || "Đang vận hành";
-
-      const statusTagSetup = {
-        zh: "新设项目 · 筹建阶段",
-        vi: "Dự án mới thành lập tại VN",
-        en: "Greenfield Plant Setup"
-      }[lang] || "Dự án mới";
-
-      container.innerHTML = filtered.map(item => `
-        <a class="client-card" href="${item.url}" ${item.hasWebsite ? 'target="_blank" rel="noopener"' : ''} title="${item.name[lang] || item.name['vi']}">
-          <div>
-            <div class="client-top">
-              <div class="client-logo-box">${item.monogram}</div>
-              <span class="client-region-badge">${item.region[lang] || item.region['zh']}</span>
+        return `
+          <a class="client-card" href="${item.url}" ${item.hasWebsite ? 'target="_blank" rel="noopener"' : ''} title="${displayTitle}">
+            <div class="client-logo-wrapper">
+              <img src="${item.logo}" alt="${displayName}" loading="lazy" />
             </div>
-            <h3 class="client-name-vn">${item.name[lang] || item.name['vi']}</h3>
-            <div class="client-group"><i class="fa-solid fa-building-flag"></i> ${item.group[lang] || item.group['vi']}</div>
-            <div class="client-sector-tag">${item.sector[lang] || item.sector['vi']}</div>
-          </div>
-          <div class="client-footer">
-            <span class="client-status-tag">${item.hasWebsite ? statusTagWeb : statusTagSetup}</span>
-            <span class="client-link-action ${item.hasWebsite ? '' : 'internal'}">
-              ${item.hasWebsite ? linkLabelWeb : linkLabelDesk}
-            </span>
-          </div>
-        </a>
-      `).join('');
+            <div class="client-card-name">${displayName}</div>
+            <div class="client-card-country">${displayCountry}</div>
+          </a>
+        `;
+      }).join('');
     }
 
     function filterClients(category, event) {
