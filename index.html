@@ -1083,6 +1083,74 @@
       text-decoration: underline;
     }
 
+    /* Form Row 2-Columns */
+    .form-row-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* Mobile Toggle & Drawer Navigation */
+    .mobile-toggle-btn {
+      display: none;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ink);
+      background: var(--white);
+      color: var(--ink);
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--ink);
+      transition: all .2s;
+    }
+    .mobile-toggle-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0 0 0 var(--ink);
+    }
+    .mobile-drawer {
+      display: none;
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 2px solid var(--ink);
+      padding: 16px 20px 24px;
+      box-shadow: 0 16px 30px rgba(0,0,0,.1);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+    .mobile-drawer.open {
+      display: block;
+    }
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .mobile-nav-links a {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--ink);
+      padding: 10px 14px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all .2s;
+    }
+    .mobile-nav-links a:hover, .mobile-nav-links a:active {
+      border-color: var(--red);
+      color: var(--red);
+      background: var(--paper-2);
+    }
+
+    /* Tablet & Small Desktop (<= 1024px) */
     @media (max-width: 1024px) {
       .hero-grid, .section-head, .contact-layout { grid-template-columns: 1fr; gap: 36px; }
       .service-grid, .sector-grid, .client-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1093,13 +1161,265 @@
       .metric-strip { grid-template-columns: repeat(2, 1fr); }
       .metric:first-child { padding-left: 26px; }
     }
-    @media (max-width: 640px) {
-      .service-grid, .sector-grid, .client-grid, .metric-strip, .footer-grid { grid-template-columns: 1fr; }
+
+    /* Tablet / Mobile Header Breakpoint (<= 768px) */
+    @media (max-width: 768px) {
+      .ribbon-inner {
+        flex-direction: column;
+        padding-block: 8px;
+        gap: 6px;
+        text-align: center;
+      }
+      .ribbon-inner #ribbon-text {
+        font-size: 9.5px;
+        line-height: 1.35;
+        white-space: normal;
+      }
+      .ribbon-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+      }
+      .header-inner {
+        min-height: 64px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand-logo-text { font-size: 20px; }
+      .brand-badge { display: none; }
       .main-nav { display: none; }
-      .hero h1 { font-size: 28px; }
-      .floating-dock { bottom: 16px; right: 16px; }
-      .float-text { display: none; }
-      .float-btn { padding: 12px; width: 44px; height: 44px; justify-content: center; }
+      .desktop-only-cta { display: none; }
+      .mobile-toggle-btn { display: flex; }
+    }
+
+    /* Mobile Phones (<= 640px) */
+    @media (max-width: 640px) {
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+      }
+      .shell {
+        width: calc(100% - 32px);
+      }
+      .section {
+        padding: 52px 0;
+      }
+      .section-head {
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      .section-index {
+        align-items: center;
+        gap: 10px;
+      }
+      .section-index strong {
+        font-size: 40px;
+      }
+      .section-title {
+        font-size: 23px;
+        line-height: 1.25;
+      }
+      .section-lead {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      /* Hero Mobile */
+      .hero-body {
+        min-height: auto;
+        padding-bottom: 24px;
+      }
+      .hero-grid {
+        padding: 28px 0;
+        gap: 28px;
+      }
+      .hero h1 {
+        font-size: 27px;
+        line-height: 1.16;
+      }
+      .hero-sub {
+        font-size: 14px;
+        margin-top: 14px;
+      }
+      .hero-intro {
+        font-size: 12.5px;
+        line-height: 1.65;
+      }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+      .hero-actions .button {
+        width: 100%;
+        min-height: 44px;
+      }
+      .hero-form-card {
+        padding: 22px 18px;
+        box-shadow: 6px 6px 0 var(--deep-red);
+      }
+      .hero-form-card h3 {
+        font-size: 18px;
+      }
+
+      /* Metric Strip */
+      .service-grid, .sector-grid, .client-grid, .metric-strip, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .metric {
+        padding: 14px 18px;
+        border-left: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .metric:first-child {
+        padding-left: 18px;
+      }
+      .metric:last-child {
+        border-bottom: 0;
+      }
+      .metric strong {
+        font-size: 26px;
+      }
+
+      /* Service & Sector Cards */
+      .service-card, .sector-card {
+        padding: 22px 18px;
+      }
+      .service-title, .sector-title {
+        font-size: 16px;
+      }
+      .service-desc, .sector-desc {
+        font-size: 12.5px;
+      }
+
+      /* Job Section Mobile */
+      .job-filters {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 8px;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+      }
+      .view-switcher {
+        width: 100%;
+        display: flex;
+        margin-bottom: 16px;
+      }
+      .view-btn {
+        flex: 1;
+        text-align: center;
+        padding: 8px;
+        font-size: 10.5px;
+      }
+      .job-card {
+        padding: 20px 16px;
+      }
+      .job-card-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .job-salary {
+        font-size: 16px;
+      }
+      .job-title {
+        font-size: 15px;
+      }
+      .job-card-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .job-actions {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+      }
+      .btn-job-quote, .btn-job-apply {
+        flex: 1;
+        text-align: center;
+        justify-content: center;
+        padding: 8px 10px;
+        font-size: 11px;
+      }
+      #jobIframeContainer {
+        padding: 10px !important;
+        box-shadow: 4px 4px 0 var(--ink) !important;
+      }
+      #jobIframeContainer iframe {
+        height: 720px !important;
+      }
+
+      /* Client Section Mobile */
+      .client-card {
+        padding: 20px 16px;
+      }
+      .client-name-vn {
+        font-size: 13.5px;
+      }
+      .client-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .client-link-action {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      /* Contact Mobile */
+      .contact-layout {
+        gap: 24px;
+      }
+      .contact-info-card {
+        padding: 24px 18px;
+        box-shadow: 6px 6px 0 var(--ink);
+      }
+      .contact-form-box {
+        padding: 24px 18px !important;
+        box-shadow: 6px 6px 0 var(--red) !important;
+      }
+      .form-row-2col {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      /* Footer Mobile */
+      .site-footer {
+        padding: 40px 0 20px;
+      }
+      .footer-grid {
+        gap: 26px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      /* Floating Dock Mobile */
+      .floating-dock {
+        bottom: 16px;
+        right: 14px;
+        gap: 8px;
+      }
+      .float-text {
+        display: none;
+      }
+      .float-btn {
+        padding: 0;
+        width: 44px;
+        height: 44px;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: 3px 3px 0 var(--ink);
+      }
+      .float-btn i {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
@@ -1142,9 +1462,30 @@
         <a href="#contact" id="nav-contact">联系顾问</a>
       </nav>
 
-      <div>
-        <a class="header-cta" href="#contact">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a class="header-cta desktop-only-cta" href="#contact">
           <span id="header-cta-text">委托招聘需求</span>
+          <span>→</span>
+        </a>
+        <button class="mobile-toggle-btn" id="mobileToggleBtn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars" id="menuIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MOBILE DRAWER MENU -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <nav class="mobile-nav-links">
+        <a href="#services" onclick="closeMobileMenu()"><span id="mob-nav-services">核心业务</span> <span>→</span></a>
+        <a href="#jobs" onclick="closeMobileMenu()"><span id="mob-nav-jobs">在招双语岗位 ↗</span> <span>→</span></a>
+        <a href="#sectors" onclick="closeMobileMenu()"><span id="mob-nav-sectors">重点行业</span> <span>→</span></a>
+        <a href="#clients" onclick="closeMobileMenu()"><span id="mob-nav-clients">合作客户</span> <span>→</span></a>
+        <a href="#why" onclick="closeMobileMenu()"><span id="mob-nav-why">为什么选HR1</span> <span>→</span></a>
+        <a href="#contact" onclick="closeMobileMenu()"><span id="mob-nav-contact">联系顾问</span> <span>→</span></a>
+      </nav>
+      <div class="mobile-drawer-cta">
+        <a class="button primary" href="#contact" onclick="closeMobileMenu()" style="width: 100%; justify-content: center;">
+          <span id="mob-header-cta-text">委托招聘需求</span>
           <span>→</span>
         </a>
       </div>
@@ -1207,7 +1548,7 @@
                 <input type="text" class="form-control" required placeholder="如：某某科技（越南）有限公司">
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label id="lbl-name">联系人姓名 *</label>
                   <input type="text" class="form-control" required placeholder="王总 / 张经理">
@@ -1546,12 +1887,12 @@
           </div>
 
           <!-- Right Form -->
-          <div style="background: var(--white); border: 1px solid var(--ink); padding: 36px 32px; box-shadow: 10px 10px 0 var(--red);">
+          <div class="contact-form-box" style="background: var(--white); border: 1px solid var(--ink); padding: 36px 32px; box-shadow: 10px 10px 0 var(--red);">
             <div class="micro-label">Consultation Request</div>
             <h3 style="font-size: 19px; font-weight: 900; margin: 8px 0 18px;" id="b2b-form-title">提交委托需求表</h3>
 
             <form onsubmit="event.preventDefault(); alert('委托已提交！顾问将即刻联系您。');">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label id="form-f-company">企业名称 (Company Name) *</label>
                   <input type="text" class="form-control" required placeholder="如：某某科技越南有限公司">
@@ -1568,7 +1909,7 @@
                 </div>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label id="form-f-name">联系人姓名及职务 *</label>
                   <input type="text" class="form-control" required placeholder="如：陈总 / HR Director">
@@ -2581,11 +2922,41 @@
       document.getElementById('ft-col3-t').innerText = data.ftCol3T;
       document.getElementById('ft-copy').innerText = data.ftCopy;
 
+      // Mobile Drawer Menu texts
+      if (document.getElementById('mob-nav-services')) document.getElementById('mob-nav-services').innerText = data.navServices;
+      if (document.getElementById('mob-nav-jobs')) document.getElementById('mob-nav-jobs').innerText = data.navJobs;
+      if (document.getElementById('mob-nav-sectors')) document.getElementById('mob-nav-sectors').innerText = data.navSectors;
+      if (document.getElementById('mob-nav-clients')) document.getElementById('mob-nav-clients').innerText = data.navClients;
+      if (document.getElementById('mob-nav-why')) document.getElementById('mob-nav-why').innerText = data.navWhy;
+      if (document.getElementById('mob-nav-contact')) document.getElementById('mob-nav-contact').innerText = data.navContact;
+      if (document.getElementById('mob-header-cta-text')) document.getElementById('mob-header-cta-text').innerText = data.headerCta;
+
       // Render job cards with updated language
       renderJobs(currentLang, currentFilter);
 
       // Render client partners with updated language
       renderClients(currentLang, currentClientFilter);
+    }
+
+    // Mobile Menu Controller
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      const icon = document.getElementById('menuIcon');
+      if (!drawer) return;
+      if (drawer.classList.contains('open')) {
+        drawer.classList.remove('open');
+        if (icon) icon.className = 'fa-solid fa-bars';
+      } else {
+        drawer.classList.add('open');
+        if (icon) icon.className = 'fa-solid fa-xmark';
+      }
+    }
+
+    function closeMobileMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      const icon = document.getElementById('menuIcon');
+      if (drawer) drawer.classList.remove('open');
+      if (icon) icon.className = 'fa-solid fa-bars';
     }
 
     // Scroll progress
