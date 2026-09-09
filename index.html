@@ -50,10 +50,10 @@
     button { color: inherit; background: transparent; border: 0; cursor: pointer; }
     ::selection { background: var(--red); color: #fff; }
 
-    /* Chống mồ côi chữ toàn trang (Prevent Orphans & Widows) */
+    /* Chống tràn chữ và ngắt dòng tự nhiên cho tiếng Trung & đa ngôn ngữ */
     h1, h2, h3, h4, h5, h6, .section-title, .hero h1, .service-title, .job-title {
       text-wrap: balance;
-      word-break: keep-all;
+      word-break: break-word;
       overflow-wrap: break-word;
     }
     p, .section-lead, .hero-intro, .service-desc, .job-meta {
@@ -344,7 +344,8 @@
       line-height: 1.15;
       font-style: italic;
       text-transform: none;
-      word-break: keep-all;
+      word-break: break-word;
+      overflow-wrap: break-word;
       text-wrap: balance;
     }
 
@@ -536,7 +537,8 @@
       font-style: italic;
       color: var(--red);
       font-weight: 500;
-      word-break: keep-all;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     .section.dark .section-title em {
       color: #FF6B6B;
@@ -1277,12 +1279,21 @@
         font-size: 40px;
       }
       .section-title {
-        font-size: 23px;
-        line-height: 1.25;
+        font-size: clamp(20px, 5.5vw, 24px);
+        line-height: 1.3;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+      .section-title em {
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
       }
       .section-lead {
         font-size: 13px;
         line-height: 1.6;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
       }
 
       /* Hero Mobile */
@@ -1295,16 +1306,27 @@
         gap: 28px;
       }
       .hero h1 {
-        font-size: 27px;
-        line-height: 1.16;
+        font-size: clamp(23px, 6.5vw, 28px);
+        line-height: 1.25;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+      .hero h1 span, .hero h1 em {
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
       }
       .hero-sub {
-        font-size: 14px;
-        margin-top: 14px;
+        font-size: 13.5px;
+        margin-top: 12px;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
       }
       .hero-intro {
         font-size: 12.5px;
         line-height: 1.65;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
       }
       .button, .header-cta {
         white-space: normal !important;
@@ -1770,7 +1792,7 @@
         <header class="section-head">
           <div class="section-index">
             <strong>01</strong>
-            <span>OUR CORE SOLUTIONS</span>
+            <span id="sec1-idx">核心业务解决方案</span>
           </div>
           <div>
             <h2 class="section-title" id="sec1-title">为在越中资企业定制的<em>全周期人力解决方案</em></h2>
@@ -1840,7 +1862,7 @@
         <header class="section-head">
           <div class="section-index">
             <strong>02</strong>
-            <span>LIVE TALENT MANDATES</span>
+            <span id="sec2-idx">热门双语猎聘岗位</span>
           </div>
           <div>
             <h2 class="section-title" id="sec2-title">精选在招<em>中越双语热门岗位</em></h2>
@@ -1915,7 +1937,7 @@
         <header class="section-head">
           <div class="section-index">
             <strong>03</strong>
-            <span>KEY INDUSTRY SECTORS</span>
+            <span id="sec3-idx">重点制造业产业集群</span>
           </div>
           <div>
             <h2 class="section-title" id="sec3-title">深度覆盖<em>在越中资核心产业集群</em></h2>
@@ -1957,7 +1979,7 @@
         <header class="section-head">
           <div class="section-index">
             <strong>04</strong>
-            <span>PROVEN CLIENT PORTFOLIO</span>
+            <span id="sec4-idx">标杆合作客户案例</span>
           </div>
           <div>
             <h2 class="section-title" id="sec4-client-title">深受在越中资与跨国企业信赖的<em>合作标杆伙伴</em></h2>
@@ -2000,7 +2022,7 @@
         <header class="section-head">
           <div class="section-index">
             <strong>05</strong>
-            <span>CONTACT & ENGAGEMENT</span>
+            <span id="sec5-idx">开启合作与专家咨询</span>
           </div>
           <div>
             <h2 class="section-title" id="sec5-title">开启合作：<em>对接您的专属猎头顾问</em></h2>
@@ -2117,9 +2139,9 @@
         <div class="footer-col">
           <h4 id="ft-col2-t">HR1 生态体系</h4>
           <ul>
-            <li><a href="https://hr1vietnam.com" target="_blank">HR1VIETNAM 官方主站 ↗</a></li>
-            <li><a href="https://education.hr1vietnam.com" target="_blank">HR1 Education Hub ↗</a></li>
-            <li><a href="https://hr1vietnam.com/search-job" target="_blank">职位搜索中心 (Job Portal) ↗</a></li>
+            <li><a href="https://hr1vietnam.com" target="_blank" id="ft-eco-1">HR1VIETNAM 官方主站 ↗</a></li>
+            <li><a href="https://education.hr1vietnam.com" target="_blank" id="ft-eco-2">HR1 Education Hub ↗</a></li>
+            <li><a href="https://hr1vietnam.com/search-job" target="_blank" id="ft-eco-3">职位搜索中心 (Job Portal) ↗</a></li>
           </ul>
         </div>
 
@@ -2129,13 +2151,13 @@
             📍 胡志明市第1郡滨义坊黎笋大道<br>
             📍 河内市纸桥郡维新路
           </p>
-          <p>📞 (+84) 28 3822 6666</p>
+          <p id="ft-hotline">📞 (+84) 28 3822 6666</p>
         </div>
       </div>
 
       <div class="footer-bottom">
         <span id="ft-copy">© 2026 HR1VIETNAM HOLDINGS. All Rights Reserved. 中国企业出海越南人力资源指定合作伙伴.</span>
-        <span>CAREER READINESS ATLAS × CHINA DESK</span>
+        <span id="ft-tagline">CAREER READINESS ATLAS × CHINA DESK</span>
       </div>
     </div>
   </footer>
@@ -2272,7 +2294,31 @@
         ftCol1T: "核心业务",
         ftCol2T: "HR1 生态体系",
         ftCol3T: "办公室地址",
-        ftCopy: "© 2026 HR1VIETNAM HOLDINGS. All Rights Reserved. 中国企业出海越南人力资源指定合作伙伴."
+        ftCopy: "© 2026 HR1VIETNAM HOLDINGS. All Rights Reserved. 中国企业出海越南人力资源指定合作伙伴.",
+        sec1Idx: "核心业务解决方案",
+        sec2Idx: "热门双语猎聘岗位",
+        sec3Idx: "重点制造业产业集群",
+        sec4Idx: "标杆合作客户案例",
+        sec5Idx: "开启合作与专家咨询",
+        formFCompany: "企业名称 (Company Name) *",
+        formFInd: "行业领域 *",
+        formFName: "联系人姓名及职务 *",
+        formFWechat: "电话 / 微信 (WeChat) *",
+        formFMail: "电子邮箱 (Email) *",
+        formFReq: "拟委托招聘职位及具体要求",
+        ftS1: "中高端猎头服务",
+        ftS2: "工厂大规模招聘 (RPO)",
+        ftS3: "中越双语人才配置",
+        ftS4: "薪资代发与劳动合规",
+        ftS5: "标杆合作客户案例 ↗",
+        ftEco1: "HR1VIETNAM 官方主站 ↗",
+        ftEco2: "HR1 Education Hub ↗",
+        ftEco3: "职位搜索中心 (Job Portal) ↗",
+        ftAddr: "📍 越办总部: 胡志明市第1郡滨义坊黎笋大道<br>📍 北部代表处: 河内市纸桥郡维新路",
+        ftHotline: "📞 服务热线: (+84) 28 3822 6666",
+        ftTagline: "职业胜任力图谱 × CHINA DESK",
+        modalT: "微信扫码在线沟通",
+        modalD: "直接对接 HR1VIETNAM 中国服务专区顾问"
       },
       vi: {
         ribbonText: "HR1VIETNAM CHINA DESK · TRUNG TÂM DỊCH VỤ NHÂN SỰ CHO DOANH NGHIỆP TRUNG QUỐC",
@@ -2370,7 +2416,31 @@
         ftCol1T: "Dịch Vụ Cốt Lõi",
         ftCol2T: "Hệ Sinh Thái HR1",
         ftCol3T: "Địa Chỉ Văn Phòng",
-        ftCopy: "© 2026 HR1VIETNAM HOLDINGS. Bản quyền thuộc về HR1Vietnam. Đối tác nhân sự tin cậy của Doanh nghiệp FDI."
+        ftCopy: "© 2026 HR1VIETNAM HOLDINGS. Bản quyền thuộc về HR1Vietnam. Đối tác nhân sự tin cậy của Doanh nghiệp FDI.",
+        sec1Idx: "GIẢI PHÁP DỊCH VỤ CỐT LÕI",
+        sec2Idx: "VIỆC LÀM TIẾNG TRUNG NỔI BẬT",
+        sec3Idx: "CÁC CỤM NGÀNH TRỌNG ĐIỂM",
+        sec4Idx: "KHÁCH HÀNG ĐỐI TÁC TIÊU BIỂU",
+        sec5Idx: "KẾT NỐI & TƯ VẤN CHUYÊN GIA",
+        formFCompany: "Tên Doanh Nghiệp (Company Name) *",
+        formFInd: "Ngành nghề hoạt động *",
+        formFName: "Họ tên người liên hệ & Chức vụ *",
+        formFWechat: "Số điện thoại / WeChat *",
+        formFMail: "Email doanh nghiệp *",
+        formFReq: "Vị trí cần tuyển & Yêu cầu cụ thể",
+        ftS1: "Headhunter Cấp Trung & Cao",
+        ftS2: "Tuyển Dụng Đại Trà Nhà Máy (RPO)",
+        ftS3: "Nhân Tài Chuyên Môn Song Ngữ",
+        ftS4: "Tính Lương & Pháp Lý Lao Động",
+        ftS5: "Khách Hàng Đối Tác Tiêu Biểu ↗",
+        ftEco1: "Website Chính Thức HR1VIETNAM ↗",
+        ftEco2: "Hệ Thống Đào Tạo HR1 Education ↗",
+        ftEco3: "Cổng Tìm Kiếm Việc Làm (Job Portal) ↗",
+        ftAddr: "📍 Trụ sở chính: Đại lộ Lê Duẩn, P. Bến Nghé, Q.1, TP.HCM<br>📍 Văn phòng miền Bắc: Đường Duy Tân, Q. Cầu Giấy, Hà Nội",
+        ftHotline: "📞 Hotline tư vấn: (+84) 28 3822 6666",
+        ftTagline: "BẢN ĐỒ NĂNG LỰC NGHỀ NGHIỆP × CHINA DESK",
+        modalT: "Quét mã QR WeChat kết nối nhanh",
+        modalD: "Kết nối trực tiếp chuyên viên tư vấn China Desk của HR1VIETNAM"
       },
       en: {
         ribbonText: "HR1VIETNAM CHINA DESK · SPECIALIZED HR & RECRUITMENT SOLUTIONS FOR CHINESE ENTERPRISES",
@@ -2467,7 +2537,31 @@
         ftCol1T: "Core Services",
         ftCol2T: "HR1 Ecosystem",
         ftCol3T: "Office Locations",
-        ftCopy: "© 2026 HR1VIETNAM HOLDINGS. All Rights Reserved. Trusted HR Partner for FDI Enterprises."
+        ftCopy: "© 2026 HR1VIETNAM HOLDINGS. All Rights Reserved. Trusted HR Partner for FDI Enterprises.",
+        sec1Idx: "OUR CORE SOLUTIONS",
+        sec2Idx: "LIVE TALENT MANDATES",
+        sec3Idx: "KEY INDUSTRY SECTORS",
+        sec4Idx: "PROVEN CLIENT PORTFOLIO",
+        sec5Idx: "CONTACT & ENGAGEMENT",
+        formFCompany: "Company Name *",
+        formFInd: "Industry Sector *",
+        formFName: "Contact Name & Title *",
+        formFWechat: "Phone / WeChat *",
+        formFMail: "Corporate Email *",
+        formFReq: "Positions to Hire & Detailed Requirements",
+        ftS1: "Executive Search",
+        ftS2: "Factory Mass RPO",
+        ftS3: "Bilingual Specialists",
+        ftS4: "Payroll & Legal Compliance",
+        ftS5: "Proven Client Portfolio ↗",
+        ftEco1: "HR1VIETNAM Official Portal ↗",
+        ftEco2: "HR1 Education Hub ↗",
+        ftEco3: "Job Portal Search Center ↗",
+        ftAddr: "📍 HQ: Le Duan Blvd, Ben Nghe Ward, Dist 1, Ho Chi Minh City<br>📍 Northern Office: Duy Tan St, Cau Giay Dist, Hanoi",
+        ftHotline: "📞 Consultation Hotline: (+84) 28 3822 6666",
+        ftTagline: "CAREER READINESS ATLAS × CHINA DESK",
+        modalT: "Scan WeChat QR to Connect",
+        modalD: "Directly connect with HR1VIETNAM China Desk Consultants"
       }
     };
 
@@ -2958,6 +3052,7 @@
       document.getElementById('stat-3').innerText = data.stat3;
       document.getElementById('stat-4').innerText = data.stat4;
 
+      if (document.getElementById('sec1-idx')) document.getElementById('sec1-idx').innerText = data.sec1Idx;
       document.getElementById('sec1-title').innerHTML = data.sec1Title;
       document.getElementById('sec1-lead').innerText = data.sec1Lead;
       document.getElementById('srv1-title').innerText = data.srv1Title;
@@ -2980,6 +3075,7 @@
       document.getElementById('srv4-f1').innerText = data.srv4F1;
       document.getElementById('srv4-f2').innerText = data.srv4F2;
 
+      if (document.getElementById('sec2-idx')) document.getElementById('sec2-idx').innerText = data.sec2Idx;
       document.getElementById('sec2-title').innerHTML = data.sec2Title;
       document.getElementById('sec2-lead').innerText = data.sec2Lead;
       document.getElementById('pill-all').innerText = data.pillAll;
@@ -2996,6 +3092,7 @@
       document.getElementById('cand-desc').innerText = data.candDesc;
       document.getElementById('cand-btn').innerText = data.candBtn;
 
+      if (document.getElementById('sec3-idx')) document.getElementById('sec3-idx').innerText = data.sec3Idx;
       document.getElementById('sec3-title').innerHTML = data.sec3Title;
       document.getElementById('sec3-lead').innerText = data.sec3Lead;
       document.getElementById('sec-1-t').innerText = data.sec1T;
@@ -3008,6 +3105,7 @@
       document.getElementById('sec-4-d').innerText = data.sec4D;
 
       if (document.getElementById('nav-clients')) document.getElementById('nav-clients').innerText = data.navClients;
+      if (document.getElementById('sec4-idx')) document.getElementById('sec4-idx').innerText = data.sec4Idx;
       if (document.getElementById('sec4-client-title')) document.getElementById('sec4-client-title').innerHTML = data.sec4ClientTitle;
       if (document.getElementById('sec4-client-lead')) document.getElementById('sec4-client-lead').innerText = data.sec4ClientLead;
       if (document.getElementById('pill-client-all')) document.getElementById('pill-client-all').innerText = data.pillClientAll;
@@ -3018,6 +3116,7 @@
       if (document.getElementById('client-trust-desc')) document.getElementById('client-trust-desc').innerText = data.clientTrustDesc;
       if (document.getElementById('client-cta-btn')) document.getElementById('client-cta-btn').innerText = data.clientCtaBtn;
 
+      if (document.getElementById('sec5-idx')) document.getElementById('sec5-idx').innerText = data.sec5Idx;
       if (document.getElementById('sec5-title')) document.getElementById('sec5-title').innerHTML = data.sec5Title;
       if (document.getElementById('sec5-lead')) document.getElementById('sec5-lead').innerText = data.sec5Lead;
       if (document.getElementById('qr-sec-title')) document.getElementById('qr-sec-title').innerText = data.qrSecTitle;
@@ -3026,13 +3125,33 @@
       if (document.getElementById('contact-phone')) document.getElementById('contact-phone').innerText = data.contactPhone;
       if (document.getElementById('contact-addr')) document.getElementById('contact-addr').innerText = data.contactAddr;
       if (document.getElementById('b2b-form-title')) document.getElementById('b2b-form-title').innerText = data.b2bFormTitle;
+      if (document.getElementById('form-f-company')) document.getElementById('form-f-company').innerText = data.formFCompany;
+      if (document.getElementById('form-f-ind')) document.getElementById('form-f-ind').innerText = data.formFInd;
+      if (document.getElementById('form-f-name')) document.getElementById('form-f-name').innerText = data.formFName;
+      if (document.getElementById('form-f-wechat')) document.getElementById('form-f-wechat').innerText = data.formFWechat;
+      if (document.getElementById('form-f-mail')) document.getElementById('form-f-mail').innerText = data.formFMail;
+      if (document.getElementById('form-f-req')) document.getElementById('form-f-req').innerText = data.formFReq;
       if (document.getElementById('form-f-btn')) document.getElementById('form-f-btn').innerText = data.formFBtn;
 
-      document.getElementById('footer-desc').innerText = data.footerDesc;
-      document.getElementById('ft-col1-t').innerText = data.ftCol1T;
-      document.getElementById('ft-col2-t').innerText = data.ftCol2T;
-      document.getElementById('ft-col3-t').innerText = data.ftCol3T;
-      document.getElementById('ft-copy').innerText = data.ftCopy;
+      if (document.getElementById('footer-desc')) document.getElementById('footer-desc').innerText = data.footerDesc;
+      if (document.getElementById('ft-col1-t')) document.getElementById('ft-col1-t').innerText = data.ftCol1T;
+      if (document.getElementById('ft-col2-t')) document.getElementById('ft-col2-t').innerText = data.ftCol2T;
+      if (document.getElementById('ft-col3-t')) document.getElementById('ft-col3-t').innerText = data.ftCol3T;
+      if (document.getElementById('ft-s1')) document.getElementById('ft-s1').innerText = data.ftS1;
+      if (document.getElementById('ft-s2')) document.getElementById('ft-s2').innerText = data.ftS2;
+      if (document.getElementById('ft-s3')) document.getElementById('ft-s3').innerText = data.ftS3;
+      if (document.getElementById('ft-s4')) document.getElementById('ft-s4').innerText = data.ftS4;
+      if (document.getElementById('ft-s5')) document.getElementById('ft-s5').innerText = data.ftS5;
+      if (document.getElementById('ft-eco-1')) document.getElementById('ft-eco-1').innerText = data.ftEco1;
+      if (document.getElementById('ft-eco-2')) document.getElementById('ft-eco-2').innerText = data.ftEco2;
+      if (document.getElementById('ft-eco-3')) document.getElementById('ft-eco-3').innerText = data.ftEco3;
+      if (document.getElementById('ft-addr')) document.getElementById('ft-addr').innerHTML = data.ftAddr;
+      if (document.getElementById('ft-hotline')) document.getElementById('ft-hotline').innerText = data.ftHotline;
+      if (document.getElementById('ft-copy')) document.getElementById('ft-copy').innerText = data.ftCopy;
+      if (document.getElementById('ft-tagline')) document.getElementById('ft-tagline').innerText = data.ftTagline;
+
+      if (document.getElementById('modal-t')) document.getElementById('modal-t').innerText = data.modalT;
+      if (document.getElementById('modal-d')) document.getElementById('modal-d').innerText = data.modalD;
 
       // Mobile Drawer Menu texts
       if (document.getElementById('mob-nav-services')) document.getElementById('mob-nav-services').innerText = data.navServices;
@@ -3100,8 +3219,7 @@
 
     // Khởi tạo ban đầu khi load trang
     document.addEventListener('DOMContentLoaded', () => {
-      renderJobs('zh', 'all');
-      renderClients('zh', 'all');
+      setLanguage('zh');
     });
   </script>
 </body>
