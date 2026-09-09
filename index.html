@@ -853,6 +853,12 @@
       padding: 36px 32px;
       box-shadow: 10px 10px 0 var(--ink);
     }
+    .contact-form-box {
+      background: var(--white);
+      border: 1px solid var(--ink);
+      padding: 36px 32px;
+      box-shadow: 10px 10px 0 var(--red);
+    }
     .qr-box {
       background: var(--white);
       border: 1px solid var(--ink);
@@ -1064,6 +1070,84 @@
       gap: 12px;
     }
 
+    /* Job View All & Candidate Banner */
+    .view-all-jobs-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--red);
+      padding: 12px 24px;
+      border: 1px solid var(--red);
+      background: var(--white);
+      box-shadow: 4px 4px 0 var(--ink);
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      white-space: normal;
+      max-width: 100%;
+      line-height: 1.4;
+    }
+    .view-all-jobs-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .candidate-banner {
+      margin-top: 36px;
+      padding: 26px 30px;
+      background: var(--white);
+      border: 1px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    /* Client Trust Bottom Strip */
+    .client-trust-strip {
+      margin-top: 32px;
+      padding: 20px 24px;
+      background: var(--white);
+      border: 1px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .client-trust-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      min-width: 260px;
+    }
+    .client-trust-icon {
+      font-size: 24px;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+    .client-trust-title {
+      font-size: 13.5px;
+      font-weight: 850;
+      color: var(--ink);
+    }
+    .client-trust-desc {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 3px;
+      line-height: 1.45;
+    }
+    .client-trust-btn {
+      padding: 10px 20px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
     /* Mobile Toggle & Drawer Navigation */
     .mobile-toggle-btn {
       display: none;
@@ -1222,6 +1306,12 @@
         font-size: 12.5px;
         line-height: 1.65;
       }
+      .button, .header-cta {
+        white-space: normal !important;
+        text-align: center;
+        word-break: break-word;
+        line-height: 1.35;
+      }
       .hero-actions {
         flex-direction: column;
         width: 100%;
@@ -1230,6 +1320,7 @@
       .hero-actions .button {
         width: 100%;
         min-height: 44px;
+        padding: 10px 16px;
       }
       .hero-form-card {
         padding: 22px 18px;
@@ -1245,29 +1336,37 @@
       }
       .client-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px;
+        gap: 10px;
       }
       .client-card {
-        min-height: 185px;
-        padding: 16px 10px 14px;
+        min-height: 180px;
+        padding: 14px 8px 12px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       }
       .client-logo-wrapper {
-        height: 60px;
+        height: 56px;
         margin-bottom: 8px;
-        padding: 4px;
+        padding: 2px;
       }
       .client-logo-wrapper img {
-        max-height: 44px;
-        max-width: 105px;
+        max-height: 42px;
+        max-width: 95px;
       }
       .client-card-name {
-        font-size: 11.5px;
-        height: 32px;
+        font-size: 11px;
+        min-height: 32px;
+        height: auto;
         margin-bottom: 8px;
+        line-height: 1.3;
+        word-break: break-word;
       }
       .client-card-country {
-        font-size: 10px;
-        padding: 3px 8px;
+        font-size: 9.5px;
+        padding: 3px 6px;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .metric {
         padding: 14px 18px;
@@ -1303,17 +1402,38 @@
         padding-bottom: 8px;
         width: 100%;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+      }
+      .job-filters::-webkit-scrollbar {
+        height: 3px;
+      }
+      .job-filters::-webkit-scrollbar-thumb {
+        background: rgba(16,24,40,.25);
+        border-radius: 2px;
+      }
+      .filter-pill {
+        padding: 6px 12px;
+        font-size: 11px;
+        flex-shrink: 0;
       }
       .view-switcher {
         width: 100%;
         display: flex;
+        gap: 4px;
+        padding: 4px;
         margin-bottom: 16px;
       }
       .view-btn {
         flex: 1;
         text-align: center;
-        padding: 8px;
-        font-size: 10.5px;
+        padding: 8px 6px;
+        font-size: 11px;
+        white-space: normal !important;
+        line-height: 1.25;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .job-card {
         padding: 20px 16px;
@@ -1341,10 +1461,31 @@
       }
       .btn-job-quote, .btn-job-apply {
         flex: 1;
-        text-align: center;
+        white-space: normal !important;
+        display: inline-flex;
+        align-items: center;
         justify-content: center;
+        text-align: center;
+        line-height: 1.25;
+        min-height: 38px;
         padding: 8px 10px;
         font-size: 11px;
+      }
+      .view-all-jobs-btn {
+        width: 100%;
+        font-size: 12px;
+        padding: 12px 14px;
+        box-shadow: 3px 3px 0 var(--ink);
+      }
+      .candidate-banner {
+        padding: 20px 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+      }
+      .candidate-btn {
+        width: 100%;
+        justify-content: center;
       }
       #jobIframeContainer {
         padding: 10px !important;
@@ -1354,21 +1495,29 @@
         height: 720px !important;
       }
 
-      /* Client Section Mobile */
-      .client-card {
-        padding: 20px 16px;
-      }
-      .client-name-vn {
-        font-size: 13.5px;
-      }
-      .client-footer {
+      /* Client Trust Strip Mobile */
+      .client-trust-strip {
+        padding: 18px 16px;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        align-items: stretch;
+        gap: 14px;
+        margin-top: 24px;
       }
-      .client-link-action {
-        width: 100%;
-        justify-content: flex-end;
+      .client-trust-info {
+        min-width: 0;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .client-trust-btn {
+        width: 100% !important;
+        white-space: normal !important;
+        text-align: center;
+        justify-content: center;
+        padding: 12px 14px !important;
+        font-size: 12px;
+        line-height: 1.35;
+        height: auto;
+        min-height: 44px;
       }
 
       /* Contact Mobile */
@@ -1741,20 +1890,19 @@
 
         <!-- View All Jobs Action -->
         <div style="text-align: center; margin-top: 28px;">
-          <a href="https://hr1vietnam.com/search-job?keywords=chinese" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; color: var(--red); padding: 10px 20px; border: 1px solid var(--red); background: var(--white); box-shadow: 4px 4px 0 var(--ink); text-decoration: none; transition: transform .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-            <span id="lblViewAllJobs">前往查看全部 16+ 个在招中文岗位 (View All Chinese Jobs on HR1Vietnam)</span>
-            <span>→</span>
+          <a href="https://hr1vietnam.com/search-job?keywords=chinese" target="_blank" class="view-all-jobs-btn">
+            <span id="lblViewAllJobs">前往查看全部 16+ 个在招中文岗位 (View All Chinese Jobs on HR1Vietnam) →</span>
           </a>
         </div>
 
         <!-- Candidate Banner -->
-        <div style="margin-top: 36px; padding: 26px 30px; background: var(--white); border: 1px solid var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div class="candidate-banner">
           <div>
             <div class="micro-label">Talent Registration</div>
             <h4 style="font-size: 15px; font-weight: 850; margin-top: 4px;" id="cand-title">您是精通中文的职场精英？(Bilingual Candidate)</h4>
             <p style="font-size: 12px; color: var(--muted); margin-top: 2px;" id="cand-desc">未找到满意职位？直接将简历录入 HR1 双语人才库，顾问将第一时间为您匹配高薪猎头机会。</p>
           </div>
-          <a href="https://hr1vietnam.com/submit-cv" target="_blank" class="button primary">
+          <a href="https://hr1vietnam.com/submit-cv" target="_blank" class="button primary candidate-btn">
             <span id="cand-btn">登记简历 (Submit CV) ↗</span>
           </a>
         </div>
@@ -1831,15 +1979,15 @@
         </div>
 
         <!-- Trust Bottom Strip -->
-        <div style="margin-top: 32px; padding: 20px 24px; background: var(--white); border: 1px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <i class="fa-solid fa-shield-halved" style="font-size: 22px; color: var(--red);"></i>
+        <div class="client-trust-strip">
+          <div class="client-trust-info">
+            <i class="fa-solid fa-shield-halved client-trust-icon"></i>
             <div>
-              <div style="font-size: 13px; font-weight: 850; color: var(--ink);" id="client-trust-title">严格遵循商业保密与合规保障体系</div>
-              <div style="font-size: 11.5px; color: var(--muted); margin-top: 2px;" id="client-trust-desc">100% 客户均签订保密协议 (NDA)，保障候选人履历核验真实性及企业核心人才架构安全。</div>
+              <div class="client-trust-title" id="client-trust-title">严格遵循商业保密与合规保障体系</div>
+              <div class="client-trust-desc" id="client-trust-desc">100% 客户均签订保密协议 (NDA)，保障候选人履历核验真实性及企业核心人才架构安全。</div>
             </div>
           </div>
-          <a href="#contact" class="button primary" style="padding: 10px 20px; font-size: 12px;">
+          <a href="#contact" class="button primary client-trust-btn">
             <span id="client-cta-btn">成为 HR1 合作伙伴 · 委托招聘 ↗</span>
           </a>
         </div>
@@ -1888,7 +2036,7 @@
           </div>
 
           <!-- Right Form -->
-          <div class="contact-form-box" style="background: var(--white); border: 1px solid var(--ink); padding: 36px 32px; box-shadow: 10px 10px 0 var(--red);">
+          <div class="contact-form-box">
             <div class="micro-label">Consultation Request</div>
             <h3 style="font-size: 19px; font-weight: 900; margin: 8px 0 18px;" id="b2b-form-title">提交委托需求表</h3>
 
@@ -2216,7 +2364,7 @@
         b2bFormTitle: "Phiếu Đăng Ký Yêu Cầu Tuyển Dụng",
         formFBtn: "Gửi Yêu Cầu · Nhận Phương Án Nhân Sự",
         lblViewCards: "Tuyển chọn VIP (Cards)",
-        lblViewIframe: "Nhúng hệ thống trực tiếp (DEV Iframe)",
+        lblViewIframe: "Hệ thống trực tiếp (DEV Iframe)",
         lblViewAllJobs: "Xem thêm toàn bộ 16+ việc làm tiếng Trung trên HR1Vietnam →",
         footerDesc: "Nhà cung cấp giải pháp Headhunter và Nhân sự chuyên nghiệp tại Việt Nam. China Desk chuyên hỗ trợ các doanh nghiệp FDI xây dựng đội ngũ vững mạnh.",
         ftCol1T: "Dịch Vụ Cốt Lõi",
